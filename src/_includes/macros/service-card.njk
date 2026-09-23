@@ -1,0 +1,95 @@
+{% macro serviceCard(service, mode='grid') %}
+  {% set iconPath = '/images/icons/' + service.icon + '.svg' %}
+  {% set serviceUrl = '/services/' + service.id + '/' %}
+  
+  {% if mode == 'menu-grid' %}
+    <a href="{{ serviceUrl }}" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="{{ iconPath }}" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">{{ service.title }}</h4>
+      <p class="megamenu-grid-desc">{{ service.description }}</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  {% elif mode == 'menu-featured-vertical' %}
+    <div class="megamenu-featured-vertical">
+      <div class="megamenu-featured-image">
+        <img src="{{ service.image }}" alt="{{ service.title }}">
+      </div>
+      <div class="megamenu-featured-content">
+        <h4 class="megamenu-featured-title">
+          <span class="megamenu-featured-icon">
+            <img src="{{ iconPath }}" alt="" aria-hidden="true">
+          </span>
+          {{ service.title }}
+        </h4>
+        <p class="megamenu-featured-desc">{{ service.description }}</p>
+        <a href="{{ serviceUrl }}" class="megamenu-featured-link">
+          Подробнее →
+        </a>
+      </div>
+    </div>
+  
+  {% elif mode == 'menu-list' %}
+    <a href="{{ serviceUrl }}" class="megamenu-list-link">
+      <span class="megamenu-list-icon">
+        <img src="{{ iconPath }}" alt="" aria-hidden="true">
+      </span>
+      <span class="megamenu-list-title">{{ service.title }}</span>
+      <svg class="megamenu-list-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  
+  {% elif mode == 'menu-featured' %}
+    <div class="megamenu-featured">
+      <div class="megamenu-featured-image">
+        <img src="{{ service.image }}" alt="{{ service.title }}">
+      </div>
+      <div class="megamenu-featured-content">
+        <h4 class="megamenu-featured-title">
+          <span class="megamenu-featured-icon">
+            <img src="{{ iconPath }}" alt="" aria-hidden="true">
+          </span>
+          {{ service.title }}
+        </h4>
+        <p class="megamenu-featured-desc">{{ service.description }}</p>
+        <a href="{{ serviceUrl }}" class="megamenu-featured-link">
+          Подробнее →
+        </a>
+      </div>
+    </div>
+  
+  {% elif mode == 'menu' %}
+    <a href="{{ serviceUrl }}" class="megamenu-card">
+      <div class="megamenu-card-image">
+        <img src="{{ service.image }}" alt="{{ service.title }}">
+      </div>
+      <div class="megamenu-card-content">
+        <h4 class="megamenu-card-title">{{ service.title }}</h4>
+        <p class="megamenu-card-desc">{{ service.description }}</p>
+      </div>
+    </a>
+  
+  {% elif mode == 'grid' %}
+    <div class="service-grid-card">
+      <div class="service-grid-icon">
+        <img src="{{ iconPath }}" alt="" aria-hidden="true">
+      </div>
+      <h3 class="service-grid-title">{{ service.title }}</h3>
+      <p class="service-grid-desc">{{ service.description }}</p>
+      <a href="{{ serviceUrl }}" class="service-grid-link">
+        Подробнее
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  {% endif %}
+{% endmacro %}

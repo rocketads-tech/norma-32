@@ -1,0 +1,74 @@
+[
+  {
+    "id": "therapy",
+    "title": "Терапия",
+    "description": "Лечение кариеса, пульпита и корневых каналов с использованием современных материалов",
+    "icon": "therapy",
+    "image": "/images/megamenu-therapy.webp",
+    "featured": false,
+    "order": 1
+  },
+  {
+    "id": "orthodontics",
+    "title": "Ортодонтия",
+    "description": "Исправление прикуса брекетами, элайнерами и пластинками для детей и взрослых",
+    "icon": "orthodontics",
+    "image": "/images/megamenu-orthodontics.webp",
+    "featured": false,
+    "order": 2
+  },
+  {
+    "id": "orthopedics",
+    "title": "Ортопедия",
+    "description": "Восстановление зубов коронками, мостами, протезами и винирами",
+    "icon": "orthopedics",
+    "image": "/images/megamenu-orthopedics.webp",
+    "featured": false,
+    "order": 3
+  },
+  {
+    "id": "surgery",
+    "title": "Хирургия",
+    "description": "Удаление зубов любой сложности, костная пластика и хирургическая подготовка",
+    "icon": "surgery",
+    "image": "/images/megamenu-surgery.webp",
+    "featured": false,
+    "order": 4
+  },
+  {
+    "id": "implant",
+    "title": "Имплантация",
+    "description": "Современные импланты с гарантией 5 лет. Все виды имплантации, включая All-on-4 и All-on-6",
+    "icon": "implant",
+    "image": "/images/megamenu-implant.webp",
+    "featured": true,
+    "order": 5
+  },
+  {
+    "id": "whitening",
+    "title": "Отбеливание",
+    "description": "Профессиональное отбеливание Zoom 4. Результат до 8 тонов светлее за 1 процедуру",
+    "icon": "whitening",
+    "image": "/images/megamenu-whitening.webp",
+    "featured": true,
+    "order": 6
+  },
+  {
+    "id": "hygiene",
+    "title": "Гигиена",
+    "description": "Профессиональная чистка зубов Air Flow и ультразвуком для здоровья дёсен",
+    "icon": "hygiene",
+    "image": "/images/megamenu-hygiene.webp",
+    "featured": false,
+    "order": 7
+  },
+  {
+    "id": "pediatric",
+    "title": "Детская стоматология",
+    "description": "Бережное лечение зубов для детей в игровой форме без страха и слёз",
+    "icon": "pediatric",
+    "image": "/images/megamenu-pediatric.webp",
+    "featured": false,
+    "order": 8
+  }
+]

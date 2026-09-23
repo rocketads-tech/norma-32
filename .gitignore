@@ -1,0 +1,23 @@
+node_modules/
+
+# Сборка
+dist/
+_site/
+.cache/
+.vite/
+
+# Логи
+*.log
+npm-debug.log*
+
+# Операционная система
+.DS_Store
+Thumbs.db
+desktop.ini
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

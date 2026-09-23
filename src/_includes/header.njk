@@ -1,0 +1,163 @@
+{% from "macros/accordion.njk" import accordion %}
+{% from "macros/service-card.njk" import serviceCard %}
+
+<header class="header" id="header">
+    <div class="header-inner">
+        <div class="header-content">
+            <!-- Логотип -->
+            <a href="/" class="logo">
+                <span class="logo-icon">🦷</span>
+                <span class="logo-text">Норма 32</span>
+            </a>
+            
+            <!-- Десктопная навигация -->
+            <nav class="nav" id="nav">
+                <a href="/" class="nav-link {% if page.url == '/' %}active{% endif %}">Главная</a>
+                
+                <div class="nav-item has-megamenu" id="megamenuTrigger">
+                    <a href="/services/" class="nav-link {% if page.url.indexOf('/services/') === 0 %}active{% endif %}">
+                        Услуги
+                        <svg class="nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <a href="/doctors/" class="nav-link {% if page.url == '/doctors/' %}active{% endif %}">Врачи</a>
+                
+                <div class="nav-item has-dropdown">
+                    <a href="/about/" class="nav-link {% if page.url.indexOf('/about/') === 0 %}active{% endif %}">
+                        О клинике
+                        <svg class="nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <div class="dropdown">
+                        <a href="/about/" class="dropdown-link">О нас</a>
+                        <a href="/about/#doctors" class="dropdown-link">Врачи</a>
+                        <a href="/about/#license" class="dropdown-link">Лицензии</a>
+                        <a href="/about/#vacancies" class="dropdown-link">Вакансии</a>
+                        <a href="/about/#reviews" class="dropdown-link">Отзывы</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item has-dropdown">
+                    <a href="/patients/" class="nav-link {% if page.url.indexOf('/patients/') === 0 %}active{% endif %}">
+                        Пациентам
+                        <svg class="nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <div class="dropdown">
+                        <a href="/patients/#rights" class="dropdown-link">Права пациентов</a>
+                        <a href="/patients/#oms-dms" class="dropdown-link">ОМС и ДМС</a>
+                        <a href="/patients/#preparation" class="dropdown-link">Подготовка к приёму</a>
+                        <a href="/services/" class="dropdown-link">Цены и оплата</a>
+                        <a href="/patients/#faq" class="dropdown-link">Вопрос-ответ</a>
+                        <a href="/patients/#articles" class="dropdown-link">Статьи</a>
+                    </div>
+                </div>
+                
+                <a href="/contacts/" class="nav-link {% if page.url == '/contacts/' %}active{% endif %}">Контакты</a>
+            </nav>
+            
+            <!-- Правая часть: телефон, кнопка, бургер -->
+            <div class="header-actions">
+                <!-- Используем данные из site.json -->
+                <a href="{{ site.phoneLink }}" class="header-phone">{{ site.phone }}</a>
+                <a href="/contacts/" class="btn btn-primary btn-book">Записаться</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.25 3.5C3.5 3.5 3.5 3.708 3.5 6.25V6.275C3.5 7.382 3.5 8.182 3.771 8.52C4.036 8.848 4.823 9 6.25 9C7.677 9 8.464 8.847 8.729 8.519C9 8.182 9 7.382 9 6.274C9 3.708 9 3.5 6.25 3.5ZM6.25 10.5C4.564 10.5 3.299 10.323 2.604 9.46C2 8.711 2 7.689 2 6.275L2.75 6.25H2C2 3.38 2.181 2 6.25 2C10.319 2 10.5 3.38 10.5 6.25C10.5 7.688 10.5 8.711 9.896 9.46C9.201 10.323 7.936 10.5 6.25 10.5Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 3.5C14.5 3.5 14.5 3.708 14.5 6.25V6.275C14.5 7.382 14.5 8.182 14.771 8.52C15.036 8.848 15.823 9 17.25 9C18.677 9 19.464 8.847 19.729 8.519C20 8.182 20 7.382 20 6.274C20 3.708 20 3.5 17.25 3.5ZM17.25 10.5C15.564 10.5 14.299 10.323 13.604 9.46C13 8.711 13 7.689 13 6.275L13.75 6.25H13C13 3.38 13.181 2 17.25 2C21.319 2 21.5 3.38 21.5 6.25C21.5 7.688 21.5 8.711 20.896 9.46C20.201 10.323 18.936 10.5 17.25 10.5Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.25 14.5C3.5 14.5 3.5 14.708 3.5 17.25V17.275C3.5 18.382 3.5 19.182 3.771 19.52C4.036 19.848 4.823 20 6.25 20C7.677 20 8.464 19.847 8.729 19.519C9 19.182 9 18.382 9 17.274C9 14.708 9 14.5 6.25 14.5ZM6.25 21.5C4.564 21.5 3.299 21.323 2.604 20.46C2 19.711 2 18.689 2 17.275L2.75 17.25H2C2 14.38 2.181 13 6.25 13C10.319 13 10.5 14.38 10.5 17.25C10.5 18.688 10.5 19.711 9.896 20.46C9.201 21.323 7.936 21.5 6.25 21.5Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 14.5C14.5 14.5 14.5 14.708 14.5 17.25V17.275C14.5 18.382 14.5 19.182 14.771 19.52C15.036 19.848 15.823 20 17.25 20C18.677 20 19.464 19.847 19.729 19.519C20 19.182 20 18.382 20 17.274C20 14.708 20 14.5 17.25 14.5ZM17.25 21.5C15.564 21.5 14.299 21.323 13.604 20.46C13 19.711 13 18.689 13 17.275L13.75 17.25H13C13 14.38 13.181 13 17.25 13C21.319 13 21.5 14.38 21.5 17.25C21.5 18.688 21.5 19.711 20.896 20.46C20.201 21.323 18.936 21.5 17.25 21.5Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- МЕГА-МЕНЮ (сетка карточек как на странице услуг) -->
+        <div class="megamenu" id="megamenu">
+        <div class="megamenu-grid">
+            {% for service in services | sort(attribute='order') %}
+            {{ serviceCard(service, 'menu-grid') }}
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+    
+    <!-- Подложка для мобильного меню -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Мобильное меню -->
+    <nav class="nav-mobile" id="navMobile">
+        <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Закрыть меню">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <a href="/" class="nav-link {% if page.url == '/' %}active{% endif %}">Главная</a>
+        
+        <!-- Услуги (Теперь полностью динамические из services.json!) -->
+        <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-title">Услуги</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    {% for service in services %}
+                        <a href="/services/#{{ service.id }}" class="{% if page.url.indexOf('/services/') === 0 %}active{% endif %}">
+                            {{ service.title }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <a href="/doctors/" class="nav-link {% if page.url == '/doctors/' %}active{% endif %}">Врачи</a>
+        
+        <!-- О клинике -->
+        <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-title">О клинике</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <a href="/about/" class="{% if page.url.indexOf('/about/') === 0 %}active{% endif %}">О нас</a>
+                    <a href="/about/#doctors" class="{% if page.url.indexOf('/about/') === 0 %}active{% endif %}">Врачи</a>
+                    <a href="/about/#license" class="{% if page.url.indexOf('/about/') === 0 %}active{% endif %}">Лицензии</a>
+                    <a href="/about/#vacancies" class="{% if page.url.indexOf('/about/') === 0 %}active{% endif %}">Вакансии</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Пациентам -->
+        <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-title">Пациентам</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <a href="/patients/#rights" class="{% if page.url.indexOf('/patients/') === 0 %}active{% endif %}">Права пациентов</a>
+                    <a href="/patients/#oms-dms" class="{% if page.url.indexOf('/patients/') === 0 %}active{% endif %}">ОМС и ДМС</a>
+                    <a href="/patients/#preparation" class="{% if page.url.indexOf('/patients/') === 0 %}active{% endif %}">Подготовка</a>
+                    <a href="/services/" class="{% if page.url.indexOf('/services/') === 0 %}active{% endif %}">Цены</a>
+                </div>
+            </div>
+        </div>
+        
+        <a href="/contacts/" class="nav-link {% if page.url == '/contacts/' %}active{% endif %}">Контакты</a>
+    </nav>
+</header>

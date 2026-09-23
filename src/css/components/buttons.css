@@ -1,0 +1,44 @@
+/* ============================================
+   КНОПКИ
+   ============================================ */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: var(--font-size-b2);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--color-mid-blue);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background: var(--color-sky-blue);
+		color: var(--color-dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(19, 118, 248, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Вариант: контурная кнопка */
+.btn-outline {
+    background: transparent;
+    color: var(--color-mid-blue);
+    border: 2px solid var(--color-mid-blue);
+}
+
+.btn-outline:hover {
+    background: var(--color-mid-blue);
+    color: var(--color-white);
+}

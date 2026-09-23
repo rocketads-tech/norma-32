@@ -1,0 +1,191 @@
+/* ============================================
+   МЕГА-МЕНЮ (сетка карточек)
+   ============================================ */
+.megamenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-light-blue);
+  border-radius: 0 0 12px 12px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-15px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.megamenu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.megamenu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Карточка в мега-меню */
+.megamenu-grid-card {
+  background: var(--color-white);
+  padding: 32px 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.megamenu-grid-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(1, 22, 50, 0.1);
+}
+
+/* Иконка в синем круге */
+.megamenu-grid-icon {
+  width: 72px;
+  height: 72px;
+  background: var(--color-sky-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.megamenu-grid-card:hover .megamenu-grid-icon {
+  background: var(--color-mid-blue);
+  transform: scale(1.08);
+}
+
+.megamenu-grid-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.megamenu-grid-title {
+  font-size: var(--font-size-b1);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-dark-blue);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.megamenu-grid-desc {
+  font-size: var(--font-size-b3);
+  color: var(--color-body-text);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+  /* Ограничиваем описание 3 строками */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.megamenu-grid-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-b3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-dark-blue);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 6px 0;
+  border-bottom: 1.5px solid transparent;
+}
+
+.megamenu-grid-card:hover .megamenu-grid-link {
+  color: var(--color-mid-blue);
+  border-bottom-color: var(--color-mid-blue);
+}
+
+.megamenu-grid-link svg {
+  transition: transform 0.2s ease;
+}
+
+.megamenu-grid-card:hover .megamenu-grid-link svg {
+  transform: translateX(3px);
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+@media (max-width: 1280px) {
+  .megamenu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .megamenu {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .megamenu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .megamenu {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .megamenu-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   ИКОНКИ В МЕГА-МЕНЮ
+   ============================================ */
+
+/* Иконки в списке (правая колонка) */
+.megamenu-list-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.megamenu-list-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Иконки в featured карточках */
+.megamenu-featured-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.megamenu-featured-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Hover эффекты для ссылок с иконками */
+.megamenu-list-link:hover .megamenu-list-icon img {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
