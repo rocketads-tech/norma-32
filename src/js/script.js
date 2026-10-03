@@ -69,7 +69,7 @@ if (megamenuTrigger && megamenu) {
 }
 
 // ============================================
-// МОБИЛЬНОЕ МЕНЮ (Off-canvas с последовательной анимацией)
+// МОБИЛЬНОЕ МЕНЮ (Открытие/закрытие панели)
 // ============================================
 const menuToggle = document.getElementById("menuToggle");
 const navMobile = document.getElementById("navMobile");
@@ -77,70 +77,107 @@ const mobileOverlay = document.getElementById("mobileOverlay");
 const mobileCloseBtn = document.getElementById("mobileCloseBtn");
 
 function openMobileMenu() {
-  // 1. Блокируем скролл страницы
   document.body.classList.add("menu-open");
-  // 2. Показываем подложку
   mobileOverlay.classList.add("active");
-  // 3. С небольшой задержкой запускаем выезд меню
   setTimeout(() => {
     navMobile.classList.add("active");
   }, 50);
 }
 
 function closeMobileMenu() {
-  // 1. Убираем меню (оно уезжает за левый край)
   navMobile.classList.remove("active");
-  // 2. Ждём окончания анимации меню (300-400мс), затем убираем подложку и разблокируем скролл
   setTimeout(() => {
     mobileOverlay.classList.remove("active");
     document.body.classList.remove("menu-open");
   }, 350);
 }
 
-if (menuToggle) {
-  menuToggle.addEventListener("click", openMobileMenu);
-}
+if (menuToggle) menuToggle.addEventListener("click", openMobileMenu);
+if (mobileCloseBtn) mobileCloseBtn.addEventListener("click", closeMobileMenu);
+if (mobileOverlay) mobileOverlay.addEventListener("click", closeMobileMenu);
 
-if (mobileCloseBtn) {
-  mobileCloseBtn.addEventListener("click", closeMobileMenu);
-}
-
-if (mobileOverlay) {
-  // Закрытие при клике на затемнённую область
-  mobileOverlay.addEventListener("click", closeMobileMenu);
-}
-
-// Аккордеон внутри мобильного меню
 if (navMobile) {
-  const mobileDropdowns = navMobile.querySelectorAll(".mobile-dropdown");
-
-  mobileDropdowns.forEach((dropdown) => {
-    const toggle = dropdown.querySelector(".mobile-dropdown-toggle");
-    if (toggle) {
-      toggle.addEventListener("click", (e) => {
-        e.stopPropagation();
-        // Закрываем другие открытые пункты
-        mobileDropdowns.forEach((other) => {
-          if (other !== dropdown) {
-            other.classList.remove("active");
-          }
-        });
-        // Переключаем текущий
-        dropdown.classList.toggle("active");
-      });
-    }
-  });
-
-  // Закрытие меню при клике на любую ссылку внутри
   navMobile.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      closeMobileMenu();
-    });
+    link.addEventListener("click", closeMobileMenu);
   });
 }
 
 // ============================================
-// ПЛАВНЫЙ СКРОЛЛ ДЛЯ ЯКОРНЫХ ССЫЛОК
+// АККОРДЕОН МОБИЛЬНОГО МЕНЮ (Только один открытый)
+// ============================================
+document.querySelectorAll(".nav-mobile .accordion-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    const parentItem = trigger.closest(".accordion-item");
+    const content = trigger.nextElementSibling;
+    const icon = trigger.querySelector(".accordion-icon");
+    const isActive = parentItem.classList.contains("active");
+
+    // 1. Закрываем ВСЕ открытые пункты в мобильном меню
+    document.querySelectorAll(".nav-mobile .accordion-item").forEach((item) => {
+      item.classList.remove("active");
+      const itemTrigger = item.querySelector(".accordion-trigger");
+      const itemContent = item.querySelector(".accordion-content");
+      const itemIcon = item.querySelector(".accordion-icon");
+
+      itemTrigger.setAttribute("aria-expanded", "false");
+      if (itemContent) itemContent.classList.remove("open");
+      if (itemIcon) itemIcon.style.transform = "rotate(0deg)";
+    });
+
+    // 2. Если кликнутый пункт был закрыт, открываем его
+    if (!isActive) {
+      parentItem.classList.add("active");
+      trigger.setAttribute("aria-expanded", "true");
+      if (content) content.classList.add("open");
+      if (icon) icon.style.transform = "rotate(180deg)";
+    }
+  });
+});
+
+// ============================================
+// FAQ АККОРДЕОН (Только один открытый)
+// ============================================
+document.querySelectorAll(".faq-section .accordion-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    const parentItem = trigger.closest(".faq-item");
+    const content = parentItem.querySelector(".faq-content");
+    const isActive = parentItem.classList.contains("active");
+    
+    // 1. Закрываем все пункты FAQ
+    document.querySelectorAll(".faq-section .faq-item").forEach((item) => {
+      item.classList.remove("active");
+      const itemTrigger = item.querySelector(".accordion-trigger");
+      const itemContent = item.querySelector(".faq-content");
+      
+      itemTrigger.setAttribute("aria-expanded", "false");
+      if (itemContent) itemContent.classList.remove("open");
+      
+      const plus = itemTrigger.querySelector(".icon-plus");
+      const minus = itemTrigger.querySelector(".icon-minus");
+      if (plus) plus.style.display = "block";
+      if (minus) minus.style.display = "none";
+    });
+
+    // 2. Если кликнутый пункт был закрыт, открываем его
+    if (!isActive) {
+      parentItem.classList.add("active");
+      trigger.setAttribute("aria-expanded", "true");
+      if (content) content.classList.add("open");
+      
+      const plus = trigger.querySelector(".icon-plus");
+      const minus = trigger.querySelector(".icon-minus");
+      if (plus) plus.style.display = "none";
+      if (minus) minus.style.display = "block";
+    }
+  });
+});
+
+// ============================================
+// 4. ПЛАВНЫЙ СКРОЛЛ ДЛЯ ЯКОРНЫХ ССЫЛОК
 // ============================================
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -161,18 +198,62 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// ============================================
-// УНИВЕРСАЛЬНЫЙ АККОРДЕОН
-// ============================================
-document.querySelectorAll(".accordion-trigger").forEach((trigger) => {
-  trigger.addEventListener("click", () => {
-    const isExpanded = trigger.getAttribute("aria-expanded") === "true";
-    const content = trigger.nextElementSibling;
+// ==========================================
+// Swiper - Инициализация всех слайдеров
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof Swiper !== 'undefined') {
+    
+    // Слайдер услуг
+    new Swiper('.services-swiper', {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+      loop: false,
+      grabCursor: true,
+      navigation: {
+        nextEl: '#services-next',
+        prevEl: '#services-prev',
+      },
+      breakpoints: {
+        640: { slidesPerView: 2.5, spaceBetween: 20 },
+        1024: { slidesPerView: 3.5, spaceBetween: 20 },
+        1400: { slidesPerView: 4.5, spaceBetween: 20 },
+      },
+    });
 
-    // Обновляем ARIA-атрибут
-    trigger.setAttribute("aria-expanded", !isExpanded);
+    // Слайдер врачей
+    new Swiper('.doctors-swiper', {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+      loop: false,
+      grabCursor: true,
+      navigation: {
+        nextEl: '#doctors-next',
+        prevEl: '#doctors-prev',
+      },
+      breakpoints: {
+        640: { slidesPerView: 2.5, spaceBetween: 20 },
+        1024: { slidesPerView: 3.5, spaceBetween: 20 },
+        1400: { slidesPerView: 4.5, spaceBetween: 20 },
+      },
+    });
 
-    // Переключаем класс для CSS-анимации
-    content.classList.toggle("open", !isExpanded);
-  });
+    // Слайдер отзывов
+    new Swiper('.testimonials-swiper', {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+      loop: false,
+      grabCursor: true,
+      navigation: {
+        nextEl: '#testimonials-next',
+        prevEl: '#testimonials-prev',
+      },
+      breakpoints: {
+        640: { slidesPerView: 2.5, spaceBetween: 20 },
+        1024: { slidesPerView: 3.5, spaceBetween: 20 },
+        2100: { slidesPerView: 4.5, spaceBetween: 20 },
+      },
+    });
+
+  }
 });

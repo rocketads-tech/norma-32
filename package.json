@@ -15,5 +15,8 @@
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "swiper": "^14.3.0"
   }
 }

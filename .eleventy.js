@@ -5,7 +5,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/documents");
 
-  // 2. Настройки директорий
+  // 2. Копирование библиотеки Swiper
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/swiper/swiper-bundle.min.css":
+      "css/vendor/swiper-bundle.min.css",
+    "node_modules/swiper/swiper-bundle.min.js":
+      "js/vendor/swiper-bundle.min.js",
+  });
+
+  // 3. Настройки директорий
   return {
     dir: {
       input: "src",
@@ -18,4 +26,4 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
   };
-};
+};;

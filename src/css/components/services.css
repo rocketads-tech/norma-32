@@ -46,7 +46,7 @@
 
 .service-grid-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(1, 22, 50, 0.1);
+  box-shadow: -4px 4px 0px rgba(1, 22, 50, 0.2);
 }
 
 /* Синий круглый фон для иконки */

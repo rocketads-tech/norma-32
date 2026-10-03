@@ -16,6 +16,10 @@
 @import url('components/cards.css');
 @import url('components/forms.css');
 @import url('sections/hero.css');
-@import url('sections/services.css');
-@import url('sections/doctors.css');
+@import url('sections/services-slider.css');
+@import url('sections/text-image-block.css');
+@import url('sections/advantages-block.css');
+@import url('sections/doctors-slider.css');
+@import url('sections/testimonials-slider.css');
+@import url('sections/faq-section.css');
 @import url('sections/faq.css');

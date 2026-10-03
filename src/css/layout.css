@@ -19,6 +19,22 @@
     width: 100%;
 }
 
+main {
+    padding: 140px 0 40px;
+}
+
 .section {
     padding: var(--section-padding) 0;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 100px 0 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 80px 0 40px;
+    }
 }

@@ -2,7 +2,7 @@
    КНОПКИ
    ============================================ */
 .btn {
-    padding: 12px 24px;
+    padding: 15px 30px;
     border: none;
     border-radius: 8px;
     font-size: var(--font-size-b2);

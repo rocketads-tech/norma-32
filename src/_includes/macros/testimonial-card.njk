@@ -1,0 +1,19 @@
+{% macro testimonialCard(testimonial) %}
+<div class="testimonial-card">
+  <div class="testimonial-header">
+    <img src="{{ testimonial.avatar }}" alt="{{ testimonial.name }}" class="testimonial-avatar">
+    <div class="testimonial-info">
+      <h4 class="testimonial-name">{{ testimonial.name }}</h4>
+      <div class="testimonial-rating">
+        {% for i in range(testimonial.rating) %}
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  <p class="testimonial-text">{{ testimonial.text }}</p>
+</div>
+{% endmacro %}

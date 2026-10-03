@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Иванов Алексей Петрович",
+    "specialty": "Ортодонт",
+    "image": "/images/doctors/doctor-1.jpg"
+  },
+  {
+    "name": "Смирнова Елена Викторовна",
+    "specialty": "Эндодонтист",
+    "image": "/images/doctors/doctor-2.jpg"
+  },
+  {
+    "name": "Кузнецова Мария Андреевна",
+    "specialty": "Пародонтолог",
+    "image": "/images/doctors/doctor-3.jpg"
+  },
+  {
+    "name": "Попов Дмитрий Сергеевич",
+    "specialty": "Детский стоматолог",
+    "image": "/images/doctors/doctor-4.jpg"
+  },
+  {
+    "name": "Волкова Анна Игоревна",
+    "specialty": "Ортопед",
+    "image": "/images/doctors/doctor-5.jpg"
+  },
+  {
+    "name": "Соколов Михаил Владимирович",
+    "specialty": "Хирург-имплантолог",
+    "image": "/images/doctors/doctor-6.jpg"
+  }
+]

@@ -1,0 +1,47 @@
+{% macro advantagesBlock(data) %}
+<section class="advantages-block {{ 'reverse' if data.reverse }}">
+  <div class="container">
+    <div class="advantages-content">
+      <!-- Изображение -->
+      <div class="advantages-image">
+        <div class="advantages-image-wrapper">
+          {% if data.showBg | default(true) %}
+          <div class="advantages-image-bg"></div>
+          {% endif %}
+          <img src="{{ data.image }}" alt="{{ data.imageAlt | default('') }}" class="advantages-img">
+        </div>
+      </div>
+      
+      <!-- Текст + преимущества -->
+      <div class="advantages-text">
+        <h2 class="advantages-title">
+          {{ data.title | replace(data.highlight, '<span class="highlight">' + data.highlight + '</span>') | safe }}
+        </h2>
+        
+        {% if data.description %}
+        <p class="advantages-description">{{ data.description }}</p>
+        {% endif %}
+        
+        {% if data.advantages %}
+        <ul class="advantages-list">
+          {% for item in data.advantages %}
+          <li class="advantages-item">
+            <svg class="advantages-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.6666 5L7.49992 14.1667L3.33325 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>{{ item }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        
+        {% if data.buttonText %}
+        <a href="{{ data.buttonLink | default('#') }}" class="btn btn-primary">
+          {{ data.buttonText }}
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}

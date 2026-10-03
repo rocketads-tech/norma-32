@@ -1,0 +1,191 @@
+/* ============================================
+   SERVICES SLIDER SECTION
+   ============================================ */
+.services-slider-section {
+  padding: 50px 0 30px;
+  background: var(--color-light-blue, #E8F4F8);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: var(--font-size-h2, 36px);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-dark-blue, #1A2B3C);
+  margin: 0 0 16px 0;
+}
+
+.section-subtitle {
+  font-size: var(--font-size-b1, 18px);
+  color: var(--color-body-text, #666);
+  margin: 0;
+}
+
+/* Swiper контейнер */
+.swiper {
+	padding: 6px  0 6px 6px!important;
+}
+.services-swiper {
+  padding: 0 0 60px 0; /* Отступ снизу для кнопок */
+}
+
+/* Swiper слайды */
+.swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}
+
+/* Карточка услуги — растягиваем на всю высоту слайда */
+.service-grid-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	box-shadow: -3px 3px 0px rgba(1, 22, 50, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-grid-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--color-sky-blue, #25B4F8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.service-grid-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.service-grid-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-dark-blue, #1A2B3C);
+  margin: 0 0 12px 0;
+  flex-shrink: 0;
+}
+
+.service-grid-desc {
+  font-size: 15px;
+  color: var(--color-body-text, #666);
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  flex-grow: 1; /* Занимает всё доступное пространство */
+}
+
+.service-grid-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-sky-blue, #25B4F8);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: gap 0.3s ease;
+  flex-shrink: 0;
+}
+
+.service-grid-link:hover {
+  gap: 12px;
+}
+
+/* Кастомные кнопки навигации */
+.swiper-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 5px; /* Поднимаем кнопки ближе к слайдам */
+  position: relative;
+  z-index: 10;
+}
+
+.swiper-custom-btn {
+	padding: 6px 28px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-dark-blue, #1A2B3C);
+  transition: all 0.3s ease;
+  box-shadow: -3px 3px 0px rgba(1, 22, 50, 0.1);
+}
+
+.swiper-custom-btn:hover {
+  background: var(--color-sky-blue, #25B4F8);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 180, 248, 0.3);
+}
+
+.swiper-custom-btn:active {
+  transform: translateY(0);
+}
+
+.swiper-custom-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Скрываем стандартные стрелки Swiper */
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination {
+  display: none !important;
+}
+
+/* Отключенное состояние кнопок */
+.swiper-custom-btn.swiper-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+@media (max-width: 1024px) {
+  .services-slider-section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-slider-section {
+    padding: 40px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .service-grid-card {
+    padding: 24px 20px;
+  }
+  
+  .swiper-controls {
+    justify-content: center;
+    margin-top: 30px;
+  }
+}

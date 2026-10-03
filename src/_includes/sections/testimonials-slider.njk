@@ -1,0 +1,42 @@
+<section class="testimonials-slider-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        Отзывы наших <span class="highlight">пациентов</span>
+      </h2>
+      <p class="section-subtitle">
+        Мы гордимся доверием наших пациентов и стремимся к высочайшему качеству лечения
+      </p>
+    </div>
+  </div>
+
+  <div class="testimonials-slider-wrapper">
+    <div class="swiper testimonials-swiper">
+      <div class="swiper-wrapper">
+        {% for testimonial in testimonials %}
+        <div class="swiper-slide">
+          {% from "macros/testimonial-card.njk" import testimonialCard %}
+          {{ testimonialCard(testimonial) }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="swiper-controls">
+      <button class="swiper-custom-btn swiper-custom-prev" id="testimonials-prev" aria-label="Предыдущий отзыв">
+        <svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M42.5002 20.418C42.5002 21.0508 41.7877 21.5738 40.8633 21.6566L40.6063 21.668L2.72752 21.668C1.68153 21.668 0.83358 21.1083 0.83358 20.418C0.83358 19.7851 1.54609 19.2622 2.47052 19.1794L2.72752 19.168L40.6063 19.168C41.6523 19.168 42.5002 19.7276 42.5002 20.418Z" fill="#e6f6fe"/>
+					<path d="M12.2152 29.6139C12.7044 30.101 12.7061 30.8924 12.219 31.3816C11.7762 31.8264 11.0819 31.8682 10.5917 31.5062L10.4513 31.3854L0.367939 21.3454C-0.0781222 20.9013 -0.118701 20.2044 0.246223 19.7143L0.367866 19.5739L10.4512 9.53226C10.9404 9.04512 11.7318 9.04676 12.219 9.53592C12.6618 9.98062 12.7007 10.6751 12.3366 11.1637L12.2153 11.3037L3.02192 20.4601L12.2152 29.6139Z" fill="#e6f6fe"/>
+			</svg>
+      </button>
+      <button class="swiper-custom-btn swiper-custom-next" id="testimonials-next" aria-label="Следующий отзыв">
+        <svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 19.582C0 18.9492 0.71251 18.4262 1.63694 18.3434L1.89394 18.332L39.7727 18.332C40.8187 18.332 41.6667 18.8917 41.6667 19.582C41.6667 20.2149 40.9542 20.7378 40.0297 20.8206L39.7727 20.832L1.89394 20.832C0.847945 20.832 0 20.2724 0 19.582Z" fill="#e6f6fe"/>
+						<path d="M30.285 10.3861C29.7958 9.89904 29.7941 9.10759 30.2812 8.61839C30.724 8.17365 31.4184 8.13181 31.9085 8.49385L32.049 8.61458L42.1323 18.6546C42.5784 19.0987 42.6189 19.7956 42.254 20.2857L42.1324 20.4261L32.049 30.4677C31.5599 30.9549 30.7684 30.9532 30.2813 30.4641C29.8384 30.0194 29.7995 29.3249 30.1636 28.8363L30.2849 28.6963L39.4783 19.5399L30.285 10.3861Z" fill="#e6f6fe"/>
+			</svg>
+      </button>
+    </div>
+  </div>
+</section>

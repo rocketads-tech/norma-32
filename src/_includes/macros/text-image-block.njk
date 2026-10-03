@@ -1,0 +1,32 @@
+{% macro textImageBlock(data) %}
+<section class="text-image-block {{ 'reverse' if data.reverse }}">
+  <div class="container">
+    <div class="text-image-content">
+      <div class="text-image-text">
+        <h2 class="text-image-title">
+          {{ data.title | replace(data.highlight, '<span class="highlight">' + data.highlight + '</span>') | safe }}
+        </h2>
+        
+        {% if data.description %}
+        <p class="text-image-description">{{ data.description }}</p>
+        {% endif %}
+        
+        {% if data.buttonText %}
+        <a href="{{ data.buttonLink | default('#') }}" class="btn btn-primary">
+          {{ data.buttonText }}
+        </a>
+        {% endif %}
+      </div>
+      
+      <div class="text-image-image">
+        <div class="text-image-image-wrapper">
+          {% if data.showBg | default(true) %}
+          <div class="text-image-image-bg"></div>
+          {% endif %}
+          <img src="{{ data.image }}" alt="{{ data.imageAlt | default('') }}" class="text-image-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}

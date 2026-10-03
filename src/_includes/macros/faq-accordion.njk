@@ -1,0 +1,35 @@
+{% macro faqAccordion(data) %}
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        {{ data.title | replace(data.highlight, '<span class="highlight">' + data.highlight + '</span>') | safe }}
+      </h2>
+      {% if data.description %}
+      <p class="section-subtitle">{{ data.description }}</p>
+      {% endif %}
+    </div>
+
+    <div class="faq-list">
+      {% for item in data.items %}
+      <div class="faq-item {{ 'active' if loop.first }}">
+        <button class="accordion-trigger faq-trigger" aria-expanded="{{ 'true' if loop.first else 'false' }}">
+          <span class="faq-marker"></span>
+          <span class="faq-question">{{ item.question }}</span>
+          <span class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <path class="icon-plus" d="M10 6V14M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path class="icon-minus" d="M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="display: none;"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content {{ 'open' if loop.first }}">
+          <p class="faq-answer">{{ item.answer }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endmacro %}

@@ -1,0 +1,203 @@
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+.faq-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.faq-section .section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.faq-section .section-title {
+  font-size: var(--font-size-h2, 36px);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-dark-blue, #1A2B3C);
+  margin: 0 0 16px 0;
+}
+
+.faq-section .section-title .highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.faq-section .section-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: url('/images/icons/underline.svg') no-repeat center;
+  background-size: 100% 100%;
+}
+
+.faq-section .section-subtitle {
+  font-size: var(--font-size-b1, 16px);
+  color: var(--color-body-text, #666);
+  margin: 0;
+}
+
+/* Список FAQ */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Элемент FAQ */
+.faq-item {
+  border-bottom: 1px solid #E5E7EB;
+  transition: all 0.3s ease;
+}
+
+.faq-item:first-child {
+  border-radius: 12px 12px 0 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Активный элемент */
+.faq-item.active {
+  background: var( --color-light-blue, #25B4F8);
+  border-radius: 12px;
+  border-bottom: none;
+  margin: 10px 0;
+}
+
+.faq-item.active + .faq-item {
+  border-top: 1px solid #E5E7EB;
+}
+
+/* Кнопка-триггер */
+.faq-trigger {
+  width: 100%;
+  padding: 24px 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-trigger {
+  color: var(--color-dark-blue, #1A2B3C);
+}
+
+.faq-item:not(.active) .faq-trigger {
+  color: var(--color-dark-blue, #1A2B3C);
+}
+
+/* Маркер-точка */
+.faq-marker {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* Вопрос */
+.faq-question {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Иконка +/- */
+.faq-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-item:not(.active) .faq-icon {
+  color: var(--color-dark-blue, #1A2B3C);
+}
+
+.faq-item.active .faq-icon {
+  color: var(--color-dark-blue, #1A2B3C);
+}
+
+/* Контент ответа — скрыт по умолчанию */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out; /* Плавная анимация */
+}
+
+/* Класс open добавляется JS, но точную высоту (max-height) 
+   JS задаёт через inline-стиль (scrollHeight), поэтому здесь ничего не пишем */
+.faq-content.open {
+  max-height: 500px;
+}
+
+.faq-answer {
+  padding: 0 30px 24px 52px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-dark-blue, #1A2B3C);
+}
+
+/* Для неактивных элементов текст тёмный */
+.faq-item:not(.active) .faq-answer {
+  color: var(--color-dark-blue, #1A2B3C);
+}
+
+/* Убираем outline при фокусе на кнопке */
+.faq-trigger:focus,
+.faq-trigger:active {
+  outline: none;
+	box-shadow: none;
+}
+
+/* Уточняем transition — только нужные свойства, не "all" */
+.faq-item {
+  border-bottom: 1px solid #E5E7EB;
+  transition: background-color 0.3s ease, border-radius 0.3s ease, margin 0.3s ease;
+}
+
+/* Для активного элемента убираем нижнюю границу */
+.faq-item.active {
+  background: var(--color-light-blue, #E8F4F8);
+  border-radius: 12px;
+  border-bottom: 1px solid transparent;
+  margin: 10px 0;
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 40px 0;
+  }
+  
+  .faq-section .section-title {
+    font-size: 28px;
+  }
+  
+  .faq-trigger {
+    padding: 20px;
+  }
+  
+  .faq-answer {
+    padding: 0 20px 20px 46px;
+  }
+}

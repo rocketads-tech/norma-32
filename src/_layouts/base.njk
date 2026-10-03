@@ -6,16 +6,18 @@
     <title>{{ title }} | Норма 32</title>
     <meta name="description" content="{{ description or 'Стоматологическая клиника Норма 32' }}">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/vendor/swiper-bundle.min.css">
 </head>
 <body>
     {% include "header.njk" %}
     
-    <main style="padding-top: 140px;min-height: 300vh;">
+    <main>
         {{ content | safe }}
     </main>
     
     {% include "footer.njk" %}
-    
+    <script src="/js/vendor/swiper-bundle.min.js"></script>
     <script src="/js/script.js"></script>
+    
 </body>
 </html>
