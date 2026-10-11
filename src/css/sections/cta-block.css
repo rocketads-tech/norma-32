@@ -1,0 +1,184 @@
+/* ============================================
+   CTA BLOCK
+   ============================================ */
+.cta-section {
+  padding: 80px 0;
+  background: var(--color-dark-blue, #011632);
+}
+
+.cta-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Текстовая часть */
+.cta-text {
+  max-width: 500px;
+}
+
+.cta-title {
+  font-size: var(--font-size-h2, 36px);
+  font-weight: var(--font-weight-bold, 700);
+  color: white;
+  line-height: 1.3;
+  margin: 0 0 20px 0;
+}
+
+.cta-description {
+  font-size: var(--font-size-b1, 16px);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+}
+
+/* Форма */
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cta-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.cta-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cta-input:focus {
+  outline: none;
+  border-color: var(--color-sky-blue, #25B4F8);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Чекбокс */
+.cta-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+.cta-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--color-sky-blue, #25B4F8);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkbox-text {
+  flex: 1;
+}
+
+.checkbox-link {
+  color: var(--color-sky-blue, #25B4F8);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.checkbox-link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+/* Кнопка */
+.cta-button {
+  width: 100%;
+  padding: 18px 32px;
+  background: var(--color-sky-blue, #25B4F8);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #1da3e8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 180, 248, 0.4);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+/* Изображение */
+.cta-image {
+  position: relative;
+}
+
+.cta-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+@media (max-width: 1024px) {
+  .cta-section {
+    padding: 60px 0;
+  }
+  
+  .cta-content {
+    gap: 40px;
+  }
+  
+  .cta-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 40px 0;
+  }
+  
+  .cta-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .cta-text {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .cta-title {
+    font-size: 28px;
+  }
+  
+  .cta-checkbox {
+    justify-content: center;
+  }
+  
+  .cta-image {
+    order: -1; /* Картинка сверху на мобильном */
+  }
+}

@@ -1,0 +1,60 @@
+{% macro ctaBlock(data) %}
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <!-- Текстовая часть + форма -->
+      <div class="cta-text">
+        <h2 class="cta-title">
+          {{ data.title | replace(data.highlight, '<span class="highlight">' + data.highlight + '</span>') | safe }}
+        </h2>
+        
+        {% if data.description %}
+        <p class="cta-description">{{ data.description }}</p>
+        {% endif %}
+        
+        <!-- Форма записи -->
+        <form class="cta-form" action="#" method="POST">
+          <div class="cta-form-group">
+            <input 
+              type="text" 
+              name="name" 
+              class="cta-input" 
+              placeholder="Ваше имя" 
+              required
+              aria-label="Ваше имя"
+            >
+          </div>
+          
+          <div class="cta-form-group">
+            <input 
+              type="tel" 
+              name="phone" 
+              class="cta-input" 
+              placeholder="+7 (___) ___-__-__" 
+              required
+              aria-label="Номер телефона"
+            >
+          </div>
+          
+          <label class="cta-checkbox">
+            <input type="checkbox" name="agreement" required>
+            <span class="checkbox-text">
+              {{ data.checkboxText }}
+              {% if data.checkboxLink %}
+                (<a href="{{ data.checkboxLink | url }}" class="checkbox-link" target="_blank">политика обработки</a>)
+              {% endif %}
+            </span>
+          </label>
+          
+          <button type="submit" class="cta-button">{{ data.buttonText }}</button>
+        </form>
+      </div>
+      
+      <!-- Изображение -->
+      <div class="cta-image">
+        <img src="{{ data.image | url }}" alt="{{ data.imageAlt | default('') }}" class="cta-img">
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}

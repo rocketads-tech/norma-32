@@ -26,22 +26,6 @@
   margin: 0 0 20px 0;
 }
 
-.text-image-title .highlight {
-  position: relative;
-  display: inline-block;
-}
-
-.text-image-title .highlight::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  background: url('/images/icons/underline.svg') no-repeat center;
-  background-size: 100% 100%;
-}
-
 .text-image-description {
   font-size: var(--font-size-b1, 16px);
   color: var(--color-body-text, #666);

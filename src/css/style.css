@@ -7,6 +7,7 @@
 @import url('reset.css');
 @import url('typography.css');
 @import url('layout.css');
+@import url('common.css');
 @import url('components/header.css');
 @import url('components/megamenu.css');
 @import url('components/accordion.css');
@@ -22,4 +23,5 @@
 @import url('sections/doctors-slider.css');
 @import url('sections/testimonials-slider.css');
 @import url('sections/faq-section.css');
-@import url('sections/faq.css');
+@import url('sections/cta-block.css');
+@import url('sections/legal-page.css');

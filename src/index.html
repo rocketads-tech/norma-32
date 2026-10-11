@@ -6,6 +6,7 @@ description: Стоматологическая клиника Норма 32
 {% from "macros/text-image-block.njk" import textImageBlock %}
 {% from "macros/advantages-block.njk" import advantagesBlock %}
 {% from "macros/faq-accordion.njk" import faqAccordion %}
+{% from "macros/cta-block.njk" import ctaBlock %}
 
 
 {% include "sections/hero.njk" %}
@@ -19,3 +20,4 @@ description: Стоматологическая клиника Норма 32
 {% include "sections/testimonials-slider.njk" %}
 
 {{ faqAccordion(sections.faq) }}
+{{ ctaBlock(sections.cta) }}

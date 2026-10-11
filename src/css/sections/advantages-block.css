@@ -61,22 +61,6 @@
   margin: 0 0 20px 0;
 }
 
-.advantages-title .highlight {
-  position: relative;
-  display: inline-block;
-}
-
-.advantages-title .highlight::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  background: url('/images/icons/underline.svg') no-repeat center;
-  background-size: 100% 100%;
-}
-
 .advantages-description {
   font-size: var(--font-size-b1, 16px);
   color: var(--color-body-text, #666);
