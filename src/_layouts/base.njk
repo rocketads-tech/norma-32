@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} | Норма 32</title>
     <meta name="description" content="{{ description or 'Стоматологическая клиника Норма 32' }}">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/vendor/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/vendor/swiper-bundle.min.css' | url }}">
 </head>
 <body>
     {% include "header.njk" %}
@@ -16,8 +16,9 @@
     </main>
     
     {% include "footer.njk" %}
-    <script src="/js/vendor/swiper-bundle.min.js"></script>
-    <script src="/js/script.js"></script>
+    
+    <script src="{{ '/js/script.js' | url }}"></script>
+    <script src="{{ '/js/vendor/swiper-bundle.min.js' | url }}"></script>
     
 </body>
 </html>

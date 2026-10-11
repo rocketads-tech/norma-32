@@ -23,7 +23,7 @@
           {% if data.showBg | default(true) %}
           <div class="text-image-image-bg"></div>
           {% endif %}
-          <img src="{{ data.image }}" alt="{{ data.imageAlt | default('') }}" class="text-image-img">
+          <img src="{{ data.image | url }}" alt="{{ data.imageAlt | default('') }}" class="text-image-img">
         </div>
       </div>
     </div>

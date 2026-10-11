@@ -1,7 +1,7 @@
 {% macro testimonialCard(testimonial) %}
 <div class="testimonial-card">
   <div class="testimonial-header">
-    <img src="{{ testimonial.avatar }}" alt="{{ testimonial.name }}" class="testimonial-avatar">
+    <img src="{{ testimonial.avatar | url }}" alt="{{ testimonial.name }}" class="testimonial-avatar">
     <div class="testimonial-info">
       <h4 class="testimonial-name">{{ testimonial.name }}</h4>
       <div class="testimonial-rating">

@@ -1,6 +1,6 @@
 {% macro doctorCard(doctor) %}
 <div class="doctor-card">
-  <img src="{{ doctor.image }}" alt="{{ doctor.name }}" class="doctor-card-image">
+  <img src="{{ doctor.image | url }}" alt="{{ doctor.name }}" class="doctor-card-image">
   <div class="doctor-card-overlay">
     <h3 class="doctor-card-name">{{ doctor.name }}</h3>
     <p class="doctor-card-specialty">{{ doctor.specialty }}</p>

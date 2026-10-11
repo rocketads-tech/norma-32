@@ -25,5 +25,6 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
+    pathPrefix: process.env.IS_GH_PAGES ? "/norma-32/" : "/",
   };
 };;
