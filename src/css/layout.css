@@ -1,3 +1,11 @@
+body {
+     background: var(--color-white);
+}
+
+body.page-internal {
+     background: var(--color-light-blue);
+}
+
 .container {
     max-width: var(--container-max);
     margin: 0 auto;

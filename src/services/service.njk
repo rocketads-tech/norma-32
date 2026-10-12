@@ -1,0 +1,44 @@
+---
+layout: base.njk
+css: style-pages.css
+bodyClass: page-internal
+pagination:
+  data: allServices
+  size: 1
+  alias: service
+permalink: "/services/{{ service.id }}/"
+---
+
+{% from "macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "macros/page-header.njk" import pageHeader %}
+{% from "macros/service-sidebar.njk" import serviceSidebar %}
+{% from "macros/service-content.njk" import serviceContent %}
+
+{{ breadcrumbs([
+  { title: "Главная", url: "/" },
+  { title: "Услуги", url: "/services/" },
+  { title: service.title }
+]) }}
+
+<section class="service-page">
+  <div class="container">
+    <div class="service-layout">
+      <!-- Левая колонка: TOC + Контакты -->
+      <aside class="service-sidebar">
+        {{ serviceSidebar(service) }}
+      </aside>
+      
+      <!-- Правая колонка: Заголовок + Контент -->
+      <div class="service-content">
+        <div class="service-section-card">
+          {{ pageHeader(
+            service.headerTitle or service.title,
+            service.headerSubtitle or service.description,
+            service.headerHighlight or ''
+          ) }}
+        </div>
+        {{ serviceContent(service) }}
+      </div>
+    </div>
+  </div>
+</section>

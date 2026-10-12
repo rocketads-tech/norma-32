@@ -1,0 +1,167 @@
+{# Вспомогательный макрос для рендеринга блоков контента #}
+{% macro renderBlocks(content) %}
+  {% for block in content %}
+    {# Обычный текст #}
+    {% if block.type == 'paragraph' %}
+      <p class="service-text">{{ block.text }}</p>
+
+    {# Список с галочками #}
+    {% elif block.type == 'checkList' %}
+      <ul class="service-check-list">
+        {% for item in block.items %}
+          <li class="service-check-item">
+            <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>{{ item }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+
+    {# Информационный блок #}
+    {% elif block.type == 'infoBox' %}
+      <div class="service-info-box">
+        <p class="service-info-text">{{ block.text }}</p>
+      </div>
+
+    {# Цены-аккордеон #}
+    {% elif block.type == 'priceAccordion' %}
+      <div class="service-price-accordion">
+        {% for group in block.groups %}
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span class="accordion-title">{{ group.title }}</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="price-list">
+                {% for item in group.items %}
+                  <div class="price-item">
+                    <span class="price-name">{{ item.name }}</span>
+                    <span class="price-value">{{ item.price }}</span>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        {% if block.note %}
+          <p class="price-note">{{ block.note }}</p>
+        {% endif %}
+      </div>
+
+        {# FAQ — используем точную структуру как на главной странице #}
+    {% elif block.type == 'faq' %}
+      <div class="faq-section">
+        <div class="faq-list">
+          {% for item in block.items %}
+            <div class="faq-item {{ 'active' if loop.first }}">
+              <button class="accordion-trigger faq-trigger" aria-expanded="{{ 'true' if loop.first else 'false' }}">
+                <span class="faq-marker"></span>
+                <span class="faq-question">{{ item.question }}</span>
+                <span class="faq-icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+                    <path class="icon-plus" d="M10 6V14M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path class="icon-minus" d="M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="display: none;"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content {{ 'open' if loop.first }}">
+                <p class="faq-answer">{{ item.answer }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{# Вспомогательный макрос для рендеринга изображения #}
+{% macro renderImage(section, position) %}
+  {% if section.image %}
+    <div class="service-section-image service-section-image--{{ position }}">
+      <img src="{{ section.image | url }}" alt="{{ section.imageAlt | default(section.title) }}" loading="lazy">
+    </div>
+  {% endif %}
+{% endmacro %}
+
+{# Основной макрос контента страницы услуги #}
+{% macro serviceContent(service) %}
+  {% for section in service.sections %}
+    <section id="{{ section.id }}" class="service-section-card">
+      
+      {# Позиция top — картинка сверху, текст снизу #}
+      {% if section.imagePosition == 'top' %}
+        {{ renderImage(section, 'top') }}
+        <div class="service-section-body">
+          <h2 class="service-section-title">{{ section.title }}</h2>
+          {{ renderBlocks(section.content) }}
+        </div>
+
+      {# Позиция bottom — текст сверху, картинка снизу #}
+      {% elif section.imagePosition == 'bottom' %}
+        <div class="service-section-body">
+          <h2 class="service-section-title">{{ section.title }}</h2>
+          {{ renderBlocks(section.content) }}
+        </div>
+        {{ renderImage(section, 'bottom') }}
+
+      {# Позиция left — картинка слева, текст справа #}
+      {% elif section.imagePosition == 'left' %}
+        <div class="service-section-split">
+          {{ renderImage(section, 'side') }}
+          <div class="service-section-body">
+            <h2 class="service-section-title">{{ section.title }}</h2>
+            {{ renderBlocks(section.content) }}
+          </div>
+        </div>
+
+      {# Позиция right — текст слева, картинка справа #}
+      {% elif section.imagePosition == 'right' %}
+        <div class="service-section-split service-section-split--reverse">
+          <div class="service-section-body">
+            <h2 class="service-section-title">{{ section.title }}</h2>
+            {{ renderBlocks(section.content) }}
+          </div>
+          {{ renderImage(section, 'side') }}
+        </div>
+
+      {# Без картинки или неизвестная позиция #}
+      {% else %}
+        <div class="service-section-body">
+          <h2 class="service-section-title">{{ section.title }}</h2>
+          {{ renderBlocks(section.content) }}
+        </div>
+      {% endif %}
+
+    </section>
+  {% endfor %}
+
+  {# Форма записи в конце страницы #}
+  <section class="service-cta">
+    <div class="service-cta-inner">
+      <div class="service-cta-text">
+        <h2 class="service-cta-title">Запишитесь на приём</h2>
+        <p class="service-cta-desc">Оставьте свои контактные данные, и мы перезвоним вам в течение 15 минут для подбора удобного времени визита.</p>
+        <form class="service-cta-form" action="#" method="POST">
+          <div class="service-cta-form-row">
+            <input type="text" name="name" class="service-cta-input" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" class="service-cta-input" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <label class="service-cta-checkbox">
+            <input type="checkbox" name="agreement" required>
+            <span>Я согласен на <a href="/privacy/">обработку персональных данных</a></span>
+          </label>
+          <button type="submit" class="service-cta-button">Отправить заявку</button>
+        </form>
+      </div>
+      <div class="service-cta-image">
+        <img src="/images/cta-consultation.jpg" alt="Консультация стоматолога" loading="lazy">
+      </div>
+    </div>
+  </section>
+{% endmacro %}

@@ -1,0 +1,14 @@
+{% macro pageHeader(title, subtitle, highlight) %}
+<div class="page-header">
+  <h1 class="page-header-title">
+      {% if highlight %}
+        {{ title | replace(highlight, '<span class="highlight">' + highlight + '</span>') | safe }}
+      {% else %}
+        {{ title }}
+      {% endif %}
+    </h1>
+    {% if subtitle %}
+      <p class="page-header-subtitle">{{ subtitle }}</p>
+    {% endif %}
+</div>
+{% endmacro %}

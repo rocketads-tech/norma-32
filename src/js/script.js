@@ -177,6 +177,40 @@ document.querySelectorAll(".faq-section .accordion-trigger").forEach((trigger) =
 });
 
 // ============================================
+// АККОРДЕОН ЦЕН
+// ============================================
+document.querySelectorAll(".service-price-accordion .accordion-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    const parentItem = trigger.closest(".accordion-item");
+    const content = parentItem.querySelector(".accordion-content");
+    const icon = trigger.querySelector(".accordion-icon");
+    const isActive = parentItem.classList.contains("open");
+
+    // Закрываем все открытые пункты (опционально - убери если нужно несколько открытых)
+    parentItem.closest(".service-price-accordion").querySelectorAll(".accordion-item").forEach((item) => {
+      item.classList.remove("open");
+      const itemTrigger = item.querySelector(".accordion-trigger");
+      const itemContent = item.querySelector(".accordion-content");
+      const itemIcon = item.querySelector(".accordion-icon");
+      
+      itemTrigger.setAttribute("aria-expanded", "false");
+      if (itemContent) itemContent.classList.remove("open");
+      if (itemIcon) itemIcon.style.transform = "rotate(0deg)";
+    });
+
+    // Если кликнутый пункт был закрыт, открываем его
+    if (!isActive) {
+      parentItem.classList.add("open");
+      trigger.setAttribute("aria-expanded", "true");
+      if (content) content.classList.add("open");
+      if (icon) icon.style.transform = "rotate(180deg)";
+    }
+  });
+});
+
+// ============================================
 // 4. ПЛАВНЫЙ СКРОЛЛ ДЛЯ ЯКОРНЫХ ССЫЛОК
 // ============================================
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -257,3 +291,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 });
+

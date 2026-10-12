@@ -1,0 +1,45 @@
+---
+layout: base.njk
+css: style-pages.css
+bodyClass: page-internal
+title: Услуги
+description: Полный список стоматологических услуг клиники Норма 32
+---
+
+{% from "macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "macros/page-header.njk" import pageHeader %}
+{% from "macros/service-card.njk" import serviceCard %}
+{% from "macros/cta-block.njk" import ctaBlock %}
+
+{{ breadcrumbs([
+{ title: "Главная", url: "/" },
+{ title: "Услуги" }
+]) }}
+
+{{ pageHeader(
+"Наши услуги",
+"Полный спектр стоматологической помощи для взрослых и детей. Используем только проверенные материалы и современное оборудование.",
+"Наши услуги"
+) }}
+
+<section class="services-grid-page">
+	<div class="container">
+		<div class="services-grid">
+			{% for service in services | sort(attribute='order') %}
+			{{ serviceCard(service, 'grid') }}
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{{ ctaBlock({
+title: "Не нашли нужную услугу?",
+highlight: "нужную услугу",
+description: "Позвоните нам, и мы подберём оптимальное решение для вашей ситуации. Консультация бесплатная.",
+buttonText: "Позвонить",
+buttonLink: "tel:+78005553535",
+image: "/images/cta-consultation.jpg",
+imageAlt: "Консультация стоматолога",
+"checkboxText": "Я согласен на обработку персональных данных",
+"checkboxLink": "/privacy"
+}) }}

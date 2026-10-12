@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} | Норма 32</title>
     <meta name="description" content="{{ description or 'Стоматологическая клиника Норма 32' }}">
-    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+
+    {# Умное подключение CSS #}
+    {% set mainCss = css or "style.css" %}
+    <link rel="stylesheet" href="{{ '/css/' + mainCss | url }}">
+    
     <link rel="stylesheet" href="{{ '/css/vendor/swiper-bundle.min.css' | url }}">
 </head>
-<body>
+<body class="{{ bodyClass or '' }}">
     {% include "header.njk" %}
     
     <main>

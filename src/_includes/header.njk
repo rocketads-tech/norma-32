@@ -2,6 +2,7 @@
 {% from "macros/service-card.njk" import serviceCard %}
 
 <header class="header" id="header">
+    <div class="container">
     <div class="header-inner">
         <div class="header-content">
             <!-- Логотип -->
@@ -79,13 +80,15 @@
         
         <!-- МЕГА-МЕНЮ (сетка карточек как на странице услуг) -->
         <div class="megamenu" id="megamenu">
-        <div class="megamenu-grid">
-            {% for service in services | sort(attribute='order') %}
-            {{ serviceCard(service, 'menu-grid') }}
-            {% endfor %}
+            <div class="megamenu-grid">
+                {% for service in services | sort(attribute='order') %}
+                {{ serviceCard(service, 'menu-grid') }}
+                {% endfor %}
+            </div>
         </div>
     </div>
     </div>
+    
     
     <!-- Подложка для мобильного меню -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
