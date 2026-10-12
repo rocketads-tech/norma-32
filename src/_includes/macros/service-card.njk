@@ -3,7 +3,7 @@
   {% set serviceUrl = '/services/' + service.id + '/' %}
   
   {% if mode == 'menu-grid' %}
-    <a href="{{ serviceUrl }}" class="megamenu-grid-card">
+    <a href="{{ serviceUrl | url }}" class="megamenu-grid-card">
       <div class="megamenu-grid-icon">
         <img src="{{ iconPath | url }}" alt="" aria-hidden="true">
       </div>
@@ -30,14 +30,14 @@
           {{ service.title }}
         </h4>
         <p class="megamenu-featured-desc">{{ service.description }}</p>
-        <a href="{{ serviceUrl }}" class="megamenu-featured-link">
+        <a href="{{ serviceUrl | url }}" class="megamenu-featured-link">
           Подробнее →
         </a>
       </div>
     </div>
   
   {% elif mode == 'menu-list' %}
-    <a href="{{ serviceUrl }}" class="megamenu-list-link">
+    <a href="{{ serviceUrl | url }}" class="megamenu-list-link">
       <span class="megamenu-list-icon">
         <img src="{{ iconPath | url }}" alt="" aria-hidden="true">
       </span>
@@ -60,14 +60,14 @@
           {{ service.title }}
         </h4>
         <p class="megamenu-featured-desc">{{ service.description }}</p>
-        <a href="{{ serviceUrl }}" class="megamenu-featured-link">
+        <a href="{{ serviceUrl | url }}" class="megamenu-featured-link">
           Подробнее →
         </a>
       </div>
     </div>
   
   {% elif mode == 'menu' %}
-    <a href="{{ serviceUrl }}" class="megamenu-card">
+    <a href="{{ serviceUrl | url }}" class="megamenu-card">
       <div class="megamenu-card-image">
         <img src="{{ service.image | url }}" alt="{{ service.title }}">
       </div>
@@ -84,7 +84,7 @@
       </div>
       <h3 class="service-grid-title">{{ service.title }}</h3>
       <p class="service-grid-desc">{{ service.description }}</p>
-      <a href="{{ serviceUrl }}" class="service-grid-link">
+      <a href="{{ serviceUrl | url }}" class="service-grid-link">
         Подробнее
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

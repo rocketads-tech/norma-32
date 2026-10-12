@@ -1,16 +1,16 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
-            <a href="/" class="footer-logo">
+            <a href="{{ '/' | url }}" class="footer-logo">
                 <span class="logo-icon">🦷</span>
                 <span class="logo-text">Норма 32</span>
             </a>
             <nav class="footer-nav">
-                <a href="/">Главная</a>
-                <a href="/services/">Услуги</a>
-                <a href="/doctors/">Врачи</a>
-                <a href="/about/">О клинике</a>
-                <a href="/contacts/">Контакты</a>
+                <a href="{{ '/' | url }}">Главная</a>
+                <a href="{{ '/services/' | url }}">Услуги</a>
+                <a href="{{ '/doctors/' | url }}">Врачи</a>
+                <a href="{{ '/about/' | url }}">О клинике</a>
+                <a href="{{ '/contacts/' | url }}">Контакты</a>
             </nav>
         </div>
 
@@ -45,7 +45,7 @@
         </div>
 
         <div class="footer-legal">
-            <a href="/privacy/">Политика конфиденциальности</a>
+            <a href="{{ '/privacy/' | url }}">Политика конфиденциальности</a>
         </div>
 
         <div class="footer-developer">

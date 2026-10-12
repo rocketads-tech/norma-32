@@ -4,7 +4,8 @@
   "description": "Сайт стоматологической клиники Норма 32",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy"
+    "build:gh": "cross-env IS_GH_PAGES=true eleventy",
+    "deploy": "npm run build:gh && gh-pages -d dist"
   },
   "keywords": [
     "dentistry",
@@ -14,7 +15,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "cross-env": "^10.1.0",
+    "gh-pages": "^6.3.0"
   },
   "dependencies": {
     "swiper": "^14.3.0"

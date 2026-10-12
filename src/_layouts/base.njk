@@ -8,7 +8,8 @@
 
     {# Умное подключение CSS #}
     {% set mainCss = css or "style.css" %}
-    <link rel="stylesheet" href="{{ '/css/' + mainCss | url }}">
+    {% set cssPath = '/css/' + mainCss %}
+<link rel="stylesheet" href="{{ cssPath | url }}">
     
     <link rel="stylesheet" href="{{ '/css/vendor/swiper-bundle.min.css' | url }}">
 </head>
