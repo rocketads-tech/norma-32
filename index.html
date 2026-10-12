@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | Норма 32</title>
+    <meta name="description" content="Стоматологическая клиника Норма 32">
+
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <link rel="stylesheet" href="/norma-32/css/vendor/swiper-bundle.min.css">
+</head>
+<body class="">
+    
+
+
+<header class="header" id="header">
+    <div class="container">
+    <div class="header-inner">
+        <div class="header-content">
+            <!-- Логотип -->
+            <a href="/" class="logo">
+                <span class="logo-icon">🦷</span>
+                <span class="logo-text">Норма 32</span>
+            </a>
+            
+            <!-- Десктопная навигация -->
+            <nav class="nav" id="nav">
+                <a href="/" class="nav-link active">Главная</a>
+                
+                <div class="nav-item has-megamenu" id="megamenuTrigger">
+                    <a href="/services/" class="nav-link ">
+                        Услуги
+                        <svg class="nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <a href="/doctors/" class="nav-link ">Врачи</a>
+                
+                <div class="nav-item has-dropdown">
+                    <a href="/about/" class="nav-link ">
+                        О клинике
+                        <svg class="nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <div class="dropdown">
+                        <a href="/about/" class="dropdown-link">О нас</a>
+                        <a href="/about/#doctors" class="dropdown-link">Врачи</a>
+                        <a href="/about/#license" class="dropdown-link">Лицензии</a>
+                        <a href="/about/#vacancies" class="dropdown-link">Вакансии</a>
+                        <a href="/about/#reviews" class="dropdown-link">Отзывы</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item has-dropdown">
+                    <a href="/patients/" class="nav-link ">
+                        Пациентам
+                        <svg class="nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <div class="dropdown">
+                        <a href="/patients/#rights" class="dropdown-link">Права пациентов</a>
+                        <a href="/patients/#oms-dms" class="dropdown-link">ОМС и ДМС</a>
+                        <a href="/patients/#preparation" class="dropdown-link">Подготовка к приёму</a>
+                        <a href="/services/" class="dropdown-link">Цены и оплата</a>
+                        <a href="/patients/#faq" class="dropdown-link">Вопрос-ответ</a>
+                        <a href="/patients/#articles" class="dropdown-link">Статьи</a>
+                    </div>
+                </div>
+                
+                <a href="/contacts/" class="nav-link ">Контакты</a>
+            </nav>
+            
+            <!-- Правая часть: телефон, кнопка, бургер -->
+            <div class="header-actions">
+                <!-- Используем данные из site.json -->
+                <a href="tel:88005553535" class="header-phone">8 (800) 555-35-35</a>
+                <a href="/contacts/" class="btn btn-primary btn-book">Записаться</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.25 3.5C3.5 3.5 3.5 3.708 3.5 6.25V6.275C3.5 7.382 3.5 8.182 3.771 8.52C4.036 8.848 4.823 9 6.25 9C7.677 9 8.464 8.847 8.729 8.519C9 8.182 9 7.382 9 6.274C9 3.708 9 3.5 6.25 3.5ZM6.25 10.5C4.564 10.5 3.299 10.323 2.604 9.46C2 8.711 2 7.689 2 6.275L2.75 6.25H2C2 3.38 2.181 2 6.25 2C10.319 2 10.5 3.38 10.5 6.25C10.5 7.688 10.5 8.711 9.896 9.46C9.201 10.323 7.936 10.5 6.25 10.5Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 3.5C14.5 3.5 14.5 3.708 14.5 6.25V6.275C14.5 7.382 14.5 8.182 14.771 8.52C15.036 8.848 15.823 9 17.25 9C18.677 9 19.464 8.847 19.729 8.519C20 8.182 20 7.382 20 6.274C20 3.708 20 3.5 17.25 3.5ZM17.25 10.5C15.564 10.5 14.299 10.323 13.604 9.46C13 8.711 13 7.689 13 6.275L13.75 6.25H13C13 3.38 13.181 2 17.25 2C21.319 2 21.5 3.38 21.5 6.25C21.5 7.688 21.5 8.711 20.896 9.46C20.201 10.323 18.936 10.5 17.25 10.5Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.25 14.5C3.5 14.5 3.5 14.708 3.5 17.25V17.275C3.5 18.382 3.5 19.182 3.771 19.52C4.036 19.848 4.823 20 6.25 20C7.677 20 8.464 19.847 8.729 19.519C9 19.182 9 18.382 9 17.274C9 14.708 9 14.5 6.25 14.5ZM6.25 21.5C4.564 21.5 3.299 21.323 2.604 20.46C2 19.711 2 18.689 2 17.275L2.75 17.25H2C2 14.38 2.181 13 6.25 13C10.319 13 10.5 14.38 10.5 17.25C10.5 18.688 10.5 19.711 9.896 20.46C9.201 21.323 7.936 21.5 6.25 21.5Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 14.5C14.5 14.5 14.5 14.708 14.5 17.25V17.275C14.5 18.382 14.5 19.182 14.771 19.52C15.036 19.848 15.823 20 17.25 20C18.677 20 19.464 19.847 19.729 19.519C20 19.182 20 18.382 20 17.274C20 14.708 20 14.5 17.25 14.5ZM17.25 21.5C15.564 21.5 14.299 21.323 13.604 20.46C13 19.711 13 18.689 13 17.275L13.75 17.25H13C13 14.38 13.181 13 17.25 13C21.319 13 21.5 14.38 21.5 17.25C21.5 18.688 21.5 19.711 20.896 20.46C20.201 21.323 18.936 21.5 17.25 21.5Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- МЕГА-МЕНЮ (сетка карточек как на странице услуг) -->
+        <div class="megamenu" id="megamenu">
+            <div class="megamenu-grid">
+                
+                
+  
+  
+  
+  
+    <a href="/services/therapy/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/therapy.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Терапия</h4>
+      <p class="megamenu-grid-desc">Лечение кариеса, пульпита и корневых каналов с использованием современных материалов</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/orthodontics/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/orthodontics.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Ортодонтия</h4>
+      <p class="megamenu-grid-desc">Исправление прикуса брекетами, элайнерами и пластинками для детей и взрослых</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/orthopedics/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/orthopedics.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Ортопедия</h4>
+      <p class="megamenu-grid-desc">Восстановление зубов коронками, мостами, протезами и винирами</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/surgery/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/surgery.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Хирургия</h4>
+      <p class="megamenu-grid-desc">Удаление зубов любой сложности, костная пластика и хирургическая подготовка</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/implant/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/implant.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Имплантация</h4>
+      <p class="megamenu-grid-desc">Современные импланты с гарантией 5 лет. Все виды имплантации, включая All-on-4 и All-on-6</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/whitening/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/whitening.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Отбеливание</h4>
+      <p class="megamenu-grid-desc">Профессиональное отбеливание Zoom 4. Результат до 8 тонов светлее за 1 процедуру</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/hygiene/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/hygiene.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Гигиена</h4>
+      <p class="megamenu-grid-desc">Профессиональная чистка зубов Air Flow и ультразвуком для здоровья дёсен</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/pediatric/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/pediatric.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Детская стоматология</h4>
+      <p class="megamenu-grid-desc">Бережное лечение зубов для детей в игровой форме без страха и слёз</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
+    <!-- Подложка для мобильного меню -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Мобильное меню -->
+    <nav class="nav-mobile" id="navMobile">
+        <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Закрыть меню">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <a href="/" class="nav-link active">Главная</a>
+        
+        <!-- Услуги (Теперь полностью динамические из services.json!) -->
+        <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-title">Услуги</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    
+                        <a href="/services/#therapy" class="">
+                            Терапия
+                        </a>
+                    
+                        <a href="/services/#orthodontics" class="">
+                            Ортодонтия
+                        </a>
+                    
+                        <a href="/services/#orthopedics" class="">
+                            Ортопедия
+                        </a>
+                    
+                        <a href="/services/#surgery" class="">
+                            Хирургия
+                        </a>
+                    
+                        <a href="/services/#implant" class="">
+                            Имплантация
+                        </a>
+                    
+                        <a href="/services/#whitening" class="">
+                            Отбеливание
+                        </a>
+                    
+                        <a href="/services/#hygiene" class="">
+                            Гигиена
+                        </a>
+                    
+                        <a href="/services/#pediatric" class="">
+                            Детская стоматология
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <a href="/doctors/" class="nav-link ">Врачи</a>
+        
+        <!-- О клинике -->
+        <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-title">О клинике</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <a href="/about/" class="">О нас</a>
+                    <a href="/about/#doctors" class="">Врачи</a>
+                    <a href="/about/#license" class="">Лицензии</a>
+                    <a href="/about/#vacancies" class="">Вакансии</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Пациентам -->
+        <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-title">Пациентам</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <a href="/patients/#rights" class="">Права пациентов</a>
+                    <a href="/patients/#oms-dms" class="">ОМС и ДМС</a>
+                    <a href="/patients/#preparation" class="">Подготовка</a>
+                    <a href="/services/" class="">Цены</a>
+                </div>
+            </div>
+        </div>
+        
+        <a href="/contacts/" class="nav-link ">Контакты</a>
+    </nav>
+</header>
+    
+    <main>
+        
+
+
+
+
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <!-- Левая колонка -->
+      <div class="hero-text">
+        <h1 class="hero-title">Норма 32 — стоматология  <span class="highlight">с гарантией!</span></h1>
+        
+        <p class="hero-description">
+          В клинике «Норма 32» мы используем современное оборудование и сертифицированные материалы, чтобы лечение проходило бережно и без боли. Запишитесь на приём, и мы позаботимся о здоровье вашей улыбки.
+        </p>
+        
+        <div class="hero-cta">
+          <!-- Основная кнопка -->
+          <a href="#" class="btn btn-primary">Записаться</a>
+          
+          <!-- Ссылка с телефоном -->
+          <a href="tel:8 (800) 555-35-35" class="hero-phone-link">
+            <div class="hero-phone-icon">
+              <img src="/norma-32/images/icons/calling.svg" alt="" aria-hidden="true">
+            </div>
+            <div class="hero-phone-content">
+              <span class="hero-phone-title">Норма 32</span>
+              <span class="hero-phone-number">8 (800) 555-35-35</span>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Карточка отзыва -->
+        <div class="hero-review">
+          <div class="review-content">
+            <div class="review-header">
+							<img src="/norma-32/images/avatar.png" alt="Игорь Иванович" class="review-avatar">
+              <span class="review-name">Игорь Иванович</span>
+            </div>
+						<div class="review-body">
+							<p class="review-text">
+								"Очень качественная стоматология. Рекомендую от всей души!"
+							</p>
+						</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Правая колонка -->
+      <div class="hero-image">
+        <div class="hero-image-wrapper">
+          <img src="/norma-32/images/hero-shape.png" alt="" class="hero-shape" aria-hidden="true">
+          <img src="/norma-32/images/hero-2.png" alt="Стоматолог" class="hero-photo">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="services-slider-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Наши услуги</h2>
+      <p class="section-subtitle">Полный спектр стоматологических услуг для всей семьи</p>
+    </div>
+
+    <div class="swiper services-swiper">
+      <div class="swiper-wrapper">
+        
+        <div class="swiper-slide">
+          
+          
+  
+  
+  
+  
+    <div class="service-grid-card">
+      <div class="service-grid-icon">
+        <img src="/norma-32/images/icons/therapy.svg" alt="" aria-hidden="true">
+      </div>
+      <h3 class="service-grid-title">Терапия</h3>
+      <p class="service-grid-desc">Лечение кариеса, пульпита и корневых каналов с использованием современных материалов</p>
+      <a href="/services/therapy/" class="service-grid-link">
+        Подробнее
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+  
+  
+  
+  
+    <div class="service-grid-card">
+      <div class="service-grid-icon">
+        <img src="/norma-32/images/icons/orthodontics.svg" alt="" aria-hidden="true">
+      </div>
+      <h3 class="service-grid-title">Ортодонтия</h3>
+      <p class="service-grid-desc">Исправление прикуса брекетами, элайнерами и пластинками для детей и взрослых</p>
+      <a href="/services/orthodontics/" class="service-grid-link">
+        Подробнее
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+  
+  
+  
+  
+    <div class="service-grid-card">
+      <div class="service-grid-icon">
+        <img src="/norma-32/images/icons/orthopedics.svg" alt="" aria-hidden="true">
+      </div>
+      <h3 class="service-grid-title">Ортопедия</h3>
+      <p class="service-grid-desc">Восстановление зубов коронками, мостами, протезами и винирами</p>
+      <a href="/services/orthopedics/" class="service-grid-link">
+        Подробнее
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+  
+  
+  
+  
+    <div class="service-grid-card">
+      <div class="service-grid-icon">
+        <img src="/norma-32/images/icons/surgery.svg" alt="" aria-hidden="true">
+      </div>
+      <h3 class="service-grid-title">Хирургия</h3>
+      <p class="service-grid-desc">Удаление зубов любой сложности, костная пластика и хирургическая подготовка</p>
+      <a href="/services/surgery/" class="service-grid-link">
+        Подробнее
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+  
+  
+  
+  
+    <div class="service-grid-card">
+      <div class="service-grid-icon">
+        <img src="/norma-32/images/icons/implant.svg" alt="" aria-hidden="true">
+      </div>
+      <h3 class="service-grid-title">Имплантация</h3>
+      <p class="service-grid-desc">Современные импланты с гарантией 5 лет. Все виды имплантации, включая All-on-4 и All-on-6</p>
+      <a href="/services/implant/" class="service-grid-link">
+        Подробнее
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+  
+  
+  
+  
+    <div class="service-grid-card">
+      <div class="service-grid-icon">
+        <img src="/norma-32/images/icons/whitening.svg" alt="" aria-hidden="true">
+      </div>
+      <h3 class="service-grid-title">Отбеливание</h3>
+      <p class="service-grid-desc">Профессиональное отбеливание Zoom 4. Результат до 8 тонов светлее за 1 процедуру</p>
+      <a href="/services/whitening/" class="service-grid-link">
+        Подробнее
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+  
+  
+  
+  
+    <div class="service-grid-card">
+      <div class="service-grid-icon">
+        <img src="/norma-32/images/icons/hygiene.svg" alt="" aria-hidden="true">
+      </div>
+      <h3 class="service-grid-title">Гигиена</h3>
+      <p class="service-grid-desc">Профессиональная чистка зубов Air Flow и ультразвуком для здоровья дёсен</p>
+      <a href="/services/hygiene/" class="service-grid-link">
+        Подробнее
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+  
+  
+  
+  
+    <div class="service-grid-card">
+      <div class="service-grid-icon">
+        <img src="/norma-32/images/icons/pediatric.svg" alt="" aria-hidden="true">
+      </div>
+      <h3 class="service-grid-title">Детская стоматология</h3>
+      <p class="service-grid-desc">Бережное лечение зубов для детей в игровой форме без страха и слёз</p>
+      <a href="/services/pediatric/" class="service-grid-link">
+        Подробнее
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  
+
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Кастомные кнопки навигации -->
+    <div class="swiper-controls">
+      <button class="swiper-custom-btn swiper-custom-prev" id="services-prev" aria-label="Предыдущий слайд">
+        <svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M42.5002 20.418C42.5002 21.0508 41.7877 21.5738 40.8633 21.6566L40.6063 21.668L2.72752 21.668C1.68153 21.668 0.83358 21.1083 0.83358 20.418C0.83358 19.7851 1.54609 19.2622 2.47052 19.1794L2.72752 19.168L40.6063 19.168C41.6523 19.168 42.5002 19.7276 42.5002 20.418Z" fill="#011632"/>
+					<path d="M12.2152 29.6139C12.7044 30.101 12.7061 30.8924 12.219 31.3816C11.7762 31.8264 11.0819 31.8682 10.5917 31.5062L10.4513 31.3854L0.367939 21.3454C-0.0781222 20.9013 -0.118701 20.2044 0.246223 19.7143L0.367866 19.5739L10.4512 9.53226C10.9404 9.04512 11.7318 9.04676 12.219 9.53592C12.6618 9.98062 12.7007 10.6751 12.3366 11.1637L12.2153 11.3037L3.02192 20.4601L12.2152 29.6139Z" fill="#011632"/>
+			</svg>
+
+      </button>
+      <button class="swiper-custom-btn swiper-custom-next" id="services-next" aria-label="Следующий слайд">
+        <svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 19.582C0 18.9492 0.71251 18.4262 1.63694 18.3434L1.89394 18.332L39.7727 18.332C40.8187 18.332 41.6667 18.8917 41.6667 19.582C41.6667 20.2149 40.9542 20.7378 40.0297 20.8206L39.7727 20.832L1.89394 20.832C0.847945 20.832 0 20.2724 0 19.582Z" fill="#011632"/>
+						<path d="M30.285 10.3861C29.7958 9.89904 29.7941 9.10759 30.2812 8.61839C30.724 8.17365 31.4184 8.13181 31.9085 8.49385L32.049 8.61458L42.1323 18.6546C42.5784 19.0987 42.6189 19.7956 42.254 20.2857L42.1324 20.4261L32.049 30.4677C31.5599 30.9549 30.7684 30.9532 30.2813 30.4641C29.8384 30.0194 29.7995 29.3249 30.1636 28.8363L30.2849 28.6963L39.4783 19.5399L30.285 10.3861Z" fill="#011632"/>
+			</svg>
+
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<section class="text-image-block ">
+  <div class="container">
+    <div class="text-image-content">
+      <div class="text-image-text">
+        <h2 class="text-image-title">
+          Стоматологическая клиника <span class="highlight">Норма 32</span>
+        </h2>
+        
+        
+        <p class="text-image-description">Наша клиника оснащена оборудованием последнего поколения. Все врачи имеют профильное образование и регулярно повышают квалификацию.</p>
+        
+        
+        
+        <a href="/about/" class="btn btn-primary">
+          О клинике
+        </a>
+        
+      </div>
+      
+      <div class="text-image-image">
+        <div class="text-image-image-wrapper">
+          
+          <div class="text-image-image-bg"></div>
+          
+          <img src="/norma-32/images/about-clinic.jpg" alt="Стоматологический кабинет" class="text-image-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="advantages-block ">
+  <div class="container">
+    <div class="advantages-content">
+      <!-- Изображение -->
+      <div class="advantages-image">
+        <div class="advantages-image-wrapper">
+          
+          <img src="/norma-32/images/doctor-with-loupe.jpg" alt="Стоматолог за работой" class="advantages-img">
+        </div>
+      </div>
+      
+      <!-- Текст + преимущества -->
+      <div class="advantages-text">
+        <h2 class="advantages-title">
+          Почему выбирают стоматологию <span class="highlight">Норма 32</span>?
+        </h2>
+        
+        
+        <p class="advantages-description">Мы используем только лучшие материалы и современное оборудование, чтобы обеспечить максимальный комфорт и качество лечения.</p>
+        
+        
+        
+        <ul class="advantages-list">
+          
+          <li class="advantages-item">
+            <svg class="advantages-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.6666 5L7.49992 14.1667L3.33325 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Высококвалифицированная команда врачей</span>
+          </li>
+          
+          <li class="advantages-item">
+            <svg class="advantages-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.6666 5L7.49992 14.1667L3.33325 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Современное оборудование и технологии</span>
+          </li>
+          
+          <li class="advantages-item">
+            <svg class="advantages-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.6666 5L7.49992 14.1667L3.33325 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Скидки на все виды стоматологического лечения</span>
+          </li>
+          
+          <li class="advantages-item">
+            <svg class="advantages-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.6666 5L7.49992 14.1667L3.33325 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Быстрая и удобная запись на приём</span>
+          </li>
+          
+        </ul>
+        
+        
+        
+        <a href="/appointment/" class="btn btn-primary">
+          Записаться
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="text-image-block ">
+  <div class="container">
+    <div class="text-image-content">
+      <div class="text-image-text">
+        <h2 class="text-image-title">
+          Приглашаем <span class="highlight">новых пациентов!</span>
+        </h2>
+        
+        
+        <p class="text-image-description">Мы используем только лучшие материалы и современное оборудование, чтобы обеспечить максимальный комфорт и качество лечения. Запишитесь на приём, и мы позаботимся о здоровье вашей улыбки.</p>
+        
+        
+        
+        <a href="/appointment/" class="btn btn-primary">
+          Записаться
+        </a>
+        
+      </div>
+      
+      <div class="text-image-image">
+        <div class="text-image-image-wrapper">
+          
+          <div class="text-image-image-bg"></div>
+          
+          <img src="/norma-32/images/welcome-patient.jpg" alt="Пациент в стоматологическом кресле" class="text-image-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="doctors-slider-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        Познакомьтесь с нашими <span class="highlight">специалистами</span>
+      </h2>
+      <p class="section-subtitle">
+        Команда опытных врачей, которые заботятся о здоровье вашей улыбки
+      </p>
+    </div>
+  </div>
+
+  <!-- Слайдер выходит за пределы контейнера -->
+  <div class="doctors-slider-wrapper">
+    <div class="swiper doctors-swiper">
+      <div class="swiper-wrapper">
+        
+        <div class="swiper-slide">
+          
+          
+<div class="doctor-card">
+  <img src="/norma-32/images/doctors/doctor-1.jpg" alt="Иванов Алексей Петрович" class="doctor-card-image">
+  <div class="doctor-card-overlay">
+    <h3 class="doctor-card-name">Иванов Алексей Петрович</h3>
+    <p class="doctor-card-specialty">Ортодонт</p>
+  </div>
+</div>
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+<div class="doctor-card">
+  <img src="/norma-32/images/doctors/doctor-2.jpg" alt="Смирнова Елена Викторовна" class="doctor-card-image">
+  <div class="doctor-card-overlay">
+    <h3 class="doctor-card-name">Смирнова Елена Викторовна</h3>
+    <p class="doctor-card-specialty">Эндодонтист</p>
+  </div>
+</div>
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+<div class="doctor-card">
+  <img src="/norma-32/images/doctors/doctor-3.jpg" alt="Кузнецова Мария Андреевна" class="doctor-card-image">
+  <div class="doctor-card-overlay">
+    <h3 class="doctor-card-name">Кузнецова Мария Андреевна</h3>
+    <p class="doctor-card-specialty">Пародонтолог</p>
+  </div>
+</div>
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+<div class="doctor-card">
+  <img src="/norma-32/images/doctors/doctor-4.jpg" alt="Попов Дмитрий Сергеевич" class="doctor-card-image">
+  <div class="doctor-card-overlay">
+    <h3 class="doctor-card-name">Попов Дмитрий Сергеевич</h3>
+    <p class="doctor-card-specialty">Детский стоматолог</p>
+  </div>
+</div>
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+<div class="doctor-card">
+  <img src="/norma-32/images/doctors/doctor-5.jpg" alt="Волкова Анна Игоревна" class="doctor-card-image">
+  <div class="doctor-card-overlay">
+    <h3 class="doctor-card-name">Волкова Анна Игоревна</h3>
+    <p class="doctor-card-specialty">Ортопед</p>
+  </div>
+</div>
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+<div class="doctor-card">
+  <img src="/norma-32/images/doctors/doctor-6.jpg" alt="Соколов Михаил Владимирович" class="doctor-card-image">
+  <div class="doctor-card-overlay">
+    <h3 class="doctor-card-name">Соколов Михаил Владимирович</h3>
+    <p class="doctor-card-specialty">Хирург-имплантолог</p>
+  </div>
+</div>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Кнопки навигации по центру -->
+  <div class="container">  
+    <div class="swiper-controls">
+      <button class="swiper-custom-btn swiper-custom-prev" id="doctors-prev" aria-label="Предыдущий слайд">
+        <svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M42.5002 20.418C42.5002 21.0508 41.7877 21.5738 40.8633 21.6566L40.6063 21.668L2.72752 21.668C1.68153 21.668 0.83358 21.1083 0.83358 20.418C0.83358 19.7851 1.54609 19.2622 2.47052 19.1794L2.72752 19.168L40.6063 19.168C41.6523 19.168 42.5002 19.7276 42.5002 20.418Z" fill="#011632"/>
+					<path d="M12.2152 29.6139C12.7044 30.101 12.7061 30.8924 12.219 31.3816C11.7762 31.8264 11.0819 31.8682 10.5917 31.5062L10.4513 31.3854L0.367939 21.3454C-0.0781222 20.9013 -0.118701 20.2044 0.246223 19.7143L0.367866 19.5739L10.4512 9.53226C10.9404 9.04512 11.7318 9.04676 12.219 9.53592C12.6618 9.98062 12.7007 10.6751 12.3366 11.1637L12.2153 11.3037L3.02192 20.4601L12.2152 29.6139Z" fill="#011632"/>
+			</svg>
+      </button>
+      <button class="swiper-custom-btn swiper-custom-next" id="doctors-next" aria-label="Следующий слайд">
+         <svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 19.582C0 18.9492 0.71251 18.4262 1.63694 18.3434L1.89394 18.332L39.7727 18.332C40.8187 18.332 41.6667 18.8917 41.6667 19.582C41.6667 20.2149 40.9542 20.7378 40.0297 20.8206L39.7727 20.832L1.89394 20.832C0.847945 20.832 0 20.2724 0 19.582Z" fill="#011632"/>
+						<path d="M30.285 10.3861C29.7958 9.89904 29.7941 9.10759 30.2812 8.61839C30.724 8.17365 31.4184 8.13181 31.9085 8.49385L32.049 8.61458L42.1323 18.6546C42.5784 19.0987 42.6189 19.7956 42.254 20.2857L42.1324 20.4261L32.049 30.4677C31.5599 30.9549 30.7684 30.9532 30.2813 30.4641C29.8384 30.0194 29.7995 29.3249 30.1636 28.8363L30.2849 28.6963L39.4783 19.5399L30.285 10.3861Z" fill="#011632"/>
+			</svg>
+      </button>
+    </div>
+  </div>
+</section>
+<section class="testimonials-slider-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        Отзывы наших <span class="highlight">пациентов</span>
+      </h2>
+      <p class="section-subtitle">
+        Мы гордимся доверием наших пациентов и стремимся к высочайшему качеству лечения
+      </p>
+    </div>
+  </div>
+
+  <div class="testimonials-slider-wrapper">
+    <div class="swiper testimonials-swiper">
+      <div class="swiper-wrapper">
+        
+        <div class="swiper-slide">
+          
+          
+<div class="testimonial-card">
+  <div class="testimonial-header">
+    <img src="/norma-32/images/testimonials/avatar-1.jpg" alt="Анна Петрова" class="testimonial-avatar">
+    <div class="testimonial-info">
+      <h4 class="testimonial-name">Анна Петрова</h4>
+      <div class="testimonial-rating">
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+      </div>
+    </div>
+  </div>
+  
+  <p class="testimonial-text">Огромное спасибо клинике Норма 32 за профессионализм и чуткое отношение! Лечила зубы у доктора Ивановой — всё прошло безболезненно и очень качественно. Теперь только сюда!</p>
+</div>
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+<div class="testimonial-card">
+  <div class="testimonial-header">
+    <img src="/norma-32/images/testimonials/avatar-2.jpg" alt="Михаил Соколов" class="testimonial-avatar">
+    <div class="testimonial-info">
+      <h4 class="testimonial-name">Михаил Соколов</h4>
+      <div class="testimonial-rating">
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+      </div>
+    </div>
+  </div>
+  
+  <p class="testimonial-text">Делал имплантацию зубов. Результат превзошёл все ожидания! Врачи — настоящие профессионалы, оборудование современное. Рекомендую всем, кто ценит качество.</p>
+</div>
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+<div class="testimonial-card">
+  <div class="testimonial-header">
+    <img src="/norma-32/images/testimonials/avatar-3.jpg" alt="Елена Васильева" class="testimonial-avatar">
+    <div class="testimonial-info">
+      <h4 class="testimonial-name">Елена Васильева</h4>
+      <div class="testimonial-rating">
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+      </div>
+    </div>
+  </div>
+  
+  <p class="testimonial-text">Водила сына на лечение к детскому стоматологу. Ребёнок в восторге! Доктор нашла подход, всё объяснила, лечение прошло в игровой форме. Спасибо за терпение и профессионализм!</p>
+</div>
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+<div class="testimonial-card">
+  <div class="testimonial-header">
+    <img src="/norma-32/images/testimonials/avatar-1.jpg" alt="Дмитрий Козлов" class="testimonial-avatar">
+    <div class="testimonial-info">
+      <h4 class="testimonial-name">Дмитрий Козлов</h4>
+      <div class="testimonial-rating">
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+      </div>
+    </div>
+  </div>
+  
+  <p class="testimonial-text">Проходил процедуру отбеливания Zoom 4. Эффект потрясающий — зубы стали светлее на 6 тонов! Персонал вежливый, атмосфера приятная. Обязательно вернусь ещё.</p>
+</div>
+
+        </div>
+        
+        <div class="swiper-slide">
+          
+          
+<div class="testimonial-card">
+  <div class="testimonial-header">
+    <img src="/norma-32/images/testimonials/avatar-2.jpg" alt="Ольга Новикова" class="testimonial-avatar">
+    <div class="testimonial-info">
+      <h4 class="testimonial-name">Ольга Новикова</h4>
+      <div class="testimonial-rating">
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+        <svg class="star-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L10.2 5.8L16 6.4L11.6 10.2L12.8 16L8 12.8L3.2 16L4.4 10.2L0 6.4L5.8 5.8L8 0Z"/>
+        </svg>
+        
+      </div>
+    </div>
+  </div>
+  
+  <p class="testimonial-text">Устанавливала виниры. Результат — идеальная улыбка! Доктор Кузнецов сделал всё на высшем уровне. Клиника очень комфортная, цены адекватные. Спасибо за красоту!</p>
+</div>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="swiper-controls">
+      <button class="swiper-custom-btn swiper-custom-prev" id="testimonials-prev" aria-label="Предыдущий отзыв">
+        <svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M42.5002 20.418C42.5002 21.0508 41.7877 21.5738 40.8633 21.6566L40.6063 21.668L2.72752 21.668C1.68153 21.668 0.83358 21.1083 0.83358 20.418C0.83358 19.7851 1.54609 19.2622 2.47052 19.1794L2.72752 19.168L40.6063 19.168C41.6523 19.168 42.5002 19.7276 42.5002 20.418Z" fill="#e6f6fe"/>
+					<path d="M12.2152 29.6139C12.7044 30.101 12.7061 30.8924 12.219 31.3816C11.7762 31.8264 11.0819 31.8682 10.5917 31.5062L10.4513 31.3854L0.367939 21.3454C-0.0781222 20.9013 -0.118701 20.2044 0.246223 19.7143L0.367866 19.5739L10.4512 9.53226C10.9404 9.04512 11.7318 9.04676 12.219 9.53592C12.6618 9.98062 12.7007 10.6751 12.3366 11.1637L12.2153 11.3037L3.02192 20.4601L12.2152 29.6139Z" fill="#e6f6fe"/>
+			</svg>
+      </button>
+      <button class="swiper-custom-btn swiper-custom-next" id="testimonials-next" aria-label="Следующий отзыв">
+        <svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 19.582C0 18.9492 0.71251 18.4262 1.63694 18.3434L1.89394 18.332L39.7727 18.332C40.8187 18.332 41.6667 18.8917 41.6667 19.582C41.6667 20.2149 40.9542 20.7378 40.0297 20.8206L39.7727 20.832L1.89394 20.832C0.847945 20.832 0 20.2724 0 19.582Z" fill="#e6f6fe"/>
+						<path d="M30.285 10.3861C29.7958 9.89904 29.7941 9.10759 30.2812 8.61839C30.724 8.17365 31.4184 8.13181 31.9085 8.49385L32.049 8.61458L42.1323 18.6546C42.5784 19.0987 42.6189 19.7956 42.254 20.2857L42.1324 20.4261L32.049 30.4677C31.5599 30.9549 30.7684 30.9532 30.2813 30.4641C29.8384 30.0194 29.7995 29.3249 30.1636 28.8363L30.2849 28.6963L39.4783 19.5399L30.285 10.3861Z" fill="#e6f6fe"/>
+			</svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        Часто <span class="highlight">задаваемые вопросы</span>
+      </h2>
+      
+      <p class="section-subtitle">Ответы на самые популярные вопросы наших пациентов</p>
+      
+    </div>
+
+    <div class="faq-list">
+      
+      <div class="faq-item active">
+        <button class="accordion-trigger faq-trigger" aria-expanded="true">
+          <span class="faq-marker"></span>
+          <span class="faq-question">Больно ли лечить зубы в вашей клинике?</span>
+          <span class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <path class="icon-plus" d="M10 6V14M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path class="icon-minus" d="M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="display: none;"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content open">
+          <p class="faq-answer">Мы используем современные методы анестезии, которые полностью исключают болевые ощущения. Все процедуры проходят комфортно и безопасно для пациента.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item ">
+        <button class="accordion-trigger faq-trigger" aria-expanded="false">
+          <span class="faq-marker"></span>
+          <span class="faq-question">Какие гарантии вы предоставляете на лечение?</span>
+          <span class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <path class="icon-plus" d="M10 6V14M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path class="icon-minus" d="M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="display: none;"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content ">
+          <p class="faq-answer">Мы предоставляем официальную гарантию на все виды стоматологических работ. На имплантацию — гарантия 5 лет, на терапевтическое лечение — от 1 года.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item ">
+        <button class="accordion-trigger faq-trigger" aria-expanded="false">
+          <span class="faq-marker"></span>
+          <span class="faq-question">Принимаете ли вы детей?</span>
+          <span class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <path class="icon-plus" d="M10 6V14M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path class="icon-minus" d="M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="display: none;"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content ">
+          <p class="faq-answer">Да, у нас есть опытные детские стоматологи, которые найдут подход к каждому ребёнку. Лечение проходит в игровой форме, без страха и слёз.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item ">
+        <button class="accordion-trigger faq-trigger" aria-expanded="false">
+          <span class="faq-marker"></span>
+          <span class="faq-question">Как записаться на приём?</span>
+          <span class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <path class="icon-plus" d="M10 6V14M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path class="icon-minus" d="M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="display: none;"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content ">
+          <p class="faq-answer">Вы можете записаться по телефону 8 (800) 555-35-35, через форму на сайте или в мессенджерах. Мы подберём удобное для вас время.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item ">
+        <button class="accordion-trigger faq-trigger" aria-expanded="false">
+          <span class="faq-marker"></span>
+          <span class="faq-question">Работаете ли вы по страховке?</span>
+          <span class="faq-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <path class="icon-plus" d="M10 6V14M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path class="icon-minus" d="M6 10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="display: none;"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-content ">
+          <p class="faq-answer">Да, мы работаем с большинством страховых компаний. Уточните у администратора, принимает ли ваша страховка, и мы поможем оформить документы.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <!-- Текстовая часть + форма -->
+      <div class="cta-text">
+        <h2 class="cta-title">
+          Запишитесь на приём <span class="highlight">прямо сейчас</span>
+        </h2>
+        
+        
+        <p class="cta-description">Оставьте свои контактные данные, и мы перезвоним вам в течение 15 минут для подбора удобного времени визита.</p>
+        
+        
+        <!-- Форма записи -->
+        <form class="cta-form" action="#" method="POST">
+          <div class="cta-form-group">
+            <input 
+              type="text" 
+              name="name" 
+              class="cta-input" 
+              placeholder="Ваше имя" 
+              required
+              aria-label="Ваше имя"
+            >
+          </div>
+          
+          <div class="cta-form-group">
+            <input 
+              type="tel" 
+              name="phone" 
+              class="cta-input" 
+              placeholder="+7 (___) ___-__-__" 
+              required
+              aria-label="Номер телефона"
+            >
+          </div>
+          
+          <label class="cta-checkbox">
+            <input type="checkbox" name="agreement" required>
+            <span class="checkbox-text">
+              Я согласен на обработку персональных данных
+              
+                (<a href="/norma-32/privacy" class="checkbox-link" target="_blank">политика обработки</a>)
+              
+            </span>
+          </label>
+          
+          <button type="submit" class="cta-button">Отправить заявку</button>
+        </form>
+      </div>
+      
+      <!-- Изображение -->
+      <div class="cta-image">
+        <img src="/norma-32/images/cta-consultation.jpg" alt="Консультация стоматолога" class="cta-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <a href="/" class="footer-logo">
+                <span class="logo-icon">🦷</span>
+                <span class="logo-text">Норма 32</span>
+            </a>
+            <nav class="footer-nav">
+                <a href="/">Главная</a>
+                <a href="/services/">Услуги</a>
+                <a href="/doctors/">Врачи</a>
+                <a href="/about/">О клинике</a>
+                <a href="/contacts/">Контакты</a>
+            </nav>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                <p>© 2026 Норма 32. Все права защищены.</p>
+                <p class="footer-license">Лицензия № ЛО-77-01-000000</p>
+            </div>
+            
+            <div class="footer-social">
+                <!-- Telegram -->
+                <a href="#" class="social-link" aria-label="Телеграм" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.8C16.49 10.38 15.84 14.22 15.51 15.98C15.37 16.73 15.09 16.98 14.83 17.01C14.25 17.06 13.81 16.62 13.25 16.25C12.37 15.67 11.87 15.31 11.02 14.75C10.03 14.1 10.67 13.74 11.24 13.15C11.39 13 14.06 10.57 14.11 10.36C14.12 10.33 14.12 10.25 14.07 10.21C14.02 10.17 13.95 10.18 13.89 10.19C13.81 10.21 12.51 11.07 9.98 12.78C9.61 13.03 9.28 13.15 8.98 13.14C8.65 13.13 8.02 12.95 7.55 12.8C6.97 12.61 6.51 12.51 6.55 12.19C6.57 12.03 6.79 11.87 7.22 11.7C9.87 10.54 11.62 9.79 12.47 9.44C14.92 8.42 15.43 8.24 15.76 8.24C15.83 8.24 16.01 8.26 16.12 8.35C16.22 8.43 16.24 8.54 16.25 8.62C16.26 8.69 16.27 8.87 16.64 8.8Z" fill="currentColor"/>
+                    </svg>
+                </a>
+                
+                <!-- ВКонтакте -->
+                <a href="#" class="social-link" aria-label="ВКонтакте" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.918.714-2.949 2.059-1.603 1.488 1.488 1.796 2.518 3.613 2.518h3.2c.816 0 1.156-.406.928-1.21-.241-.853-1.109-1.748-2.253-2.982-.621-.682-1.551-1.427-1.551-1.949 0-.522.454-.682 1.551-1.893 1.097-1.21 1.895-2.332 2.16-3.272.265-.94-.132-1.445-1.056-1.445h-3.2c-.816 0-1.197.431-1.406.907-.682 1.551-1.828 3.272-2.283 3.272-.229 0-.644-.229-.644-1.21V7.38c0-.816-.229-1.197-.853-1.197H9.83c-.506 0-.816.373-.816.728 0 .762 1.147.94 1.263 3.107v4.682c0 1.014-.183 1.21-.581 1.21-1.097 0-3.769-4.025-5.35-8.634-.313-.88-.626-1.234-1.445-1.234H.7c-.915 0-1.097.431-1.097.907 0 .842 1.082 5.018 5.042 10.524 2.644 3.782 6.358 5.81 9.772 5.81h.745z" fill="currentColor"/>
+                    </svg>
+                </a>
+                
+                <!-- MAX (Стилизованная "М". Замени path на официальный SVG, если есть) -->
+                <a href="#" class="social-link" aria-label="MAX" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M350.4 9.6C141.8 20.5 4.1 184.1 12.8 390.4c3.8 90.3 40.1 168 48.7 253.7 2.2 22.2-4.2 49.6 21.4 59.3 31.5 11.9 79.8-8.1 106.2-26.4 9-6.1 17.6-13.2 24.2-22 27.3 18.1 53.2 35.6 85.7 43.4 143.1 34.3 299.9-44.2 369.6-170.3C799.6 291.2 622.5-4.6 350.4 9.6ZM269.4 504c-11.3 8.8-22.2 20.8-34.7 27.7-18.1 9.7-23.7-.4-30.5-16.4-21.4-50.9-24-137.6-11.5-190.9 16.8-72.5 72.9-136.3 150-143.1 78-6.9 150.4 32.7 183.1 104.2 72.4 159.1-112.9 316.2-256.4 218.6Z" fill="currentColor"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-legal">
+            <a href="/privacy/">Политика конфиденциальности</a>
+        </div>
+
+        <div class="footer-developer">
+            Сайт разработан <a href="https://rocket-ads.ru/" target="_blank" rel="noopener">Рекламным агентством RocketADS</a>
+        </div>
+    </div>
+</footer>
+    
+    <script src="/norma-32/js/script.js"></script>
+    <script src="/norma-32/js/vendor/swiper-bundle.min.js"></script>
+    
+</body>
+</html>

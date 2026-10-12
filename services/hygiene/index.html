@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> | Норма 32</title>
+    <meta name="description" content="Стоматологическая клиника Норма 32">
+
+    
+    
+    <link rel="stylesheet" href="/css/style-pages.css">
+    
+    <link rel="stylesheet" href="/norma-32/css/vendor/swiper-bundle.min.css">
+</head>
+<body class="page-internal">
+    
+
+
+<header class="header" id="header">
+    <div class="container">
+    <div class="header-inner">
+        <div class="header-content">
+            <!-- Логотип -->
+            <a href="/" class="logo">
+                <span class="logo-icon">🦷</span>
+                <span class="logo-text">Норма 32</span>
+            </a>
+            
+            <!-- Десктопная навигация -->
+            <nav class="nav" id="nav">
+                <a href="/" class="nav-link ">Главная</a>
+                
+                <div class="nav-item has-megamenu" id="megamenuTrigger">
+                    <a href="/services/" class="nav-link active">
+                        Услуги
+                        <svg class="nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <a href="/doctors/" class="nav-link ">Врачи</a>
+                
+                <div class="nav-item has-dropdown">
+                    <a href="/about/" class="nav-link ">
+                        О клинике
+                        <svg class="nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <div class="dropdown">
+                        <a href="/about/" class="dropdown-link">О нас</a>
+                        <a href="/about/#doctors" class="dropdown-link">Врачи</a>
+                        <a href="/about/#license" class="dropdown-link">Лицензии</a>
+                        <a href="/about/#vacancies" class="dropdown-link">Вакансии</a>
+                        <a href="/about/#reviews" class="dropdown-link">Отзывы</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item has-dropdown">
+                    <a href="/patients/" class="nav-link ">
+                        Пациентам
+                        <svg class="nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <div class="dropdown">
+                        <a href="/patients/#rights" class="dropdown-link">Права пациентов</a>
+                        <a href="/patients/#oms-dms" class="dropdown-link">ОМС и ДМС</a>
+                        <a href="/patients/#preparation" class="dropdown-link">Подготовка к приёму</a>
+                        <a href="/services/" class="dropdown-link">Цены и оплата</a>
+                        <a href="/patients/#faq" class="dropdown-link">Вопрос-ответ</a>
+                        <a href="/patients/#articles" class="dropdown-link">Статьи</a>
+                    </div>
+                </div>
+                
+                <a href="/contacts/" class="nav-link ">Контакты</a>
+            </nav>
+            
+            <!-- Правая часть: телефон, кнопка, бургер -->
+            <div class="header-actions">
+                <!-- Используем данные из site.json -->
+                <a href="tel:88005553535" class="header-phone">8 (800) 555-35-35</a>
+                <a href="/contacts/" class="btn btn-primary btn-book">Записаться</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.25 3.5C3.5 3.5 3.5 3.708 3.5 6.25V6.275C3.5 7.382 3.5 8.182 3.771 8.52C4.036 8.848 4.823 9 6.25 9C7.677 9 8.464 8.847 8.729 8.519C9 8.182 9 7.382 9 6.274C9 3.708 9 3.5 6.25 3.5ZM6.25 10.5C4.564 10.5 3.299 10.323 2.604 9.46C2 8.711 2 7.689 2 6.275L2.75 6.25H2C2 3.38 2.181 2 6.25 2C10.319 2 10.5 3.38 10.5 6.25C10.5 7.688 10.5 8.711 9.896 9.46C9.201 10.323 7.936 10.5 6.25 10.5Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 3.5C14.5 3.5 14.5 3.708 14.5 6.25V6.275C14.5 7.382 14.5 8.182 14.771 8.52C15.036 8.848 15.823 9 17.25 9C18.677 9 19.464 8.847 19.729 8.519C20 8.182 20 7.382 20 6.274C20 3.708 20 3.5 17.25 3.5ZM17.25 10.5C15.564 10.5 14.299 10.323 13.604 9.46C13 8.711 13 7.689 13 6.275L13.75 6.25H13C13 3.38 13.181 2 17.25 2C21.319 2 21.5 3.38 21.5 6.25C21.5 7.688 21.5 8.711 20.896 9.46C20.201 10.323 18.936 10.5 17.25 10.5Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.25 14.5C3.5 14.5 3.5 14.708 3.5 17.25V17.275C3.5 18.382 3.5 19.182 3.771 19.52C4.036 19.848 4.823 20 6.25 20C7.677 20 8.464 19.847 8.729 19.519C9 19.182 9 18.382 9 17.274C9 14.708 9 14.5 6.25 14.5ZM6.25 21.5C4.564 21.5 3.299 21.323 2.604 20.46C2 19.711 2 18.689 2 17.275L2.75 17.25H2C2 14.38 2.181 13 6.25 13C10.319 13 10.5 14.38 10.5 17.25C10.5 18.688 10.5 19.711 9.896 20.46C9.201 21.323 7.936 21.5 6.25 21.5Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 14.5C14.5 14.5 14.5 14.708 14.5 17.25V17.275C14.5 18.382 14.5 19.182 14.771 19.52C15.036 19.848 15.823 20 17.25 20C18.677 20 19.464 19.847 19.729 19.519C20 19.182 20 18.382 20 17.274C20 14.708 20 14.5 17.25 14.5ZM17.25 21.5C15.564 21.5 14.299 21.323 13.604 20.46C13 19.711 13 18.689 13 17.275L13.75 17.25H13C13 14.38 13.181 13 17.25 13C21.319 13 21.5 14.38 21.5 17.25C21.5 18.688 21.5 19.711 20.896 20.46C20.201 21.323 18.936 21.5 17.25 21.5Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- МЕГА-МЕНЮ (сетка карточек как на странице услуг) -->
+        <div class="megamenu" id="megamenu">
+            <div class="megamenu-grid">
+                
+                
+  
+  
+  
+  
+    <a href="/services/therapy/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/therapy.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Терапия</h4>
+      <p class="megamenu-grid-desc">Лечение кариеса, пульпита и корневых каналов с использованием современных материалов</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/orthodontics/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/orthodontics.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Ортодонтия</h4>
+      <p class="megamenu-grid-desc">Исправление прикуса брекетами, элайнерами и пластинками для детей и взрослых</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/orthopedics/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/orthopedics.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Ортопедия</h4>
+      <p class="megamenu-grid-desc">Восстановление зубов коронками, мостами, протезами и винирами</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/surgery/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/surgery.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Хирургия</h4>
+      <p class="megamenu-grid-desc">Удаление зубов любой сложности, костная пластика и хирургическая подготовка</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/implant/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/implant.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Имплантация</h4>
+      <p class="megamenu-grid-desc">Современные импланты с гарантией 5 лет. Все виды имплантации, включая All-on-4 и All-on-6</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/whitening/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/whitening.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Отбеливание</h4>
+      <p class="megamenu-grid-desc">Профессиональное отбеливание Zoom 4. Результат до 8 тонов светлее за 1 процедуру</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/hygiene/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/hygiene.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Гигиена</h4>
+      <p class="megamenu-grid-desc">Профессиональная чистка зубов Air Flow и ультразвуком для здоровья дёсен</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+                
+  
+  
+  
+  
+    <a href="/services/pediatric/" class="megamenu-grid-card">
+      <div class="megamenu-grid-icon">
+        <img src="/norma-32/images/icons/pediatric.svg" alt="" aria-hidden="true">
+      </div>
+      <h4 class="megamenu-grid-title">Детская стоматология</h4>
+      <p class="megamenu-grid-desc">Бережное лечение зубов для детей в игровой форме без страха и слёз</p>
+      <span class="megamenu-grid-link">
+        Подробнее
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  
+  
+
+                
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
+    <!-- Подложка для мобильного меню -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Мобильное меню -->
+    <nav class="nav-mobile" id="navMobile">
+        <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Закрыть меню">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <a href="/" class="nav-link ">Главная</a>
+        
+        <!-- Услуги (Теперь полностью динамические из services.json!) -->
+        <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-title">Услуги</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    
+                        <a href="/services/#therapy" class="active">
+                            Терапия
+                        </a>
+                    
+                        <a href="/services/#orthodontics" class="active">
+                            Ортодонтия
+                        </a>
+                    
+                        <a href="/services/#orthopedics" class="active">
+                            Ортопедия
+                        </a>
+                    
+                        <a href="/services/#surgery" class="active">
+                            Хирургия
+                        </a>
+                    
+                        <a href="/services/#implant" class="active">
+                            Имплантация
+                        </a>
+                    
+                        <a href="/services/#whitening" class="active">
+                            Отбеливание
+                        </a>
+                    
+                        <a href="/services/#hygiene" class="active">
+                            Гигиена
+                        </a>
+                    
+                        <a href="/services/#pediatric" class="active">
+                            Детская стоматология
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <a href="/doctors/" class="nav-link ">Врачи</a>
+        
+        <!-- О клинике -->
+        <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-title">О клинике</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <a href="/about/" class="">О нас</a>
+                    <a href="/about/#doctors" class="">Врачи</a>
+                    <a href="/about/#license" class="">Лицензии</a>
+                    <a href="/about/#vacancies" class="">Вакансии</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Пациентам -->
+        <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-title">Пациентам</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <a href="/patients/#rights" class="">Права пациентов</a>
+                    <a href="/patients/#oms-dms" class="">ОМС и ДМС</a>
+                    <a href="/patients/#preparation" class="">Подготовка</a>
+                    <a href="/services/" class="active">Цены</a>
+                </div>
+            </div>
+        </div>
+        
+        <a href="/contacts/" class="nav-link ">Контакты</a>
+    </nav>
+</header>
+    
+    <main>
+        
+
+
+
+
+
+
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+  <div class="container">
+    <ol class="breadcrumbs-list">
+      
+      <li class="breadcrumbs-item">
+        
+          <a href="/norma-32/" class="breadcrumbs-link">Главная</a>
+        
+        
+          <span class="breadcrumbs-separator">/</span>
+        
+      </li>
+      
+      <li class="breadcrumbs-item">
+        
+          <a href="/norma-32/services/" class="breadcrumbs-link">Услуги</a>
+        
+        
+          <span class="breadcrumbs-separator">/</span>
+        
+      </li>
+      
+      <li class="breadcrumbs-item">
+        
+          <span class="breadcrumbs-current" aria-current="page">Гигиена</span>
+        
+        
+      </li>
+      
+    </ol>
+  </div>
+</nav>
+
+
+<section class="service-page">
+  <div class="container">
+    <div class="service-layout">
+      <!-- Левая колонка: TOC + Контакты -->
+      <aside class="service-sidebar">
+        
+  <!-- Блок TOC (только десктоп) -->
+  <div class="sidebar-toc desktop-only">
+    <h3 class="sidebar-toc-title">Содержание</h3>
+    <nav class="sidebar-toc-list">
+      
+    </nav>
+  </div>
+  
+  <!-- Блок контактов (отдельный) -->
+  <div class="sidebar-contacts">
+    <h3 class="sidebar-contacts-title">Контакты</h3>
+    <div class="sidebar-contact-item">
+      <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <a href="tel:+78005553535" class="contact-link">8 (800) 555-35-35</a>
+    </div>
+    <div class="sidebar-contact-item">
+      <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
+        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <a href="mailto:info@norma32.ru" class="contact-link">info@norma32.ru</a>
+    </div>
+    <div class="sidebar-contact-item">
+      <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span class="contact-text">г. Москва, ул. Примерная, 123</span>
+    </div>
+    <div class="sidebar-contact-item">
+      <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span class="contact-text">Пн-Пт: 9:00 - 21:00<br>Сб-Вс: 10:00 - 18:00</span>
+    </div>
+    <button class="sidebar-cta-button" type="button">Записаться</button>
+  </div>
+
+      </aside>
+      
+      <!-- Правая колонка: Заголовок + Контент -->
+      <div class="service-content">
+        <div class="service-section-card">
+          
+<div class="page-header">
+  <h1 class="page-header-title">
+      
+        Гигиена
+      
+    </h1>
+    
+      <p class="page-header-subtitle">Профессиональная чистка зубов Air Flow и ультразвуком для здоровья дёсен</p>
+    
+</div>
+
+        </div>
+        
+  
+
+  
+  <section class="service-cta">
+    <div class="service-cta-inner">
+      <div class="service-cta-text">
+        <h2 class="service-cta-title">Запишитесь на приём</h2>
+        <p class="service-cta-desc">Оставьте свои контактные данные, и мы перезвоним вам в течение 15 минут для подбора удобного времени визита.</p>
+        <form class="service-cta-form" action="#" method="POST">
+          <div class="service-cta-form-row">
+            <input type="text" name="name" class="service-cta-input" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" class="service-cta-input" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <label class="service-cta-checkbox">
+            <input type="checkbox" name="agreement" required>
+            <span>Я согласен на <a href="/privacy/">обработку персональных данных</a></span>
+          </label>
+          <button type="submit" class="service-cta-button">Отправить заявку</button>
+        </form>
+      </div>
+      <div class="service-cta-image">
+        <img src="/images/cta-consultation.jpg" alt="Консультация стоматолога" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+      </div>
+    </div>
+  </div>
+</section>
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <a href="/" class="footer-logo">
+                <span class="logo-icon">🦷</span>
+                <span class="logo-text">Норма 32</span>
+            </a>
+            <nav class="footer-nav">
+                <a href="/">Главная</a>
+                <a href="/services/">Услуги</a>
+                <a href="/doctors/">Врачи</a>
+                <a href="/about/">О клинике</a>
+                <a href="/contacts/">Контакты</a>
+            </nav>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                <p>© 2026 Норма 32. Все права защищены.</p>
+                <p class="footer-license">Лицензия № ЛО-77-01-000000</p>
+            </div>
+            
+            <div class="footer-social">
+                <!-- Telegram -->
+                <a href="#" class="social-link" aria-label="Телеграм" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.8C16.49 10.38 15.84 14.22 15.51 15.98C15.37 16.73 15.09 16.98 14.83 17.01C14.25 17.06 13.81 16.62 13.25 16.25C12.37 15.67 11.87 15.31 11.02 14.75C10.03 14.1 10.67 13.74 11.24 13.15C11.39 13 14.06 10.57 14.11 10.36C14.12 10.33 14.12 10.25 14.07 10.21C14.02 10.17 13.95 10.18 13.89 10.19C13.81 10.21 12.51 11.07 9.98 12.78C9.61 13.03 9.28 13.15 8.98 13.14C8.65 13.13 8.02 12.95 7.55 12.8C6.97 12.61 6.51 12.51 6.55 12.19C6.57 12.03 6.79 11.87 7.22 11.7C9.87 10.54 11.62 9.79 12.47 9.44C14.92 8.42 15.43 8.24 15.76 8.24C15.83 8.24 16.01 8.26 16.12 8.35C16.22 8.43 16.24 8.54 16.25 8.62C16.26 8.69 16.27 8.87 16.64 8.8Z" fill="currentColor"/>
+                    </svg>
+                </a>
+                
+                <!-- ВКонтакте -->
+                <a href="#" class="social-link" aria-label="ВКонтакте" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.918.714-2.949 2.059-1.603 1.488 1.488 1.796 2.518 3.613 2.518h3.2c.816 0 1.156-.406.928-1.21-.241-.853-1.109-1.748-2.253-2.982-.621-.682-1.551-1.427-1.551-1.949 0-.522.454-.682 1.551-1.893 1.097-1.21 1.895-2.332 2.16-3.272.265-.94-.132-1.445-1.056-1.445h-3.2c-.816 0-1.197.431-1.406.907-.682 1.551-1.828 3.272-2.283 3.272-.229 0-.644-.229-.644-1.21V7.38c0-.816-.229-1.197-.853-1.197H9.83c-.506 0-.816.373-.816.728 0 .762 1.147.94 1.263 3.107v4.682c0 1.014-.183 1.21-.581 1.21-1.097 0-3.769-4.025-5.35-8.634-.313-.88-.626-1.234-1.445-1.234H.7c-.915 0-1.097.431-1.097.907 0 .842 1.082 5.018 5.042 10.524 2.644 3.782 6.358 5.81 9.772 5.81h.745z" fill="currentColor"/>
+                    </svg>
+                </a>
+                
+                <!-- MAX (Стилизованная "М". Замени path на официальный SVG, если есть) -->
+                <a href="#" class="social-link" aria-label="MAX" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M350.4 9.6C141.8 20.5 4.1 184.1 12.8 390.4c3.8 90.3 40.1 168 48.7 253.7 2.2 22.2-4.2 49.6 21.4 59.3 31.5 11.9 79.8-8.1 106.2-26.4 9-6.1 17.6-13.2 24.2-22 27.3 18.1 53.2 35.6 85.7 43.4 143.1 34.3 299.9-44.2 369.6-170.3C799.6 291.2 622.5-4.6 350.4 9.6ZM269.4 504c-11.3 8.8-22.2 20.8-34.7 27.7-18.1 9.7-23.7-.4-30.5-16.4-21.4-50.9-24-137.6-11.5-190.9 16.8-72.5 72.9-136.3 150-143.1 78-6.9 150.4 32.7 183.1 104.2 72.4 159.1-112.9 316.2-256.4 218.6Z" fill="currentColor"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-legal">
+            <a href="/privacy/">Политика конфиденциальности</a>
+        </div>
+
+        <div class="footer-developer">
+            Сайт разработан <a href="https://rocket-ads.ru/" target="_blank" rel="noopener">Рекламным агентством RocketADS</a>
+        </div>
+    </div>
+</footer>
+    
+    <script src="/norma-32/js/script.js"></script>
+    <script src="/norma-32/js/vendor/swiper-bundle.min.js"></script>
+    
+</body>
+</html>

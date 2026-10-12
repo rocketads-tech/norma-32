@@ -1,0 +1,131 @@
+/* ============================================
+   TEXT + IMAGE BLOCK
+   ============================================ */
+.text-image-block {
+  padding: 80px 0;
+  background: white;
+}
+
+.text-image-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Текстовая часть */
+.text-image-text {
+  max-width: 500px;
+}
+
+.text-image-title {
+  font-size: var(--font-size-h2, 36px);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-dark-blue, #1A2B3C);
+  line-height: 1.3;
+  margin: 0 0 20px 0;
+}
+
+.text-image-description {
+  font-size: var(--font-size-b1, 16px);
+  color: var(--color-body-text, #666);
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+}
+
+/* Изображение */
+.text-image-image {
+  position: relative;
+}
+
+.text-image-image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.text-image-image-bg {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(37, 181, 248, 0.144) 0%,
+    rgba(37, 180, 248, 0.47) 51%,
+    rgba(37, 180, 248, 1) 100%
+  );
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.text-image-img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  z-index: 2;
+  display: block;
+}
+
+/* Реверс: картинка слева, текст справа */
+.text-image-block.reverse .text-image-content {
+  direction: rtl;
+}
+
+.text-image-block.reverse .text-image-text,
+.text-image-block.reverse .text-image-image {
+  direction: ltr;
+}
+
+.text-image-block.reverse .text-image-image-bg {
+  right: auto;
+  left: -20px;
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+@media (max-width: 1024px) {
+  .text-image-block {
+    padding: 60px 0;
+  }
+  
+  .text-image-content {
+    gap: 40px;
+  }
+  
+  .text-image-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-image-block {
+    padding: 40px 0;
+  }
+  
+  .text-image-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .text-image-text {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .text-image-title {
+    font-size: 28px;
+  }
+  
+  .text-image-image-bg {
+    top: -15px;
+    right: -15px;
+  }
+  
+  .text-image-block.reverse .text-image-image-bg {
+    right: auto;
+    left: -15px;
+  }
+}

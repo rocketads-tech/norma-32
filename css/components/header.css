@@ -1,0 +1,398 @@
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: transform 0.3s ease-in-out, padding-top 0.3s ease;
+    
+}
+
+.header.hidden {
+    transform: translateY(-100%);
+}
+
+.header.in-place {
+    padding-top: 40px;
+}
+
+.header-inner {
+    background: var(--color-light-blue);
+    border-radius: 12px;
+    position: relative;
+    border: 1px solid var(--color-white);
+    box-shadow: 0 2px 5px #00aeff34;
+    margin: 0 auto;
+    max-width: var(--container-max);
+    padding: 0 var(--container-padding);
+}
+
+/* Когда мега-меню активно — убираем скругление снизу */
+.header-inner.megamenu-open {
+    border-radius: 12px 12px 0 0;
+    background: var(--color-white); /* ← фон сливается с меню */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Логотип */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-dark-blue);
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    font-size: 28px;
+}
+
+/* Навигация */
+.nav {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: var(--color-body-text);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-b2);
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    padding: 30px 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-dark-blue);
+}
+
+.nav-link.active {
+    font-weight: var(--font-weight-bold);
+}
+
+.nav-arrow {
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover > .nav-link .nav-arrow,
+.nav-item.active > .nav-link .nav-arrow {
+    transform: rotate(180deg);
+}
+
+/* Правая часть: телефон + кнопка */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.header-phone {
+    text-decoration: none;
+    color: var(--color-dark-blue);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-b3);
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.header-phone:hover {
+    color: var(--color-mid-blue);
+}
+
+/* Кнопка меню (grid-иконка) */
+.menu-toggle {
+    display: none;
+    background: var(--color-mid-blue);
+    border: none;
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    padding: 12px;
+    transition: background 0.3s;
+}
+
+.menu-toggle:hover {
+    background: var(--color-dark-blue);
+}
+
+.menu-toggle svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--color-white);
+}
+
+.menu-toggle svg path {
+    fill: var(--color-white);
+}
+
+/* Выпадающее меню */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: 16px 0;
+    min-width: 280px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-item.has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 12px 24px;
+    font-size: var(--font-size-b2);
+    color: var(--color-body-text);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.dropdown-link:hover {
+    background: var(--color-light-blue);
+    color: var(--color-dark-blue);
+}
+
+/* ============================================
+   ИЗМЕНЕНИЕ ХЕДЕРА В ЗАВИСИМОСТИ ОТ СТРАНИЦЫ
+   ============================================ */
+/* Белый хедер на внутренних страницах */
+.page-internal .header-inner {
+  background: white;
+  box-shadow: 0 2px 12px rgba(1, 22, 50, 0.08);
+}
+
+.page-internal .header-inner .logo-text,
+.page-internal .header-inner .nav-link,
+.page-internal .header-inner .header-phone {
+  color: var(--color-dark-blue, #011632);
+}
+
+/* ============================================
+   МОБИЛЬНОЕ МЕНЮ (OFF-CANVAS)
+   ============================================ */
+
+/* Блокировка скролла страницы при открытом меню */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Полупрозрачная подложка */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 22, 50, 0.6); /* Тёмно-синий полупрозрачный */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 998; /* Ниже меню, но выше всего остального */
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Выезжающая панель меню */
+.nav-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 85%;
+    max-width: 360px;
+    height: 100vh;
+    background: var(--color-white);
+    transform: translateX(-100%); /* Спрятано за левым краем */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    padding: 60px 24px 24px; /* Отступ сверху для крестика */
+    overflow-y: auto; /* Скролл внутри меню, если пунктов много */
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-mobile.active {
+    transform: translateX(0);
+}
+
+/* Кнопка закрытия (крестик) */
+.mobile-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--color-dark-blue);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.mobile-close-btn:hover {
+    color: var(--color-mid-blue);
+    transform: rotate(90deg);
+}
+
+/* Стили ссылок внутри мобильного меню */
+.nav-mobile .nav-link {
+    display: block;
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-dark-blue);
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Аккордеон внутри мобильного меню */
+.mobile-dropdown {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-dropdown-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-dark-blue);
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.mobile-dropdown-content {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 16px;
+    padding-left: 16px; /* Сдвиг вложенных пунктов */
+}
+
+.mobile-dropdown.active .mobile-dropdown-content {
+    display: flex;
+}
+
+.mobile-dropdown-link {
+    font-size: 16px;
+    color: var(--color-body-text);
+    text-decoration: none;
+    padding: 10px 0;
+    transition: color 0.2s ease;
+}
+
+.mobile-dropdown-link:hover {
+    color: var(--color-mid-blue);
+}
+
+/* ============================================
+   АДАПТИВ (Обновлённый)
+   ============================================ */
+@media (max-width: 1100px) {
+    .header {
+        padding: 0;
+        background: var(--color-white);
+    }
+    
+    .header.in-place {
+        padding-top: 0;
+    }
+    
+    .header-inner {
+        padding: 15px 0;
+        background: transparent;
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    .header-phone {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .dropdown {
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .header-inner {
+        padding: 12px 0;
+    }
+    
+    .logo {
+        font-size: 20px;
+    }
+    
+    .logo-icon {
+        font-size: 24px;
+    }
+    
+    .btn-book {
+        display: none !important;
+    }
+    
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+        padding: 10px;
+    }
+}

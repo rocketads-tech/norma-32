@@ -1,0 +1,57 @@
+/* Заголовок страницы */
+.page-header {
+  background: transparent;
+  padding: 40px;
+  text-align: left;
+  margin: 0;
+}
+
+.page-header-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-dark-blue, #011632);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.page-header-title .highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.page-header-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: url('/images/icons/underline.svg') no-repeat center;
+  background-size: 100% 100%;
+}
+
+.page-header-subtitle {
+  max-width: 100%;
+  text-align: left;
+  margin: 0;
+  font-size: var(--font-size-b1);
+  color: var(--color-body-text, #666);
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 24px 20px;
+  }
+    .page-header-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header-title {
+        font-size: 26px;
+    }
+}

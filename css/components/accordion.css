@@ -1,0 +1,104 @@
+/* ============================================
+   УНИВЕРСАЛЬНЫЙ АККОРДЕОН
+   ============================================ */
+.accordion {
+  width: 100%;
+}
+
+.accordion-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-dark-blue);
+  transition: color 0.2s ease;
+}
+
+.accordion-trigger:hover {
+  color: var(--color-mid-blue);
+}
+
+.accordion-icon {
+  flex-shrink: 0;
+  margin-left: 12px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Поворот иконки при открытии */
+.accordion-trigger[aria-expanded="true"] .accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* Плавная анимация высоты через CSS Grid */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content.open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-inner {
+  overflow: hidden;
+}
+
+/* Стили для ссылок внутри аккордеона (мобильное меню) */
+.accordion-inner a {
+  display: block;
+  padding: 18px 0 10px;
+  font-size: 16px;
+  color: var(--color-body-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.accordion-inner a:hover {
+  color: var(--color-mid-blue);
+}
+
+/* Адаптация для мобильного меню */
+.nav-mobile .accordion-trigger {
+  font-size: 18px;
+  padding: 16px 0 0;
+}
+
+.nav-mobile .accordion-inner {
+  padding-bottom: 16px;
+  padding-left: 16px;
+}
+
+.nav-mobile .accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Активный пункт меню */
+.nav-mobile .nav-link.active,
+.accordion-inner a.active {
+  color: var(--color-mid-blue);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Для главных ссылок (Главная, Врачи, Контакты) */
+.nav-mobile .nav-link.active {
+  border-left: 3px solid var(--color-mid-blue);
+  padding-left: 12px;
+}
+
+/* Для ссылок внутри аккордеона */
+.accordion-inner a.active {
+  color: var(--color-dark-blue);
+  font-weight: var(--font-weight-bold);
+}
