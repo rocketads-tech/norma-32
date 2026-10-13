@@ -529,7 +529,7 @@
    АДАПТИВ
    ============================================ */
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   main {
     padding: 84px 0 0;
 }
@@ -566,7 +566,7 @@
   }
 
   .service-section-image {
-    height: 220px;
+    height: 600px;
   }
 
   .service-cta-form-row {
@@ -584,7 +584,7 @@
   .service-section-split .service-section-image--side,
   .service-section-split--reverse .service-section-image--side {
     order: -1;
-    height: 240px;
+    height: 600px;
     min-height: auto;
   }
   
@@ -615,5 +615,14 @@
   
   .mobile-only {
     display: block;
+  }
+
+  .service-section-image {
+    height: 400px;
+  }
+
+    .service-section-split .service-section-image--side,
+  .service-section-split--reverse .service-section-image--side {
+    height: 400px;
   }
 }

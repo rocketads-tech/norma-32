@@ -10,7 +10,7 @@
   font-size: 36px;
   font-weight: 700;
   color: var(--color-dark-blue, #011632);
-  margin: 0 0 12px 0;
+  margin: 0 0 24px 0;
   line-height: 1.2;
 }
 
@@ -22,10 +22,11 @@
 .page-header-title .highlight::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -10px;
   left: 0;
   width: 100%;
   height: 10px;
+  transform: rotate(-1deg);
   background: url('/images/icons/underline.svg') no-repeat center;
   background-size: 100% 100%;
 }
