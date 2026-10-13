@@ -54,11 +54,11 @@
       </div>
 
         {# FAQ — переиспользуем универсальный макрос #}
-    {% elif block.type == 'faq' %}
-      {{ faqAccordion(block.items) }}
-    {% endif %}
-  {% endfor %}
-{% endmacro %}
+        {% elif block.type == 'faq' %}
+          {{ faqAccordion(block.items) }}
+        {% endif %}
+      {% endfor %}
+    {% endmacro %}
 
 {# Вспомогательный макрос для рендеринга изображения #}
 {% macro renderImage(section, position) %}
@@ -140,7 +140,7 @@
         </form>
       </div>
       <div class="service-cta-image">
-        <img src="/images/cta-consultation.jpg" alt="Консультация стоматолога" loading="lazy">
+        <img src="{{'/images/cta-consultation.jpg | url'}}" alt="Консультация стоматолога" loading="lazy">
       </div>
     </div>
   </section>
