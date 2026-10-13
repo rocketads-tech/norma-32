@@ -1,7 +1,7 @@
 /* Заголовок страницы */
 .page-header {
   background: transparent;
-  padding: 40px;
+  padding: 40px 0;
   text-align: left;
   margin: 0;
 }
@@ -43,7 +43,7 @@
 
 @media (max-width: 768px) {
   .page-header {
-    padding: 24px 20px;
+    padding: 24px 0;
   }
     .page-header-title {
         font-size: 28px;

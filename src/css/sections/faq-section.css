@@ -9,6 +9,7 @@
 /* Список FAQ */
 .faq-list {
   max-width: 800px;
+  min-height: 500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -77,7 +78,7 @@
 /* Вопрос */
 .faq-question {
   flex: 1;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -104,13 +105,14 @@
 .faq-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-out; /* Плавная анимация */
+  transition: .3s ease-in-out;
 }
 
 /* Класс open добавляется JS, но точную высоту (max-height) 
    JS задаёт через inline-стиль (scrollHeight), поэтому здесь ничего не пишем */
 .faq-content.open {
   max-height: 500px;
+  transition: max-height 0.6s ease-in-out, padding 0.6s ease-in-out;
 }
 
 .faq-answer {

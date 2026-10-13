@@ -139,23 +139,23 @@ document.querySelectorAll(".nav-mobile .accordion-trigger").forEach((trigger) =>
 // ============================================
 // FAQ АККОРДЕОН (Только один открытый)
 // ============================================
-document.querySelectorAll(".faq-section .accordion-trigger").forEach((trigger) => {
+document.querySelectorAll(".faq-list .accordion-trigger").forEach((trigger) => {
   trigger.addEventListener("click", (e) => {
     e.preventDefault();
-    
+
     const parentItem = trigger.closest(".faq-item");
     const content = parentItem.querySelector(".faq-content");
     const isActive = parentItem.classList.contains("active");
-    
+
     // 1. Закрываем все пункты FAQ
-    document.querySelectorAll(".faq-section .faq-item").forEach((item) => {
+    document.querySelectorAll(".faq-list .faq-item").forEach((item) => {
       item.classList.remove("active");
       const itemTrigger = item.querySelector(".accordion-trigger");
       const itemContent = item.querySelector(".faq-content");
-      
+
       itemTrigger.setAttribute("aria-expanded", "false");
       if (itemContent) itemContent.classList.remove("open");
-      
+
       const plus = itemTrigger.querySelector(".icon-plus");
       const minus = itemTrigger.querySelector(".icon-minus");
       if (plus) plus.style.display = "block";
@@ -167,7 +167,7 @@ document.querySelectorAll(".faq-section .accordion-trigger").forEach((trigger) =
       parentItem.classList.add("active");
       trigger.setAttribute("aria-expanded", "true");
       if (content) content.classList.add("open");
-      
+
       const plus = trigger.querySelector(".icon-plus");
       const minus = trigger.querySelector(".icon-minus");
       if (plus) plus.style.display = "none";
