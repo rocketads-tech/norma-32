@@ -8,6 +8,11 @@ html, body {
     height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Отступ для фиксированного хедера */
+}
+
 body {
     font-family: var(--font-primary);
     font-size: var(--font-size-b1);

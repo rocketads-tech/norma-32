@@ -23,9 +23,6 @@
                         </svg>
                     </a>
                 </div>
-                
-                <a href="{{ '/doctors/' | url }}" class="nav-link {% if page.url == '/doctors/' %}active{% endif %}">Врачи</a>
-                
                 <div class="nav-item has-dropdown">
                     <a href="{{ '/about/' | url }}" class="nav-link {% if page.url.indexOf('/about/') === 0 %}active{% endif %}">
                         О клинике
@@ -34,11 +31,9 @@
                         </svg>
                     </a>
                     <div class="dropdown">
-                        <a href="{{ '/about/' | url }}" class="dropdown-link">О нас</a>
+                        <a href="{{ '/about/#clinica' | url }}" class="dropdown-link">О нас</a>
                         <a href="{{ '/about/#doctors' | url }}" class="dropdown-link">Врачи</a>
-                        <a href="{{ '/about/#license' | url }}" class="dropdown-link">Лицензии</a>
-                        <a href="{{ '/about/#vacancies' | url }}" class="dropdown-link">Вакансии</a>
-                        <a href="{{ '/about/#reviews' | url }}" class="dropdown-link">Отзывы</a>
+                        <a href="{{ '/about/#license' | url }}" class="dropdown-link">Юридическая информация</a>
                     </div>
                 </div>
                 
@@ -123,8 +118,6 @@
             </div>
         </div>
         
-        <a href="{{ '/doctors/' | url }}" class="nav-link {% if page.url == '/doctors/' %}active{% endif %}">Врачи</a>
-        
         <!-- О клинике -->
         <div class="accordion-item">
             <button class="accordion-trigger" aria-expanded="false">
@@ -135,10 +128,9 @@
             </button>
             <div class="accordion-content">
                 <div class="accordion-inner">
-                    <a href="{{ '/about/' | url }}" class="{% if page.url.indexOf('/about/') === 0 %}active{% endif %}">О нас</a>
+                    <a href="{{ '/about/#clinica' | url }}" class="{% if page.url.indexOf('/about/') === 0 %}active{% endif %}">О нас</a>
                     <a href="{{ '/about/#doctors' | url }}" class="{% if page.url.indexOf('/about/') === 0 %}active{% endif %}">Врачи</a>
-                    <a href="{{ '/about/#license' | url }}" class="{% if page.url.indexOf('/about/') === 0 %}active{% endif %}">Лицензии</a>
-                    <a href="{{ '/about/#vacancies' | url }}" class="{% if page.url.indexOf('/about/') === 0 %}active{% endif %}">Вакансии</a>
+                    <a href="{{ '/about/#license' | url }}" class="{% if page.url.indexOf('/about/') === 0 %}active{% endif %}">Юридическая информация</a>
                 </div>
             </div>
         </div>

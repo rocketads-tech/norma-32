@@ -1,0 +1,34 @@
+{% macro doctorProfile(doctor) %}
+<div class="doctor-profile">
+  <div class="doctor-profile-image">
+    <img src="{{ doctor.image | url }}" alt="{{ doctor.name }}" loading="lazy">
+  </div>
+  <div class="doctor-profile-content">
+    <h3 class="doctor-profile-name">{{ doctor.name }}</h3>
+    <p class="doctor-profile-specialty">{{ doctor.specialty }}</p>
+    <p class="doctor-profile-description">{{ doctor.description }}</p>
+    
+    {% if doctor.experience %}
+    <p class="doctor-profile-meta">
+      <strong>Стаж работы:</strong> {{ doctor.experience }}
+    </p>
+    {% endif %}
+    
+    {% if doctor.education %}
+    <p class="doctor-profile-meta">
+      <strong>Образование:</strong> {{ doctor.education }}
+    </p>
+    {% endif %}
+    
+    {% if doctor.additionalEducation %}
+    <p class="doctor-profile-meta">
+      <strong>Дополнительное образование:</strong> {{ doctor.additionalEducation }}
+    </p>
+    {% endif %}
+    
+    <button type="button" class="btn btn-primary js-open-appointment" data-doctor="{{ doctor.name }}">
+      Записаться на приём
+    </button>
+  </div>
+</div>
+{% endmacro %}

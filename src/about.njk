@@ -1,0 +1,111 @@
+---
+layout: default.njk
+bodyClass: page-internal
+css: about-page.css
+title: Стоматологическая клиника Норма 32 в Мариуполе
+description: Современная стоматологическая клиника в Мариуполе. Опытные врачи, передовое оборудование, индивидуальный подход. Лечение зубов для всей семьи.
+---
+{% from "macros/page-header.njk" import pageHeader %}
+{% from "macros/text-image-block.njk" import textImageBlock %}
+{% from "macros/doctor-profile.njk" import doctorProfile %}
+{% from "macros/cta-block.njk" import ctaBlock %}
+
+{# Hero-заголовок #}
+{{ pageHeader(about.header.title, about.header.subtitle, about.header.highlight) }}
+
+{# О клинике #}
+{{ textImageBlock(about.sections.about) }}
+
+{# Наша команда #}
+<section class="team-section" id="doctors">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{{ about.sections.team.title }}</h2>
+      {% if about.sections.team.subtitle %}
+      <p class="section-subtitle">{{ about.sections.team.subtitle }}</p>
+      {% endif %}
+    </div>
+    <div class="team-list">
+      {% for doctor in doctors %}
+        {{ doctorProfile(doctor) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# Оборудование и технологии #}
+<section class="equipment-section" id="equipment">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{{ about.sections.equipment.title }}</h2>
+      {% if about.sections.equipment.subtitle %}
+      <p class="section-subtitle">{{ about.sections.equipment.subtitle }}</p>
+      {% endif %}
+    </div>
+    <div class="equipment-content">
+      <div class="equipment-text">
+        <p>{{ about.sections.equipment.text }}</p>
+        {% if about.sections.equipment.list %}
+        <ul class="equipment-list">
+          {% for item in about.sections.equipment.list %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% if about.sections.equipment.image %}
+      <div class="equipment-image">
+        <img src="{{ about.sections.equipment.image | url }}" alt="{{ about.sections.equipment.imageAlt }}" loading="lazy">
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{# Юридическая информация #}
+<section class="legal-section" id="license">
+  <div class="container">
+    <h2 class="section-title">Юридическая информация</h2>
+    <div class="legal-info">
+      {% if site.legal.fullName %}
+      <div class="legal-item">
+        <span class="legal-label">Полное наименование:</span>
+        <span class="legal-value">{{ site.legal.fullName }}</span>
+      </div>
+      {% endif %}
+      
+      {% if site.legal.license %}
+      <div class="legal-item">
+        <span class="legal-label">Лицензия:</span>
+        <span class="legal-value">
+          № {{ site.legal.license.number }} от {{ site.legal.license.date }}, выдана {{ site.legal.license.issuedBy }}
+        </span>
+      </div>
+      {% endif %}
+      
+      {% if site.legal.inn %}
+      <div class="legal-item">
+        <span class="legal-label">ИНН:</span>
+        <span class="legal-value">{{ site.legal.inn }}</span>
+      </div>
+      {% endif %}
+      
+      {% if site.legal.ogrn %}
+      <div class="legal-item">
+        <span class="legal-label">ОГРН:</span>
+        <span class="legal-value">{{ site.legal.ogrn }}</span>
+      </div>
+      {% endif %}
+      
+      {% if site.address.fullAddress %}
+      <div class="legal-item">
+        <span class="legal-label">Адрес:</span>
+        <span class="legal-value">{{ site.address.fullAddress }}</span>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{# CTA #}
+{{ ctaBlock(about.sections.cta) }}

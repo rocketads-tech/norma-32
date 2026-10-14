@@ -1,0 +1,48 @@
+/* ============================================
+   ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ
+   ============================================ */
+
+.legal-section {
+  padding: 60px 0;
+  background: var(--color-bg-light, #F0F8FF);
+}
+
+.legal-info {
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.legal-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-light-blue, #E8F4F8);
+}
+
+.legal-item:last-child {
+  border-bottom: none;
+}
+
+.legal-label {
+  font-weight: 600;
+  color: var(--color-dark-blue, #011632);
+}
+
+.legal-value {
+  color: var(--color-body-text, #666);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .legal-section {
+    padding: 40px 0;
+  }
+  
+  .legal-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}

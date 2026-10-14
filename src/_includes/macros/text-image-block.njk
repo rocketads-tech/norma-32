@@ -1,5 +1,5 @@
 {% macro textImageBlock(data) %}
-<section class="text-image-block {{ 'reverse' if data.reverse }}">
+<section class="text-image-block {{ 'reverse' if data.reverse }} {{ data.extraClass or '' }}" {% if data.id %}id="{{ data.id }}"{% endif %}>
   <div class="container">
     <div class="text-image-content">
       <div class="text-image-text">
@@ -7,8 +7,13 @@
           {{ data.title | replace(data.highlight, '<span class="highlight">' + data.highlight + '</span>') | safe }}
         </h2>
         
-        {% if data.description %}
-        <p class="text-image-description">{{ data.description }}</p>
+        {# Поддержка массива абзацев #}
+        {% if data.paragraphs %}
+          {% for p in data.paragraphs %}
+            <p class="text-image-description">{{ p }}</p>
+          {% endfor %}
+        {% elif data.description %}
+          <p class="text-image-description">{{ data.description }}</p>
         {% endif %}
         
         {% if data.buttonText %}
