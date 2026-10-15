@@ -11,7 +11,7 @@ permalink: "/services/{{ service.id }}/"
 
 {% from "macros/breadcrumbs.njk" import breadcrumbs %}
 {% from "macros/page-header.njk" import pageHeader %}
-{% from "macros/service-sidebar.njk" import serviceSidebar %}
+{% from "macros/sidebar.njk" import pageSidebar %}
 {% from "macros/service-content.njk" import serviceContent %}
 
 {{ breadcrumbs([
@@ -25,7 +25,7 @@ permalink: "/services/{{ service.id }}/"
     <div class="service-layout">
       <!-- Левая колонка: TOC + Контакты -->
       <aside class="service-sidebar">
-        {{ serviceSidebar(service) }}
+        {{ pageSidebar(service.sections, site) }}
       </aside>
       
       <!-- Правая колонка: Заголовок + Контент -->

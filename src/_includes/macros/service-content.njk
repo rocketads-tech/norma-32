@@ -122,6 +122,7 @@
   {% endfor %}
 
   {# Форма записи в конце страницы #}
+  {% if not service.hideCta %}
   <section class="service-cta">
     <div class="service-cta-inner">
       <div class="service-cta-text">
@@ -144,4 +145,5 @@
       </div>
     </div>
   </section>
+  {% endif %}
 {% endmacro %}

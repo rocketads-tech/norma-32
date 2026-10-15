@@ -1,0 +1,40 @@
+---
+layout: default.njk
+title: Пациентам - Стоматология Норма 32 в Мариуполе
+description: Информация для пациентов клиники Норма 32':' подготовка к приёму права пациента, гарантии, полезные рекомендации и ответы на частые вопросы.
+bodyClass: page-internal
+css: patients-page.css
+---
+
+{% from "macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "macros/page-header.njk" import pageHeader %}
+{% from "macros/sidebar.njk" import pageSidebar %}
+{% from "macros/service-content.njk" import serviceContent %}
+
+{{ breadcrumbs([
+{ title: "Главная", url: "/" },
+{ title: "Пациентам" }
+]) }}
+
+<section class="service-page">
+  <div class="container">
+    <div class="service-layout">
+      <!-- Левая колонка: TOC + Контакты -->
+      <aside class="service-sidebar">
+        {{ pageSidebar(patients.sections, site) }}
+      </aside>
+      
+      <!-- Правая колонка: Заголовок + Контент -->
+      <div class="service-content">
+        <div class="service-section-card">
+          {{ pageHeader(
+            patients.headerTitle,
+            patients.headerSubtitle,
+            ''
+          ) }}
+        </div>
+        {{ serviceContent(patients) }}
+      </div>
+    </div>
+  </div>
+</section>

@@ -45,12 +45,9 @@
                         </svg>
                     </a>
                     <div class="dropdown">
-                        <a href="{{ '/patients/' | url }}" class="dropdown-link">Права пациентов</a>
-                        <a href="{{ '/patients/' | url }}" class="dropdown-link">ОМС и ДМС</a>
-                        <a href="{{ '/patients/' | url }}" class="dropdown-link">Подготовка к приёму</a>
-                        <a href="{{ '/patients/' | url }}" class="dropdown-link">Цены и оплата</a>
-                        <a href="{{ '/patients/' | url }}" class="dropdown-link">Вопрос-ответ</a>
-                        <a href="{{ '/patients/' | url }}" class="dropdown-link">Статьи</a>
+                        <a href="{{ '/patients/#preparation' | url }}" class="dropdown-link">Подготовка к приёму</a>
+                        <a href="{{ '/patients/#rights-guarantees' | url }}" class="dropdown-link">Права пациента и гарантии</a>
+                        <a href="{{ '/patients/#recommendations' | url }}" class="dropdown-link">Полезные рекомендации</a>
                     </div>
                 </div>
                 
@@ -110,7 +107,7 @@
             <div class="accordion-content">
                 <div class="accordion-inner">
                     {% for service in services %}
-                        <a href="{{ '/services/#{{ service.id }}' | url }}" class="{% if page.url.indexOf('/services/') === 0 %}active{% endif %}">
+                        <a href="{{ '/services/' ~ service.id ~ '/' | url }}" class="{% if page.url == '/services/' ~ service.id ~ '/' %}active{% endif %}">
                             {{ service.title }}
                         </a>
                     {% endfor %}
@@ -145,10 +142,9 @@
             </button>
             <div class="accordion-content">
                 <div class="accordion-inner">
-                    <a href="{{ 'patients/#rights' | url }}" class="{% if page.url.indexOf('/patients/') === 0 %}active{% endif %}">Права пациентов</a>
-                    <a href="{{ 'patients/#oms-dms' | url }}" class="{% if page.url.indexOf('/patients/') === 0 %}active{% endif %}">ОМС и ДМС</a>
-                    <a href="{{ 'patients/#preparation' | url }}" class="{% if page.url.indexOf('/patients/') === 0 %}active{% endif %}">Подготовка</a>
-                    <a href="{{ '/services/' | url }}" class="{% if page.url.indexOf('/services/') === 0 %}active{% endif %}">Цены</a>
+                    <a href="{{ '/patients/#preparation' | url }}" class="{% if page.url.indexOf('/patients/') === 0 %}active{% endif %}">Подготовка к приёму</a>
+                    <a href="{{ '/patients/#rights-guarantees' | url }}" class="{% if page.url.indexOf('/patients/') === 0 %}active{% endif %}">Права пациента и гарантии</a>
+                    <a href="{{ '/patients/#recommendations' | url }}" class="{% if page.url.indexOf('/patients/') === 0 %}active{% endif %}">Полезные рекомендации</a>
                 </div>
             </div>
         </div>
