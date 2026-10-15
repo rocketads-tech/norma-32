@@ -256,14 +256,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Слайдер врачей
-    new Swiper('.doctors-swiper', {
+    new Swiper(".doctors-swiper", {
+      effect: "coverflow",
       slidesPerView: 1.5,
       spaceBetween: 20,
       loop: false,
       grabCursor: true,
+      centeredSlides: true,
+      coverflowEffect: {
+        rotate: 20,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
       navigation: {
-        nextEl: '#doctors-next',
-        prevEl: '#doctors-prev',
+        nextEl: "#doctors-next",
+        prevEl: "#doctors-prev",
       },
       breakpoints: {
         640: { slidesPerView: 2.5, spaceBetween: 20 },
