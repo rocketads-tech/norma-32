@@ -10,7 +10,9 @@
   font-size: 20px;
   font-weight: 700;
   color: var(--color-dark-blue, #011632);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-light-blue, #E8F4F8);
   margin-top: 0;
 }
 
@@ -28,12 +30,11 @@
 }
 
 .price-table thead {
-  background: var(--color-bg-light, #F0F8FF);
+  background: #ffffff;
 }
 
 .price-table-header-name,
-.price-table-header-price,
-.price-table-header-action {
+.price-table-header-price {
   padding: 14px 16px;
   text-align: left;
   font-size: 14px;
@@ -46,9 +47,8 @@
   width: 140px;
 }
 
-.price-table-header-action {
-  width: 130px;
-  text-align: center;
+.price-table tbody tr {
+  background: var(--color-bg-light, #F0F8FF);
 }
 
 .price-table-row--odd {
@@ -72,46 +72,8 @@
   border-bottom: 1px solid var(--color-light-blue, #E8F4F8);
 }
 
-.price-table-action {
-  padding: 14px 16px;
-  text-align: center;
-  border-bottom: 1px solid var(--color-light-blue, #E8F4F8);
-}
-
-.price-table-book-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  background: transparent;
-  color: var(--color-sky-blue, #25B4F8);
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.price-table-book-btn:hover {
-  background: var(--color-sky-blue, #25B4F8);
-  color: #ffffff;
-}
-
-.price-table-book-btn svg {
-  flex-shrink: 0;
-}
-
-/* Мобильная версия */
+/* Мобильная версия — скрываем заголовки, делаем карточки */
 @media (max-width: 768px) {
-  .price-table-header-action {
-    display: none;
-  }
-  
-  .price-table-action {
-    display: none;
-  }
-  
   .price-table-header-price {
     width: 120px;
   }
@@ -137,14 +99,13 @@
     display: block;
   }
   
-  .price-table-row--odd,
   .price-table tbody tr {
     display: block;
     margin-bottom: 12px;
     padding: 16px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(1, 22, 50, 0.06);
-    background: #ffffff;
+    background: var(--color-bg-light, #F0F8FF);
   }
   
   .price-table-name {
@@ -160,25 +121,6 @@
     font-size: 16px;
     color: var(--color-sky-blue, #25B4F8);
     border-bottom: none;
-  }
-  
-  .price-table-action {
-    display: block;
-    padding: 12px 0 0 0;
-    text-align: left;
-    border-bottom: none;
-  }
-  
-  .price-table-book-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 10px;
-    background: var(--color-sky-blue, #25B4F8);
-    color: #ffffff;
-    border-radius: 8px;
-  }
-  
-  .price-table-book-btn:hover {
-    background: #1a9de0;
+    text-align: end;
   }
 }

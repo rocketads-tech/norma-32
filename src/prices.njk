@@ -1,0 +1,56 @@
+---
+layout: "default.njk"
+title: "Цены на стоматологические услуги - Норма 32"
+description: "Полный прайс-лист стоматологической клиники Норма 32 в Мариуполе. Цены на терапию, хирургию, имплантацию, ортодонтию, гигиену и другие услуги."
+bodyClass: "page-internal"
+css: "prices-page.css"
+breadcrumbs:
+  - title: "Главная"
+    url: "/"
+  - title: "Цены"
+---
+
+{% from "macros/breadcrumbs.njk" import breadcrumbs as renderBreadcrumbs %}
+{% from "macros/page-header.njk" import pageHeader %}
+{% from "macros/sidebar.njk" import pageSidebar %}
+{% from "macros/price-table.njk" import priceTable %}
+{% from "macros/cta-block.njk" import ctaBlock %}
+
+{{ renderBreadcrumbs(breadcrumbs) }}
+
+<section class="service-page">
+  <div class="container">
+    <div class="service-layout">
+      <!-- Левая колонка: TOC + Контакты -->
+      <aside class="service-sidebar">
+        {{ pageSidebar(prices.categories, site) }}
+      </aside>
+      
+      <!-- Правая колонка: Заголовок + Контент -->
+      <div class="service-content">
+        <div class="service-section-card">
+          {{ pageHeader(
+            prices.headerTitle or "Цены на услуги стоматологии",
+            prices.headerSubtitle or "Прайс-лист стоматологической клиники «Норма 32» на Строителей, в Мариуполе",
+            ""
+          ) }}
+        </div>
+
+        {# Рендерим все категории из prices.json #}
+        {% for category in prices.categories %}
+          <section id="{{ category.id }}" class="service-section-card">
+            <div class="service-section-body">
+              <h2 class="service-section-title">{{ category.title }}</h2>
+              {{ priceTable(prices, category.id, null, "table") }}
+            </div>
+          </section>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# CTA-блок в конце страницы #}
+{% if prices.cta %}
+  {{ ctaBlock(prices.cta) }}
+{% endif %}

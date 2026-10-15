@@ -1,4 +1,6 @@
-{% macro priceTable(pricesData, categoryId, filterIds) %}
+{% macro priceTable(pricesData, categoryId, filterIds, mode) %}
+  {% set renderMode = mode | default("accordion") %}
+  
   {% if pricesData and pricesData.categories %}
     {# Ищем нужную категорию #}
     {% set targetCategory = null %}
@@ -9,9 +11,46 @@
     {% endfor %}
 
     {% if targetCategory %}
-      <div class="service-price-accordion">
+      {% if renderMode == "accordion" %}
+        {# Режим аккордеона для страниц услуг #}
+        <div class="service-price-accordion">
+          {% for subcategory in targetCategory.subcategories %}
+            {% set renderThis = true %}
+            {% if filterIds and filterIds | length > 0 %}
+              {% set renderThis = false %}
+              {% for fid in filterIds %}
+                {% if fid == subcategory.id %}
+                  {% set renderThis = true %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+
+            {% if renderThis %}
+              <div class="accordion-item">
+                <button class="accordion-trigger" aria-expanded="false">
+                  <span class="accordion-title">{{ subcategory.title }}</span>
+                  <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="price-list">
+                    {% for item in subcategory.items %}
+                      <div class="price-item">
+                        <span class="price-name">{{ item.name }}</span>
+                        <span class="price-value">{{ item.price }}</span>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+      {% else %}
+        {# Режим таблицы для страницы /prices/ #}
         {% for subcategory in targetCategory.subcategories %}
-          {# Проверяем, нужно ли рендерить эту подкатегорию #}
           {% set renderThis = true %}
           {% if filterIds and filterIds | length > 0 %}
             {% set renderThis = false %}
@@ -23,27 +62,30 @@
           {% endif %}
 
           {% if renderThis %}
-            <div class="accordion-item">
-              <button class="accordion-trigger" aria-expanded="false">
-                <span class="accordion-title">{{ subcategory.title }}</span>
-                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-              <div class="accordion-content">
-                <div class="price-list">
-                  {% for item in subcategory.items %}
-                    <div class="price-item">
-                      <span class="price-name">{{ item.name }}</span>
-                      <span class="price-value">{{ item.price }}</span>
-                    </div>
-                  {% endfor %}
-                </div>
+            <div class="price-subcategory">
+              <h3 class="price-subcategory-title">{{ subcategory.title }}</h3>
+              <div class="price-table-wrapper">
+                <table class="price-table">
+                  <thead>
+                    <tr>
+                      <th class="price-table-header-name">Услуга</th>
+                      <th class="price-table-header-price">Цена</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in subcategory.items %}
+                      <tr class="{{ 'price-table-row--odd' if loop.index is odd }}">
+                        <td class="price-table-name">{{ item.name }}</td>
+                        <td class="price-table-price">{{ item.price }}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
               </div>
             </div>
           {% endif %}
         {% endfor %}
-      </div>
+      {% endif %}
     {% endif %}
   {% endif %}
 {% endmacro %}
