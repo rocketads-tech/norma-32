@@ -1,0 +1,60 @@
+<!-- Модальное окно записи -->
+<div id="appointment-modal" class="modal-overlay is-hidden" aria-hidden="true">
+  <div class="modal-container">
+    <button class="modal-close" aria-label="Закрыть модальное окно">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Состояние 1: Форма -->
+    <div class="modal-content" id="modal-form-state">
+      <h3 class="modal-title">Запись на приём</h3>
+      <p class="modal-subtitle">Оставьте свои данные, и мы перезвоним вам в течение 15 минут для подтверждения.</p>
+      
+      <form id="appointment-form" class="modal-form" novalidate>
+        <div class="form-group">
+          <label for="modal-name" class="form-label">Ваше имя *</label>
+          <input type="text" id="modal-name" name="name" class="form-input" placeholder="Иван Иванов" required>
+          <span class="form-error">Пожалуйста, введите имя</span>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-phone" class="form-label">Телефон *</label>
+          <input type="tel" id="modal-phone" name="phone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+          <span class="form-error">Введите корректный номер телефона</span>
+        </div>
+
+        <div class="form-group">
+          <label for="modal-comment" class="form-label">Комментарий (необязательно)</label>
+          <textarea id="modal-comment" name="comment" class="form-input form-textarea" placeholder="Например: беспокоит зуб мудрости" rows="3"></textarea>
+        </div>
+
+        <div class="form-group form-checkbox-group">
+          <label class="form-checkbox">
+            <input type="checkbox" name="agreement" required>
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-text">Я согласен на <a href="{{ '/privacy/' | url }}" target="_blank">обработку персональных данных</a> *</span>
+          </label>
+          <span class="form-error">Необходимо дать согласие</span>
+        </div>
+
+        <button type="submit" class="modal-submit-btn">Отправить заявку</button>
+      </form>
+    </div>
+
+    <!-- Состояние 2: Благодарность -->
+    <div class="modal-content is-hidden" id="modal-success-state">
+      <div class="success-icon">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#25B4F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <h3 class="modal-title">Спасибо за заявку!</h3>
+      <p class="modal-subtitle">Ваши данные отправлены. Мы перезвоним вам как можно быстрее, в рабочее время.</p>
+      <button class="modal-submit-btn" id="modal-close-success">Отлично</button>
+    </div>
+  </div>
+</div>

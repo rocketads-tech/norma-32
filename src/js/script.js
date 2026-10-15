@@ -301,3 +301,147 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// ==========================================
+// Модальное окно
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("appointment-modal");
+  const openBtns = document.querySelectorAll(".js-open-modal");
+  const closeBtn = document.querySelector(".modal-close");
+  const closeSuccessBtn = document.getElementById("modal-close-success");
+  const formState = document.getElementById("modal-form-state");
+  const successState = document.getElementById("modal-success-state");
+  const form = document.getElementById("appointment-form");
+  const phoneInput = document.getElementById("modal-phone");
+
+  // --- 1. Маска телефона ---
+  const matrix = "+7 (___) ___-__-__";
+
+  phoneInput.addEventListener("input", function (e) {
+    let def = matrix.replace(/\D/g, "");
+    let val = e.target.value.replace(/\D/g, "");
+
+    if (def.length >= val.length) val = def;
+
+    e.target.value = matrix.replace(/./g, function (a) {
+      return /[_\d]/.test(a) && val.length > 0
+        ? val.charAt(0)
+        : val.length === 0
+          ? ""
+          : a;
+    });
+
+    // Сдвигаем val для следующей итерации
+    // (упрощенная надежная маска)
+    let i = 0;
+    e.target.value = matrix.replace(/./g, function (a) {
+      return /[_\d]/.test(a) && i < val.length
+        ? val.charAt(i++)
+        : i >= val.length
+          ? ""
+          : a;
+    });
+  });
+
+  phoneInput.addEventListener("blur", function (e) {
+    // Если номер неполный, очищаем поле, чтобы валидация сработала
+    if (e.target.value.length < 18) {
+      e.target.value = "";
+    }
+  });
+
+  phoneInput.addEventListener("focus", function (e) {
+    if (e.target.value === "") {
+      e.target.value = "+7 (";
+    }
+  });
+
+  // --- 2. Управление модальным окном ---
+  function openModal() {
+    modal.classList.remove("is-hidden");
+    document.body.style.overflow = "hidden"; // Блокируем скролл страницы
+    // Сбрасываем состояние при открытии
+    formState.classList.remove("is-hidden");
+    successState.classList.add("is-hidden");
+    form.reset();
+    clearErrors();
+  }
+
+  function closeModal() {
+    modal.classList.add("is-hidden");
+    document.body.style.overflow = ""; // Возвращаем скролл
+  }
+
+  openBtns.forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal();
+    }),
+  );
+
+  closeBtn.addEventListener("click", closeModal);
+  closeSuccessBtn.addEventListener("click", closeModal);
+
+  // Закрытие по клику вне окна
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Закрытие по Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("is-hidden")) {
+      closeModal();
+    }
+  });
+
+  // --- 3. Валидация и отправка (заглушка) ---
+  function clearErrors() {
+    document
+      .querySelectorAll(".is-invalid")
+      .forEach((el) => el.classList.remove("is-invalid"));
+  }
+
+  function showError(input) {
+    input.classList.add("is-invalid");
+    // Для чекбокса ошибка вешается на группу
+    if (input.type === "checkbox") {
+      input.closest(".form-group").classList.add("is-invalid");
+    }
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    clearErrors();
+    let isValid = true;
+
+    const nameInput = form.querySelector('[name="name"]');
+    const phone = form.querySelector('[name="phone"]');
+    const agreement = form.querySelector('[name="agreement"]');
+
+    if (nameInput.value.trim().length < 2) {
+      showError(nameInput);
+      isValid = false;
+    }
+
+    // Полная маска "+7 (XXX) XXX-XX-XX" имеет длину 18 символов
+    if (phone.value.length !== 18) {
+      showError(phone);
+      isValid = false;
+    }
+
+    if (!agreement.checked) {
+      showError(agreement);
+      isValid = false;
+    }
+
+    if (isValid) {
+      // === ЗДЕСЬ БУДЕТ ЗАПРОС К БЭКЕНДУ ===
+      // const formData = new FormData(form);
+      // fetch('/api/appointment', { method: 'POST', body: formData })...
+
+      // Пока просто показываем успех
+      formState.classList.add("is-hidden");
+      successState.classList.remove("is-hidden");
+    }
+  });
+});

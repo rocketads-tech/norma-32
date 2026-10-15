@@ -17,9 +17,9 @@
         {% endif %}
         
         {% if data.buttonText %}
-        <a href="{{ data.buttonLink | default('#') }}" class="btn btn-primary">
+        <button class="btn btn-primary js-open-modal ">
           {{ data.buttonText }}
-        </a>
+        </button>
         {% endif %}
       </div>
       
