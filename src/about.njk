@@ -5,10 +5,17 @@ css: about-page.css
 title: Стоматологическая клиника Норма 32 в Мариуполе
 description: Современная стоматологическая клиника в Мариуполе. Опытные врачи, передовое оборудование, индивидуальный подход. Лечение зубов для всей семьи.
 ---
+
+{% from "macros/breadcrumbs.njk" import breadcrumbs %}
 {% from "macros/page-header.njk" import pageHeader %}
 {% from "macros/text-image-block.njk" import textImageBlock %}
 {% from "macros/doctor-profile.njk" import doctorProfile %}
 {% from "macros/cta-block.njk" import ctaBlock %}
+
+{{ breadcrumbs([
+{ title: "Главная", url: "/" },
+{ title: "О нас" }
+]) }}
 
 {# Hero-заголовок #}
 {{ pageHeader(about.header.title, about.header.subtitle, about.header.highlight) }}

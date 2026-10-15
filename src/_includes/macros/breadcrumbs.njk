@@ -1,20 +1,29 @@
 {% macro breadcrumbs(items) %}
-<nav class="breadcrumbs" aria-label="Хлебные крошки">
+{% if items %}
+<nav class="breadcrumbs" aria-label="Хлебные крошки" itemscope itemtype="https://schema.org/BreadcrumbList">
   <div class="container">
     <ol class="breadcrumbs-list">
       {% for item in items %}
-      <li class="breadcrumbs-item">
+      <li class="breadcrumbs-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        
         {% if item.url %}
-          <a href="{{ item.url | url }}" class="breadcrumbs-link">{{ item.title }}</a>
+          <a href="{{ item.url | url }}" class="breadcrumbs-link" itemprop="item">
+            <span itemprop="name">{{ item.title }}</span>
+          </a>
+          <meta itemprop="position" content="{{ loop.index }}">
         {% else %}
-          <span class="breadcrumbs-current" aria-current="page">{{ item.title }}</span>
+          <span class="breadcrumbs-current" aria-current="page" itemprop="name">{{ item.title }}</span>
+          <meta itemprop="position" content="{{ loop.index }}">
         {% endif %}
+        
         {% if not loop.last %}
-          <span class="breadcrumbs-separator">/</span>
+          <span class="breadcrumbs-separator" aria-hidden="true">/</span>
         {% endif %}
+        
       </li>
       {% endfor %}
     </ol>
   </div>
 </nav>
+{% endif %}
 {% endmacro %}

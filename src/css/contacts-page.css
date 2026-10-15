@@ -12,6 +12,7 @@
 /* Компоненты */
 @import url('components/header.css');
 @import url('components/megamenu.css');
+@import url('components/breadcrumbs.css');
 @import url('components/footer.css');
 @import url('components/buttons.css');
 @import url('components/forms.css');

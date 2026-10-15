@@ -5,9 +5,16 @@ title: Контакты - Стоматология Норма 32 в Мариуп
 description: Адрес, телефон, режим работы и форма записи на приём в стоматологическую клинику Норма 32 в Мариуполе.
 css: contacts-page.css
 ---
+
+{% from "macros/breadcrumbs.njk" import breadcrumbs %}
 {% from "macros/page-header.njk" import pageHeader %}
 {% from "macros/faq-accordion.njk" import faqAccordion %}
 {% from "macros/cta-block.njk" import ctaBlock %}
+
+{{ breadcrumbs([
+{ title: "Главная", url: "/" },
+{ title: "Контакты" }
+]) }}
 
 {# Hero-заголовок #}
 {{ pageHeader(contacts.header.title, contacts.header.subtitle, contacts.header.highlight) }}
