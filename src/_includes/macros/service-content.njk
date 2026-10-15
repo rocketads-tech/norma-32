@@ -1,6 +1,8 @@
 {# Вспомогательный макрос для рендеринга блоков контента #}
 {% from "macros/faq-accordion.njk" import faqAccordion %}
-{% macro renderBlocks(content) %}
+{% from "macros/price-table.njk" import priceTable %}
+
+{% macro renderBlocks(content, pricesData) %}
   {% for block in content %}
     {# Обычный текст #}
     {% if block.type == 'paragraph' %}
@@ -25,7 +27,13 @@
         <p class="service-info-text">{{ block.text }}</p>
       </div>
 
-    {# Цены-аккордеон #}
+     {# Таблица цен из общего прайс-листа #}
+    {% elif block.type == 'priceTable' %}
+      {% if pricesData and pricesData.categories %}
+        {{ priceTable(pricesData, block.categoryId, block.subcategoryIds) }}
+      {% endif %}
+
+    {# Цены-аккордеон (старый формат, пока оставляем для совместимости) #}
     {% elif block.type == 'priceAccordion' %}
       <div class="service-price-accordion">
         {% for group in block.groups %}
@@ -53,12 +61,12 @@
         {% endif %}
       </div>
 
-        {# FAQ — переиспользуем универсальный макрос #}
-        {% elif block.type == 'faq' %}
-          {{ faqAccordion(block.items) }}
-        {% endif %}
-      {% endfor %}
-    {% endmacro %}
+    {# FAQ — переиспользуем универсальный макрос #}
+    {% elif block.type == 'faq' %}
+      {{ faqAccordion(block.items) }}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
 
 {# Вспомогательный макрос для рендеринга изображения #}
 {% macro renderImage(section, position) %}
@@ -70,7 +78,7 @@
 {% endmacro %}
 
 {# Основной макрос контента страницы услуги #}
-{% macro serviceContent(service) %}
+{% macro serviceContent(service, pricesData) %}
   {% for section in service.sections %}
     <section id="{{ section.id }}" class="service-section-card">
       
@@ -79,14 +87,14 @@
         {{ renderImage(section, 'top') }}
         <div class="service-section-body">
           <h2 class="service-section-title">{{ section.title }}</h2>
-          {{ renderBlocks(section.content) }}
+          {{ renderBlocks(section.content, pricesData) }}
         </div>
 
       {# Позиция bottom — текст сверху, картинка снизу #}
       {% elif section.imagePosition == 'bottom' %}
         <div class="service-section-body">
           <h2 class="service-section-title">{{ section.title }}</h2>
-          {{ renderBlocks(section.content) }}
+          {{ renderBlocks(section.content, pricesData) }}
         </div>
         {{ renderImage(section, 'bottom') }}
 
@@ -96,7 +104,7 @@
           {{ renderImage(section, 'side') }}
           <div class="service-section-body">
             <h2 class="service-section-title">{{ section.title }}</h2>
-            {{ renderBlocks(section.content) }}
+            {{ renderBlocks(section.content, pricesData) }}
           </div>
         </div>
 
@@ -105,7 +113,7 @@
         <div class="service-section-split service-section-split--reverse">
           <div class="service-section-body">
             <h2 class="service-section-title">{{ section.title }}</h2>
-            {{ renderBlocks(section.content) }}
+            {{ renderBlocks(section.content, pricesData) }}
           </div>
           {{ renderImage(section, 'side') }}
         </div>
@@ -114,7 +122,7 @@
       {% else %}
         <div class="service-section-body">
           <h2 class="service-section-title">{{ section.title }}</h2>
-          {{ renderBlocks(section.content) }}
+          {{ renderBlocks(section.content, pricesData) }}
         </div>
       {% endif %}
 
