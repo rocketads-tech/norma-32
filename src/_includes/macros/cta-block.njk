@@ -3,7 +3,7 @@
   <div class="container">
     <div class="cta-content">
       <!-- Текстовая часть + форма -->
-      <div class="cta-text" data-animate="rotate-rv" data-delay="300">
+      <div class="cta-text" data-animate="fade-left" data-delay="300">
         <h2 class="cta-title">
           {{ data.title | replace(data.highlight, '<span class="highlight">' + data.highlight + '</span>') | safe }}
         </h2>
@@ -52,7 +52,7 @@
       
       <!-- Изображение -->
       <div class="cta-image">
-        <img src="{{ data.image | url }}" alt="{{ data.imageAlt | default('') }}" class="cta-img" data-animate="rotate" data-delay="300">
+        <img src="{{ data.image | url }}" alt="{{ data.imageAlt | default('') }}" class="cta-img" data-animate="fade-right" data-delay="300">
       </div>
     </div>
   </div>
