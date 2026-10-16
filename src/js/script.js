@@ -240,8 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     new Swiper(".testimonials-swiper", {
-      slidesPerView: 1.5,
-      spaceBetween: 20,
+      slidesPerView: 1.1,
+      spaceBetween: 10,
       loop: false,
       grabCursor: true,
       navigation: {
@@ -249,6 +249,8 @@ document.addEventListener("DOMContentLoaded", () => {
         prevEl: "#testimonials-prev",
       },
       breakpoints: {
+        425: { slidesPerView: 1.5, spaceBetween: 20 },
+        570: { slidesPerView: 2, spaceBetween: 20 },
         640: { slidesPerView: 2.5, spaceBetween: 20 },
         1024: { slidesPerView: 3.5, spaceBetween: 20 },
       },

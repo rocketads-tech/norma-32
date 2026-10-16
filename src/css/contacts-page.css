@@ -353,7 +353,7 @@ textarea.form-input {
 
 @media (max-width: 768px) {
   .contacts-main-section {
-    padding: 40px 0;
+    padding: 0 0 40px;
   }
   
   .contacts-form-wrapper {
@@ -377,6 +377,9 @@ textarea.form-input {
 }
 
 @media (max-width: 525px) {
+   .contacts-form-wrapper {
+    padding: 20px 16px;
+  }
   .social-link-btn {
     padding: 10px;
     width: 44px;
@@ -395,5 +398,9 @@ textarea.form-input {
   
   .socials-links {
     gap: 8px;
+  }
+
+  .contact-form {
+    gap: 10px;
   }
 }
