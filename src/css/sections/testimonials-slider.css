@@ -129,4 +129,17 @@
   .testimonial-info {
     width: 100%;
   }
+  .testimonial-rating {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .testimonial-card {
+    padding: 16px 10px;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+  }
 }

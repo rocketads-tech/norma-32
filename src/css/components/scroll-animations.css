@@ -3,15 +3,17 @@
    ============================================ */
 
 /* Базовое состояние — элемент скрыт */
+/* Базовое состояние */
 [data-animate] {
-  opacity: 0;
-  transition: opacity 0.9s ease, transform 0.9s ease;
-  will-change: opacity, transform;
+  opacity: 0 !important;
+  -webkit-transition: opacity 0.8s ease, transform 0.8s ease !important;
+  transition: opacity 0.8s ease, transform 0.8s ease !important;
+  /* will-change: opacity, transform; — УБРАЛИ, ломает на мобильных */
 }
 
 /* Состояние после появления */
 [data-animate].is-visible {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 /* --- Типы анимаций --- */
@@ -90,5 +92,13 @@
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+}
+
+/* Полностью отключаем анимации на мобильных устройствах */
+@media (max-width: 768px) {
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

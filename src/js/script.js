@@ -1,5 +1,5 @@
 // ============================================
-// АНИМАЦИЯ HEADER ПРИ СКРОЛЛЕ
+// 1. АНИМАЦИЯ HEADER ПРИ СКРОЛЛЕ
 // ============================================
 const header = document.getElementById("header");
 let lastScroll = 0;
@@ -42,7 +42,7 @@ window.addEventListener("load", () => {
 });
 
 // ============================================
-// МЕГА-МЕНЮ (надёжная логика hover)
+// 2. МЕГА-МЕНЮ
 // ============================================
 const megamenuTrigger = document.getElementById("megamenuTrigger");
 const megamenu = document.getElementById("megamenu");
@@ -58,18 +58,17 @@ if (megamenuTrigger && megamenu) {
   const hideMegamenu = () => {
     megamenuTimeout = setTimeout(() => {
       megamenu.classList.remove("active");
-    }, 150); // 150мс достаточно, чтобы перевести мышь с кнопки на меню
+    }, 150);
   };
 
   megamenuTrigger.addEventListener("mouseenter", showMegamenu);
   megamenuTrigger.addEventListener("mouseleave", hideMegamenu);
-
   megamenu.addEventListener("mouseenter", showMegamenu);
   megamenu.addEventListener("mouseleave", hideMegamenu);
 }
 
 // ============================================
-// МОБИЛЬНОЕ МЕНЮ (Открытие/закрытие панели)
+// 3. МОБИЛЬНОЕ МЕНЮ
 // ============================================
 const menuToggle = document.getElementById("menuToggle");
 const navMobile = document.getElementById("navMobile");
@@ -103,120 +102,86 @@ if (navMobile) {
 }
 
 // ============================================
-// АККОРДЕОН МОБИЛЬНОГО МЕНЮ (Только один открытый)
+// 4. АККОРДЕОНЫ (Универсальная функция)
 // ============================================
-document.querySelectorAll(".nav-mobile .accordion-trigger").forEach((trigger) => {
-  trigger.addEventListener("click", (e) => {
-    e.preventDefault();
-    
-    const parentItem = trigger.closest(".accordion-item");
-    const content = trigger.nextElementSibling;
-    const icon = trigger.querySelector(".accordion-icon");
-    const isActive = parentItem.classList.contains("active");
+function initAccordion(
+  containerSelector,
+  triggerSelector,
+  contentSelector,
+  iconSelector,
+) {
+  document
+    .querySelectorAll(`${containerSelector} ${triggerSelector}`)
+    .forEach((trigger) => {
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        const parentItem =
+          trigger.closest(".accordion-item") || trigger.closest(".faq-item");
+        const content = parentItem.querySelector(contentSelector);
+        const icon = iconSelector ? trigger.querySelector(iconSelector) : null;
+        const isActive =
+          parentItem.classList.contains("active") ||
+          parentItem.classList.contains("open");
 
-    // 1. Закрываем ВСЕ открытые пункты в мобильном меню
-    document.querySelectorAll(".nav-mobile .accordion-item").forEach((item) => {
-      item.classList.remove("active");
-      const itemTrigger = item.querySelector(".accordion-trigger");
-      const itemContent = item.querySelector(".accordion-content");
-      const itemIcon = item.querySelector(".accordion-icon");
+        // Закрываем все в этом контейнере
+        document
+          .querySelectorAll(
+            `${containerSelector} .accordion-item, ${containerSelector} .faq-item`,
+          )
+          .forEach((item) => {
+            item.classList.remove("active", "open");
+            const itemTrigger = item.querySelector(triggerSelector);
+            const itemContent = item.querySelector(contentSelector);
+            const itemIcon = iconSelector
+              ? itemTrigger.querySelector(iconSelector)
+              : null;
 
-      itemTrigger.setAttribute("aria-expanded", "false");
-      if (itemContent) itemContent.classList.remove("open");
-      if (itemIcon) itemIcon.style.transform = "rotate(0deg)";
+            itemTrigger.setAttribute("aria-expanded", "false");
+            if (itemContent) itemContent.classList.remove("open");
+            if (itemIcon) itemIcon.style.transform = "rotate(0deg)";
+
+            const plus = itemTrigger.querySelector(".icon-plus");
+            const minus = itemTrigger.querySelector(".icon-minus");
+            if (plus) plus.style.display = "block";
+            if (minus) minus.style.display = "none";
+          });
+
+        // Открываем текущий, если он был закрыт
+        if (!isActive) {
+          parentItem.classList.add("active", "open");
+          trigger.setAttribute("aria-expanded", "true");
+          if (content) content.classList.add("open");
+          if (icon) icon.style.transform = "rotate(180deg)";
+
+          const plus = trigger.querySelector(".icon-plus");
+          const minus = trigger.querySelector(".icon-minus");
+          if (plus) plus.style.display = "none";
+          if (minus) minus.style.display = "block";
+        }
+      });
     });
+}
 
-    // 2. Если кликнутый пункт был закрыт, открываем его
-    if (!isActive) {
-      parentItem.classList.add("active");
-      trigger.setAttribute("aria-expanded", "true");
-      if (content) content.classList.add("open");
-      if (icon) icon.style.transform = "rotate(180deg)";
-    }
-  });
-});
-
-// ============================================
-// FAQ АККОРДЕОН (Только один открытый)
-// ============================================
-document.querySelectorAll(".faq-list .accordion-trigger").forEach((trigger) => {
-  trigger.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const parentItem = trigger.closest(".faq-item");
-    const content = parentItem.querySelector(".faq-content");
-    const isActive = parentItem.classList.contains("active");
-
-    // 1. Закрываем все пункты FAQ
-    document.querySelectorAll(".faq-list .faq-item").forEach((item) => {
-      item.classList.remove("active");
-      const itemTrigger = item.querySelector(".accordion-trigger");
-      const itemContent = item.querySelector(".faq-content");
-
-      itemTrigger.setAttribute("aria-expanded", "false");
-      if (itemContent) itemContent.classList.remove("open");
-
-      const plus = itemTrigger.querySelector(".icon-plus");
-      const minus = itemTrigger.querySelector(".icon-minus");
-      if (plus) plus.style.display = "block";
-      if (minus) minus.style.display = "none";
-    });
-
-    // 2. Если кликнутый пункт был закрыт, открываем его
-    if (!isActive) {
-      parentItem.classList.add("active");
-      trigger.setAttribute("aria-expanded", "true");
-      if (content) content.classList.add("open");
-
-      const plus = trigger.querySelector(".icon-plus");
-      const minus = trigger.querySelector(".icon-minus");
-      if (plus) plus.style.display = "none";
-      if (minus) minus.style.display = "block";
-    }
-  });
-});
+initAccordion(
+  ".nav-mobile",
+  ".accordion-trigger",
+  ".accordion-content",
+  ".accordion-icon",
+);
+initAccordion(".faq-list", ".accordion-trigger", ".faq-content", null);
+initAccordion(
+  ".service-price-accordion",
+  ".accordion-trigger",
+  ".accordion-content",
+  ".accordion-icon",
+);
 
 // ============================================
-// АККОРДЕОН ЦЕН
-// ============================================
-document.querySelectorAll(".service-price-accordion .accordion-trigger").forEach((trigger) => {
-  trigger.addEventListener("click", (e) => {
-    e.preventDefault();
-    
-    const parentItem = trigger.closest(".accordion-item");
-    const content = parentItem.querySelector(".accordion-content");
-    const icon = trigger.querySelector(".accordion-icon");
-    const isActive = parentItem.classList.contains("open");
-
-    // Закрываем все открытые пункты (опционально - убери если нужно несколько открытых)
-    parentItem.closest(".service-price-accordion").querySelectorAll(".accordion-item").forEach((item) => {
-      item.classList.remove("open");
-      const itemTrigger = item.querySelector(".accordion-trigger");
-      const itemContent = item.querySelector(".accordion-content");
-      const itemIcon = item.querySelector(".accordion-icon");
-      
-      itemTrigger.setAttribute("aria-expanded", "false");
-      if (itemContent) itemContent.classList.remove("open");
-      if (itemIcon) itemIcon.style.transform = "rotate(0deg)";
-    });
-
-    // Если кликнутый пункт был закрыт, открываем его
-    if (!isActive) {
-      parentItem.classList.add("open");
-      trigger.setAttribute("aria-expanded", "true");
-      if (content) content.classList.add("open");
-      if (icon) icon.style.transform = "rotate(180deg)";
-    }
-  });
-});
-
-// ============================================
-// 4. ПЛАВНЫЙ СКРОЛЛ ДЛЯ ЯКОРНЫХ ССЫЛОК
+// 5. ПЛАВНЫЙ СКРОЛЛ ДЛЯ ЯКОРНЫХ ССЫЛОК
 // ============================================
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    // Игнорируем кнопки мобильного аккордеона, у них href нет или он не якорь
-    if (this.classList.contains("mobile-dropdown-toggle")) return;
+    if (this.classList.contains("accordion-trigger")) return;
 
     e.preventDefault();
     const targetId = this.getAttribute("href");
@@ -232,34 +197,29 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// ==========================================
-// Swiper - Инициализация всех слайдеров
-// ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-  if (typeof Swiper !== 'undefined') {
-    
-    // Слайдер услуг
-    new Swiper('.services-swiper', {
-      slidesPerView: 1.5,
-      spaceBetween: 20,
+// ============================================
+// 6. SWIPER СЛАЙДЕРЫ
+// ============================================
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof Swiper !== "undefined") {
+    new Swiper(".services-swiper", {
+      slidesPerView: 1.1,
+      spaceBetween: 10,
       loop: false,
       grabCursor: true,
-      navigation: {
-        nextEl: '#services-next',
-        prevEl: '#services-prev',
-      },
+      navigation: { nextEl: "#services-next", prevEl: "#services-prev" },
       breakpoints: {
+        425: { slidesPerView: 1.5, spaceBetween: 20 },
+        570: { slidesPerView: 2, spaceBetween: 20 },
         640: { slidesPerView: 2.5, spaceBetween: 20 },
         1024: { slidesPerView: 3.5, spaceBetween: 20 },
-        2100: { slidesPerView: 4.5, spaceBetween: 20 },
       },
     });
 
-    // Слайдер врачей
     new Swiper(".doctors-swiper", {
       effect: "coverflow",
-      slidesPerView: 1.5,
-      spaceBetween: 20,
+      slidesPerView: 1.1,
+      spaceBetween: 10,
       loop: false,
       grabCursor: true,
       centeredSlides: true,
@@ -270,42 +230,39 @@ document.addEventListener('DOMContentLoaded', () => {
         modifier: 1,
         slideShadows: true,
       },
-      navigation: {
-        nextEl: "#doctors-next",
-        prevEl: "#doctors-prev",
-      },
+      navigation: { nextEl: "#doctors-next", prevEl: "#doctors-prev" },
       breakpoints: {
+        425: { slidesPerView: 1.5, spaceBetween: 20 },
+        570: { slidesPerView: 2, spaceBetween: 20 },
         640: { slidesPerView: 2.5, spaceBetween: 20 },
         1024: { slidesPerView: 3.5, spaceBetween: 20 },
-        2100: { slidesPerView: 4.5, spaceBetween: 20 },
       },
     });
 
-    // Слайдер отзывов
-    new Swiper('.testimonials-swiper', {
+    new Swiper(".testimonials-swiper", {
       slidesPerView: 1.5,
       spaceBetween: 20,
       loop: false,
       grabCursor: true,
       navigation: {
-        nextEl: '#testimonials-next',
-        prevEl: '#testimonials-prev',
+        nextEl: "#testimonials-next",
+        prevEl: "#testimonials-prev",
       },
       breakpoints: {
         640: { slidesPerView: 2.5, spaceBetween: 20 },
         1024: { slidesPerView: 3.5, spaceBetween: 20 },
-        2100: { slidesPerView: 4.5, spaceBetween: 20 },
       },
     });
-
   }
 });
 
-// ==========================================
-// Модальное окно
-// ==========================================
+// ============================================
+// 7. МОДАЛЬНОЕ ОКНО (ВЕРНУЛ ТВОЮ РАБОЧУЮ МАСКУ)
+// ============================================
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("appointment-modal");
+  if (!modal) return;
+
   const openBtns = document.querySelectorAll(".js-open-modal");
   const closeBtn = document.querySelector(".modal-close");
   const closeSuccessBtn = document.getElementById("modal-close-success");
@@ -314,15 +271,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("appointment-form");
   const phoneInput = document.getElementById("modal-phone");
 
-  // --- 1. Маска телефона ---
+  // Твоя оригинальная, рабочая маска
   const matrix = "+7 (___) ___-__-__";
-
   phoneInput.addEventListener("input", function (e) {
     let def = matrix.replace(/\D/g, "");
     let val = e.target.value.replace(/\D/g, "");
-
     if (def.length >= val.length) val = def;
-
     e.target.value = matrix.replace(/./g, function (a) {
       return /[_\d]/.test(a) && val.length > 0
         ? val.charAt(0)
@@ -330,9 +284,6 @@ document.addEventListener("DOMContentLoaded", () => {
           ? ""
           : a;
     });
-
-    // Сдвигаем val для следующей итерации
-    // (упрощенная надежная маска)
     let i = 0;
     e.target.value = matrix.replace(/./g, function (a) {
       return /[_\d]/.test(a) && i < val.length
@@ -344,23 +295,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   phoneInput.addEventListener("blur", function (e) {
-    // Если номер неполный, очищаем поле, чтобы валидация сработала
-    if (e.target.value.length < 18) {
-      e.target.value = "";
-    }
+    if (e.target.value.length < 18) e.target.value = "";
   });
 
   phoneInput.addEventListener("focus", function (e) {
-    if (e.target.value === "") {
-      e.target.value = "+7 (";
-    }
+    if (e.target.value === "") e.target.value = "+7 (";
   });
 
-  // --- 2. Управление модальным окном ---
   function openModal() {
     modal.classList.remove("is-hidden");
-    document.body.style.overflow = "hidden"; // Блокируем скролл страницы
-    // Сбрасываем состояние при открытии
+    document.body.style.overflow = "hidden";
     formState.classList.remove("is-hidden");
     successState.classList.add("is-hidden");
     form.reset();
@@ -369,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function closeModal() {
     modal.classList.add("is-hidden");
-    document.body.style.overflow = ""; // Возвращаем скролл
+    document.body.style.overflow = "";
   }
 
   openBtns.forEach((btn) =>
@@ -378,23 +322,16 @@ document.addEventListener("DOMContentLoaded", () => {
       openModal();
     }),
   );
-
   closeBtn.addEventListener("click", closeModal);
   closeSuccessBtn.addEventListener("click", closeModal);
-
-  // Закрытие по клику вне окна
   modal.addEventListener("click", (e) => {
     if (e.target === modal) closeModal();
   });
-
-  // Закрытие по Escape
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.classList.contains("is-hidden")) {
+    if (e.key === "Escape" && !modal.classList.contains("is-hidden"))
       closeModal();
-    }
   });
 
-  // --- 3. Валидация и отправка (заглушка) ---
   function clearErrors() {
     document
       .querySelectorAll(".is-invalid")
@@ -403,10 +340,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showError(input) {
     input.classList.add("is-invalid");
-    // Для чекбокса ошибка вешается на группу
-    if (input.type === "checkbox") {
+    if (input.type === "checkbox")
       input.closest(".form-group").classList.add("is-invalid");
-    }
   }
 
   form.addEventListener("submit", (e) => {
@@ -422,36 +357,29 @@ document.addEventListener("DOMContentLoaded", () => {
       showError(nameInput);
       isValid = false;
     }
-
-    // Полная маска "+7 (XXX) XXX-XX-XX" имеет длину 18 символов
     if (phone.value.length !== 18) {
       showError(phone);
       isValid = false;
     }
-
     if (!agreement.checked) {
       showError(agreement);
       isValid = false;
     }
 
     if (isValid) {
-      // === ЗДЕСЬ БУДЕТ ЗАПРОС К БЭКЕНДУ ===
-      // const formData = new FormData(form);
-      // fetch('/api/appointment', { method: 'POST', body: formData })...
-
-      // Пока просто показываем успех
       formState.classList.add("is-hidden");
       successState.classList.remove("is-hidden");
     }
   });
 });
 
-// ==========================================
-// Анимация при скролле
-// ==========================================
-
+// ============================================
+// 8. АНИМАЦИЯ ПРИ СКРОЛЛЕ (УПРОЩЁННАЯ И БЕЗОПАСНАЯ)
+// ============================================
 document.addEventListener("DOMContentLoaded", () => {
-  // Проверяем, не отключены ли анимации в системе
+  // Отключаем на мобильных для производительности и предотвращения багов
+  if (window.innerWidth <= 768) return;
+
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
@@ -460,7 +388,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const animatedElements = document.querySelectorAll("[data-animate]");
   if (animatedElements.length === 0) return;
 
-  // 1. Автоматическая каскадная анимация (считаем задержки один раз при загрузке)
   const cascadeGroups = document.querySelectorAll("[data-cascade]");
   cascadeGroups.forEach((group) => {
     const items = group.querySelectorAll("[data-animate]");
@@ -471,30 +398,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 2. Наблюдатель за скроллом
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Если элемент виден сразу при загрузке, даем ему 50мс "побыть скрытым"
-            if (entry.target.getBoundingClientRect().top < window.innerHeight) {
-              setTimeout(() => {
-                entry.target.classList.add("is-visible");
-              }, 50);
-            } else {
-              entry.target.classList.add("is-visible");
-            }
-          } else {
-            entry.target.classList.remove("is-visible");
-          }
-        });
-      },
-      {
-        threshold: 0.1, // Чуть уменьшили порог, чтобы срабатывало раньше
-        rootMargin: "0px 0px -50px 0px",
-      },
-    );
+  // Максимально простой и надёжный Observer
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        } else {
+          entry.target.classList.remove("is-visible");
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px", // Убрал -100px сверху, он вызывал мерцание
+    },
+  );
 
-  // Наблюдаем за всеми элементами
   animatedElements.forEach((el) => observer.observe(el));
 });
