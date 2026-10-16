@@ -3,21 +3,21 @@
   <div class="container">
     <div class="text-image-content">
       <div class="text-image-text">
-        <h2 class="text-image-title">
+        <h2 class="text-image-title" data-animate="fade-left">
           {{ data.title | replace(data.highlight, '<span class="highlight">' + data.highlight + '</span>') | safe }}
         </h2>
         
         {# Поддержка массива абзацев #}
         {% if data.paragraphs %}
           {% for p in data.paragraphs %}
-            <p class="text-image-description">{{ p }}</p>
+            <p class="text-image-description" data-animate="fade-left" data-delay="200">{{ p }}</p>
           {% endfor %}
         {% elif data.description %}
-          <p class="text-image-description">{{ data.description }}</p>
+          <p class="text-image-description" data-animate="fade-left" data-delay="400">{{ data.description }}</p>
         {% endif %}
         
         {% if data.buttonText %}
-        <button class="btn btn-primary js-open-modal ">
+        <button class="btn btn-primary js-open-modal " data-animate="fade-up" data-delay="600">
           {{ data.buttonText }}
         </button>
         {% endif %}
@@ -26,9 +26,9 @@
       <div class="text-image-image">
         <div class="text-image-image-wrapper">
           {% if data.showBg | default(true) %}
-          <div class="text-image-image-bg"></div>
+          <div class="text-image-image-bg" data-animate="fade-left" data-delay="400"></div>
           {% endif %}
-          <img src="{{ data.image | url }}" alt="{{ data.imageAlt | default('') }}" class="text-image-img">
+          <img src="{{ data.image | url }}" alt="{{ data.imageAlt | default('') }}" class="text-image-img" data-animate="fade-right" data-delay="200">
         </div>
       </div>
     </div>

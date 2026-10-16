@@ -10,7 +10,7 @@
   <section class="faq-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">
+        <h2 class="section-title" data-animate="fade-up">
           {% if highlight %}
             {{ title | replace(highlight, '<span class="highlight">' + highlight + '</span>') | safe }}
           {% else %}
@@ -18,10 +18,10 @@
           {% endif %}
         </h2>
         {% if description %}
-        <p class="section-subtitle">{{ description }}</p>
+        <p class="section-subtitle" data-animate="fade-up" data-delay="200">{{ description }}</p>
         {% endif %}
       </div>
-      <div class="faq-list">
+      <div class="faq-list" data-animate="scale" data-delay="200">
   {% else %}
       {# Если заголовка нет, выводим только список (для страницы услуги внутри карточки) #}
       <div class="faq-list">

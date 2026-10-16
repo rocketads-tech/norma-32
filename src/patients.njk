@@ -20,13 +20,13 @@ css: patients-page.css
   <div class="container">
     <div class="service-layout">
       <!-- Левая колонка: TOC + Контакты -->
-      <aside class="service-sidebar">
+      <aside class="service-sidebar" data-animate="fade-up" data-delay="400">
         {{ pageSidebar(patients.sections, site) }}
       </aside>
       
       <!-- Правая колонка: Заголовок + Контент -->
       <div class="service-content">
-        <div class="service-section-card">
+        <div class="service-section-card" data-animate="fade-up">
           {{ pageHeader(
             patients.headerTitle,
             patients.headerSubtitle,

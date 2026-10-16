@@ -27,9 +27,9 @@ description: Современная стоматологическая клин�
 <section class="team-section" id="doctors">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">{{ about.sections.team.title }}</h2>
+      <h2 class="section-title" data-animate="fade-up">{{ about.sections.team.title }}</h2>
       {% if about.sections.team.subtitle %}
-      <p class="section-subtitle">{{ about.sections.team.subtitle }}</p>
+      <p class="section-subtitle" data-animate="fade-up" data-delay="200">{{ about.sections.team.subtitle }}</p>
       {% endif %}
     </div>
     <div class="team-list">
@@ -43,14 +43,14 @@ description: Современная стоматологическая клин�
 {# Оборудование и технологии #}
 <section class="equipment-section" id="equipment">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" data-animate="fade" data-delay="200">
       <h2 class="section-title">{{ about.sections.equipment.title }}</h2>
       {% if about.sections.equipment.subtitle %}
       <p class="section-subtitle">{{ about.sections.equipment.subtitle }}</p>
       {% endif %}
     </div>
     <div class="equipment-content">
-      <div class="equipment-text">
+      <div class="equipment-text" data-animate="fade-left" data-delay="400">
         <p>{{ about.sections.equipment.text }}</p>
         {% if about.sections.equipment.list %}
         <ul class="equipment-list">
@@ -61,7 +61,7 @@ description: Современная стоматологическая клин�
         {% endif %}
       </div>
       {% if about.sections.equipment.image %}
-      <div class="equipment-image">
+      <div class="equipment-image" data-animate="fade-right" data-delay="400">
         <img src="{{ about.sections.equipment.image | url }}" alt="{{ about.sections.equipment.imageAlt }}" loading="lazy">
       </div>
       {% endif %}
@@ -70,7 +70,7 @@ description: Современная стоматологическая клин�
 </section>
 
 {# Юридическая информация #}
-<section class="legal-section" id="license">
+<section class="legal-section" id="license" data-animate="fade-up" data-delay="200">
   <div class="container">
     <h2 class="section-title">Юридическая информация</h2>
     <div class="legal-info">

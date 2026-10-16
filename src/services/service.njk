@@ -22,14 +22,14 @@ permalink: "/services/{{ service.id }}/"
 
 <section class="service-page">
   <div class="container">
-    <div class="service-layout">
+    <div class="service-layout" >
       <!-- Левая колонка: TOC + Контакты -->
-      <aside class="service-sidebar">
+      <aside class="service-sidebar" data-animate="fade-up" data-delay="400">
         {{ pageSidebar(service.sections, site) }}
       </aside>
       
       <!-- Правая колонка: Заголовок + Контент -->
-      <div class="service-content">
+      <div class="service-content" data-animate="fade-up" data-delay="400">
         <div class="service-section-card">
           {{ pageHeader(
             service.headerTitle or service.title,

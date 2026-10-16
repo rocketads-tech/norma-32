@@ -8,22 +8,22 @@
           {% if data.showBg | default(true) %}
           <div class="advantages-image-bg"></div>
           {% endif %}
-          <img src="{{ data.image | url }}" alt="{{ data.imageAlt | default('') }}" class="advantages-img">
+          <img src="{{ data.image | url }}" alt="{{ data.imageAlt | default('') }}" class="advantages-img" data-animate="scale" data-delay="200">
         </div>
       </div>
       
       <!-- Текст + преимущества -->
       <div class="advantages-text">
-        <h2 class="advantages-title">
+        <h2 class="advantages-title" data-animate="fade-up" data-delay="100">
           {{ data.title | replace(data.highlight, '<span class="highlight">' + data.highlight + '</span>') | safe }}
         </h2>
         
         {% if data.description %}
-        <p class="advantages-description">{{ data.description }}</p>
+        <p class="advantages-description" data-animate="fade-up" data-delay="300">{{ data.description }}</p>
         {% endif %}
         
         {% if data.advantages %}
-        <ul class="advantages-list">
+        <ul class="advantages-list" data-animate="fade-up" data-delay="400">
           {% for item in data.advantages %}
           <li class="advantages-item">
             <svg class="advantages-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@
         </ul>
         {% endif %}
         
-        <button class="btn btn-primary js-open-modal">
+        <button class="btn btn-primary js-open-modal" data-animate="fade-right" data-delay="600">
           Записаться на прием
         </button>
       </div>

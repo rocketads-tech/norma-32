@@ -80,7 +80,7 @@
 {# Основной макрос контента страницы услуги #}
 {% macro serviceContent(service, pricesData) %}
   {% for section in service.sections %}
-    <section id="{{ section.id }}" class="service-section-card">
+    <section id="{{ section.id }}" class="service-section-card" data-animate="fade-up" data-delay="200">
       
       {# Позиция top — картинка сверху, текст снизу #}
       {% if section.imagePosition == 'top' %}
@@ -131,7 +131,7 @@
 
   {# Форма записи в конце страницы #}
   {% if not service.hideCta %}
-  <section class="service-cta">
+  <section class="service-cta" data-animate="fade-up" data-delay="200">
     <div class="service-cta-inner">
       <div class="service-cta-text">
         <h2 class="service-cta-title">Запишитесь на приём</h2>

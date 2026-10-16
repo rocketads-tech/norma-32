@@ -445,3 +445,56 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// ==========================================
+// Анимация при скролле
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Проверяем, не отключены ли анимации в системе
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  if (prefersReducedMotion) return;
+
+  const animatedElements = document.querySelectorAll("[data-animate]");
+  if (animatedElements.length === 0) return;
+
+  // 1. Автоматическая каскадная анимация (считаем задержки один раз при загрузке)
+  const cascadeGroups = document.querySelectorAll("[data-cascade]");
+  cascadeGroups.forEach((group) => {
+    const items = group.querySelectorAll("[data-animate]");
+    items.forEach((item, index) => {
+      if (!item.hasAttribute("data-delay")) {
+        item.setAttribute("data-delay", (index + 1) * 100);
+      }
+    });
+  });
+
+  // 2. Наблюдатель за скроллом
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Если элемент виден сразу при загрузке, даем ему 50мс "побыть скрытым"
+            if (entry.target.getBoundingClientRect().top < window.innerHeight) {
+              setTimeout(() => {
+                entry.target.classList.add("is-visible");
+              }, 50);
+            } else {
+              entry.target.classList.add("is-visible");
+            }
+          } else {
+            entry.target.classList.remove("is-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Чуть уменьшили порог, чтобы срабатывало раньше
+        rootMargin: "0px 0px -50px 0px",
+      },
+    );
+
+  // Наблюдаем за всеми элементами
+  animatedElements.forEach((el) => observer.observe(el));
+});

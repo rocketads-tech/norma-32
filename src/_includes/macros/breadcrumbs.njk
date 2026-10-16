@@ -1,6 +1,6 @@
 {% macro breadcrumbs(items) %}
 {% if items %}
-<nav class="breadcrumbs" aria-label="Хлебные крошки" itemscope itemtype="https://schema.org/BreadcrumbList">
+<nav class="breadcrumbs" aria-label="Хлебные крошки" itemscope itemtype="https://schema.org/BreadcrumbList" data-animate="fade-left" data-delay="100">
   <div class="container">
     <ol class="breadcrumbs-list">
       {% for item in items %}

@@ -1,5 +1,5 @@
 {% macro doctorProfile(doctor) %}
-<div class="doctor-profile">
+<div class="doctor-profile" data-animate="fade-up" data-delay="200">
   <div class="doctor-profile-image">
     <img src="{{ doctor.image | url }}" alt="{{ doctor.name }}" loading="lazy">
   </div>

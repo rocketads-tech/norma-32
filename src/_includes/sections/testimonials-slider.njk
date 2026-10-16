@@ -1,16 +1,16 @@
 <section class="testimonials-slider-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">
+      <h2 class="section-title" data-animate="fade-left">
         Отзывы наших <span class="highlight">пациентов</span>
       </h2>
-      <p class="section-subtitle">
+      <p class="section-subtitle" data-animate="fade-right" data-delay="200">
         Мы гордимся доверием наших пациентов и стремимся к высочайшему качеству лечения
       </p>
     </div>
   </div>
 
-  <div class="testimonials-slider-wrapper">
+  <div class="testimonials-slider-wrapper" data-animate="fade-right" data-delay="400">
     <div class="swiper testimonials-swiper">
       <div class="swiper-wrapper">
         {% for testimonial in testimonials %}
@@ -24,7 +24,7 @@
   </div>
 
   <div class="container">
-    <div class="swiper-controls">
+    <div class="swiper-controls" data-animate="fade-right" data-delay="600">
       <button class="swiper-custom-btn swiper-custom-prev" id="testimonials-prev" aria-label="Предыдущий отзыв">
         <svg width="43" height="40" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M42.5002 20.418C42.5002 21.0508 41.7877 21.5738 40.8633 21.6566L40.6063 21.668L2.72752 21.668C1.68153 21.668 0.83358 21.1083 0.83358 20.418C0.83358 19.7851 1.54609 19.2622 2.47052 19.1794L2.72752 19.168L40.6063 19.168C41.6523 19.168 42.5002 19.7276 42.5002 20.418Z" fill="#e6f6fe"/>

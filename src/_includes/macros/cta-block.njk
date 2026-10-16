@@ -1,9 +1,9 @@
 {% macro ctaBlock(data) %}
-<section class="cta-section">
+<section class="cta-section" data-animate="fade-up">
   <div class="container">
     <div class="cta-content">
       <!-- Текстовая часть + форма -->
-      <div class="cta-text">
+      <div class="cta-text" data-animate="rotate-rv" data-delay="300">
         <h2 class="cta-title">
           {{ data.title | replace(data.highlight, '<span class="highlight">' + data.highlight + '</span>') | safe }}
         </h2>
@@ -52,7 +52,7 @@
       
       <!-- Изображение -->
       <div class="cta-image">
-        <img src="{{ data.image | url }}" alt="{{ data.imageAlt | default('') }}" class="cta-img">
+        <img src="{{ data.image | url }}" alt="{{ data.imageAlt | default('') }}" class="cta-img" data-animate="rotate" data-delay="300">
       </div>
     </div>
   </div>

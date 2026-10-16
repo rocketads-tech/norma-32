@@ -22,13 +22,13 @@ breadcrumbs:
   <div class="container">
     <div class="service-layout">
       <!-- Левая колонка: TOC + Контакты -->
-      <aside class="service-sidebar">
+      <aside class="service-sidebar" data-animate="fade-up" data-delay="400">
         {{ pageSidebar(prices.categories, site) }}
       </aside>
       
       <!-- Правая колонка: Заголовок + Контент -->
       <div class="service-content">
-        <div class="service-section-card">
+        <div class="service-section-card" data-animate="fade-up">
           {{ pageHeader(
             prices.headerTitle or "Цены на услуги стоматологии",
             prices.headerSubtitle or "Прайс-лист стоматологической клиники «Норма 32» на Строителей, в Мариуполе",
@@ -38,7 +38,7 @@ breadcrumbs:
 
         {# Рендерим все категории из prices.json #}
         {% for category in prices.categories %}
-          <section id="{{ category.id }}" class="service-section-card">
+          <section id="{{ category.id }}" class="service-section-card" data-animate="fade-up" data-delay="200">
             <div class="service-section-body">
               <h2 class="service-section-title">{{ category.title }}</h2>
               {{ priceTable(prices, category.id, null, "table") }}
