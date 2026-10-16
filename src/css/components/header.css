@@ -40,7 +40,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+    gap: 1rem;
 }
 
 /* Логотип */
@@ -185,6 +185,39 @@
 .dropdown-link:hover {
     background: var(--color-light-blue);
     color: var(--color-dark-blue);
+}
+
+/* 1. Разрешаем flex-элементам сжиматься */
+.nav-link,
+.header-phone,
+.logo {
+    min-width: 0; /* Критически важно для flex-контейнеров */
+}
+
+/* 2. Обрезаем длинный текст с многоточием */
+.nav-link {
+    max-width: 150px; /* Ограничиваем ширину */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-phone {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 3. Используем clamp() для адаптивных размеров */
+.logo {
+    font-size: clamp(16px, 1.5rem, 24px); /* Минимум 16px, предпочитаемо 1.5rem, максимум 24px */
+}
+
+.nav-link {
+    font-size: clamp(14px, 1rem, 18px);
+}
+
+.header-phone {
+    font-size: clamp(13px, 0.9rem, 16px);
 }
 
 /* ============================================
@@ -338,6 +371,7 @@ body.menu-open {
     .header {
         padding: 0;
         background: var(--color-white);
+        box-shadow: 0 4px 20px rgba(1, 22, 50, 0.08);
     }
     
     .header.in-place {
@@ -352,6 +386,11 @@ body.menu-open {
         box-shadow: none;
     }
     
+    .header-content {
+        flex-wrap: nowrap;
+        gap: 15px;
+    }
+    
     .header-phone {
         display: none;
     }
@@ -360,6 +399,8 @@ body.menu-open {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
+        min-width: 0;
     }
     
     .nav {
@@ -371,19 +412,22 @@ body.menu-open {
     }
 }
 
-
-
 @media (max-width: 480px) {
+    
     .header-inner {
         padding: 12px 0;
     }
     
+    .header-content {
+        gap: 10px;
+    }
+    
     .logo {
-        font-size: 20px;
+        font-size: 1.25rem; /* ← rem вместо px */
     }
     
     .logo-icon {
-        font-size: 24px;
+        font-size: 1.5rem; /* ← rem вместо px */
     }
     
     .btn-book {
@@ -391,8 +435,8 @@ body.menu-open {
     }
     
     .menu-toggle {
-        width: 42px;
-        height: 42px;
-        padding: 10px;
+        width: 2.5rem; /* ← rem вместо px */
+        height: 2.5rem;
+        padding: 0.5rem;
     }
 }

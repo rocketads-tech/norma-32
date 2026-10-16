@@ -109,7 +109,8 @@
             <div class="accordion-content">
                 <div class="accordion-inner">
                     {% for service in services %}
-                        <a href="{{ '/services/' ~ service.id ~ '/' | url }}" class="{% if page.url == '/services/' ~ service.id ~ '/' %}active{% endif %}">
+                        {% set serviceUrl = '/services/' ~ service.id ~ '/' %}
+                        <a href="{{ serviceUrl | url }}" class="{% if page.url == serviceUrl %}active{% endif %}">
                             {{ service.title }}
                         </a>
                     {% endfor %}

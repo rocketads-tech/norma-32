@@ -3,15 +3,15 @@
     --font-primary: 'General Sans', sans-serif;
     --font-secondary: 'Archivo', sans-serif;
     
-    /* Резиновая типографика */
-    --font-size-h1: clamp(2.25rem, 4.84vw, 3.875rem);
-    --font-size-h2: clamp(1.875rem, 3.28vw, 2.625rem);
-    --font-size-h3: clamp(1.75rem, 2.81vw, 2.25rem);
-    --font-size-h4: clamp(1.25rem, 1.875vw, 1.5rem);
-    --font-size-b1: clamp(1rem, 1.4vw, 1.125rem);
-    --font-size-b2: clamp(0.875rem, 1.25vw, 1rem);
-    --font-size-b3: clamp(0.75rem, 1.09vw, 0.875rem);
-    --font-size-b4: clamp(0.625rem, 0.94vw, 0.75rem);
+    /* Типографика — только rem, масштабируется с браузером */
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.25rem;
+    --font-size-h3: 1.875rem;
+    --font-size-h4: 1.5rem;
+    --font-size-b1: 1.125rem;
+    --font-size-b2: 1rem;
+    --font-size-b3: 0.875rem;
+    --font-size-b4: 0.75rem;
     
     /* Веса */
     --font-weight-regular: 400;
@@ -36,9 +36,9 @@
     --line-height-h4: 1.2;
     --line-height-body: 1.55;
     
-    /* Отступы */
-    --section-padding: clamp(40px, 5vw, 80px);
-    --container-padding: clamp(15px, 2vw, 20px);
+    /* Отступы — тоже rem */
+    --section-padding: 4rem;
+    --container-padding: 1.25rem;
     
     /* Цвета */
     --color-dark-blue: #011632;
